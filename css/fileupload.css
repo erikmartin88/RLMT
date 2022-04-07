@@ -1,0 +1,132 @@
+ 
+#rightPane {
+    width: 25%;
+}
+/*File upload form styling */
+.field { 
+       padding:2px 2px;
+}
+.file-upload {
+    overflow: hidden;
+    display: inline-block;
+    position: relative;	
+    vertical-align: middle;
+    text-align: center;
+    border: 2px solid #333333;
+    background: #666666;
+    -moz-border-radius: 6px;
+    -webkit-border-radius: 6px;
+    border-radius: 6px;
+    color: #fff;
+    text-shadow: 0px 2px 3px #555;
+    cursor:pointer;
+    box-shadow: 2px 2px 2px grey;
+
+}
+
+.file-upload:hover { 
+    background-color: #454545;
+}
+
+
+.file-upload input {
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: 0;
+    font-size: 40px;
+    opacity: 0;
+    filter: alpha(opacity=0);
+            z-index:2;
+}
+
+
+
+
+.file-upload strong { 
+    font: normal 1.75em arial,sans-serif; 
+}	
+
+.file-upload span {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: inline-block;
+
+    padding-top: .45em;
+}
+
+.file-upload { height: 2em; }
+.file-upload,
+.file-upload span {	width: 10em; }	
+
+.resDataForm {
+    text-align: left;
+    padding-top: 10px;
+    padding-left: 10px;
+}
+
+.map-service-options{
+    border-bottom: 1px solid #666666;
+    border-top: 1px solid #666666;
+    background-color:#EDF5DA;
+}
+
+
+
+.legend-div{
+    border-bottom: 1px solid #666666;
+    padding-left: 10px;
+}
+
+.upload-area{
+    padding-left:4px;
+    border-bottom: 1px solid #666666;
+    padding-top: 4px;
+
+}
+
+.esriPrint {
+    position: relative;
+    top: 5px;
+    z-index: 50;
+
+}
+
+#printDiv{
+    position: relative;
+    overflow: visible;
+    height: 30px;
+    border-bottom: 1px solid #666666;
+}
+
+#printButton{
+    top:-13px;
+    width: 100px;
+    position:absolute;
+    right: -10px;
+}
+
+#printTitleInputHolder{
+    top: 0px;
+    position:absolute;
+    right: 90px;
+}
+#myPrintTitle{
+    text-align: right;
+    width: 180px;
+}
+
+#reopenRes{
+    margin-top: 10px;
+}
+
+.slider{
+    width:80%
+}
+
+.smallSlider{
+    width: 20%;
+}
+	
+	

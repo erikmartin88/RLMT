@@ -1,0 +1,516 @@
+/*@media screen {*/
+    html, body {
+        height: 98%;
+        margin: 10px 10px 5px;
+        padding: 0;
+        width: 98%;
+    }
+    body {
+        background-color: #FFFFFF;
+        color: #333333;
+        font-family:"Helvetica Neue", Helvetica, "Trebuchet MS", Arial, sans-serif;
+        font-size: 13px;
+        overflow: hidden;
+        margin: 8px;
+    }
+
+    a {
+        color: #336699;
+    }
+
+    h1{
+        color: #222;
+    }
+
+    h2{
+        font-size: 14px;
+        margin-top: 0px;
+    }
+    h3{
+        font-size: 12px;
+        margin-top:0px;
+        /*margin-bottom: 2px;*/
+    }
+    h4{
+        font-size: 13px !important;
+        font-weight: bold;
+        margin:8px !important;
+    }
+
+    .lightGray{
+        border-top: 1px solid #f2f2f2;
+    }
+    .esriLegendLayerLabel {padding-top: 0px;}
+    .esriLegendService {padding-bottom: 0px;}
+    .slider small{
+        width: 100px;
+    }
+    #rightPane {
+        background-color: #FCFFF5;
+        border-bottom-right-radius: 4px;
+
+        border-top-right-radius:4px;
+        border:1px solid #222;
+        text-align: center;
+        border-left:none;
+        margin: 0;
+        padding: 0;
+        width: 20%;
+    }
+
+    #headerPane {
+        top:0px;
+        border:1px solid #222;
+        border-top-left-radius:4px;
+        border-bottom-left-radius: 4px;
+        border-top-right-radius:4px;
+        border-bottom-right-radius: 4px;
+        margin: 0;
+        padding: 0;
+    }
+
+    #map {
+        border:1px solid #222;
+        border-top-left-radius:4px;
+        border-bottom-left-radius: 4px;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+    }
+    .file-upload span {
+        display:none;
+    }
+
+    .file-upload-status {
+        vertical-align: middle;
+        padding: 5px 11px;
+        font-size: 12px;
+        color: #888;
+        background: #F8F8F8;
+    }
+
+    .gp-update-status{
+        vertical-align: middle;
+        padding: 5px 11px;
+        font-size: 12px;
+        color: #888;
+        /*background: #F8F8F8;*/
+        text-align: left;
+    }
+
+    .gp-results{
+        vertical-align: middle;
+        padding: 5px 11px;
+        font-size: 12px;
+        color: #00CC00;
+
+        /*background: #FFFFFF;*/
+    }
+
+    #LocateButton {
+        position: absolute;
+        top: 100px;
+        left: 20px;
+        z-index: 50;
+    }
+
+    .esriPrint{
+        position: absolute;
+        top: 10px;
+        right: 8px;
+        z-index: 50;
+    }
+
+    .esriPopup .sizer {
+        position: relative;
+        width: 330px;
+        z-index: 1;
+    }
+
+    /*	    .dijitReset.dijitStretch.dijitButtonNode {
+        background-color:#454545;
+        border-color: #222222;
+    }
+
+
+    .dijitReset{
+        color: white;
+    }
+    .dijitReset.dijitRight.dijitButtonNode.dijitArrowButton{
+        background-color:#454545;
+        border-color: #222222;
+        : white;
+    }
+
+    .claro .dijitDialogTitleBar{
+        background-color:#454545;
+    }
+    */
+
+    #resultDialog_underlay{
+        display: none;
+
+    }
+
+    #resultDialog{
+        resize: both;
+        overflow: auto;
+        min-width: 10px;
+        min-height: 10px;
+
+    }
+
+    /*#resultDialog:hover{
+        width: 1px;
+        height: 1px;
+    }*/
+
+    #BasemapToggle {
+        position: absolute;
+        top: 50px;
+        right: 20px;
+        z-index: 50;
+    }
+
+    #basemapGalleryDiv {
+        position: absolute;
+        top: 15px;
+        right: 20px;
+        z-index: 50;
+    }
+
+    #disclosures{
+        position: absolute;
+        bottom: 10px;
+        left: 200px;
+        z-index: 2;
+    }
+
+    .header-title{
+        font-size: 20px;
+        font-weight: 700;
+        padding-left: 10px;
+        float: left;
+    }
+
+    img{float:left;}
+        .imgCenter{
+        float:none;
+    }
+
+    .infoLink{
+        text-align: right;
+        vertical-align: middle;
+        padding-right: 2px;
+        padding-top: 0px;
+        margin-top: 3px;
+        margin-bottom:3px;
+        margin-right:3px;
+    }
+
+    #splash.img
+    {
+        display: block;
+        margin-left: auto;
+        margin-right: auto
+    }
+
+    #search{
+        position: absolute;
+        top: 20px;
+        left: 70px;
+        z-index: 50;
+    }
+
+    #basemapGalleryDiv{
+        font-weight: 700;
+
+    }
+
+    #basemapGalleryDiv_titleBarNode{
+
+    }
+
+    #splashLegal2{
+        font-size: 9px;
+        color:#939393;
+    }
+
+    #splashLegal1{
+        font-size: 11px;
+        color:#4d4d4d;
+    }
+
+    #myPrintTitle{
+            margin-top:4px;
+    }
+
+    .power-gauge g.arc {
+        fill: steelblue;
+    }
+
+    .power-gauge g.pointer {
+        fill: #e85116;
+        stroke: #b64011;
+    }
+
+    .power-gauge g.label text {
+        text-anchor: middle;
+        font-size: 14px;
+        font-weight: bold;
+        fill: #666;
+    }
+
+    .power-gauge{
+        overflow: hidden;
+    }
+
+    .column-left{
+        float: left;
+        width: 33%;
+        text-align: center;
+        /*border-style:solid;
+        border-width: 1px;
+        padding: 2px;*/
+    }
+    .column-right{
+        float: right;
+        width: 33%;
+        text-align: center;
+        /*border-style:solid;
+        border-width: 1px;
+        padding: 2px;*/
+    }
+    .column-center{
+        display: inline-block;
+        width: 33%;
+        text-align: center;
+        /*border-style:solid;
+        border-width: 1px;
+        padding: 2px;*/
+    }
+
+    .carbonPieLeft{
+        width: 50%;
+        text-align: center;
+    }
+    .carbonPieRight{
+        width: 50%;
+        text-align: center;
+    }
+
+
+    .grid-container {
+      display: grid;
+      grid-template-columns: auto auto;
+      padding: 5px;
+      /*border: 1px solid #ccc;*/
+    }
+    .grid-item {
+      /*background-color: rgba(255, 255, 255, 0.8);*/
+      /*border: 1px solid rgba(0, 0, 0, 0.8);*/
+      padding: 10px 20px 20px 20px;
+      /*font-size: 30px;*/
+      text-align: center;
+      max-width: 300px;
+    }
+    .grid-item-double {
+      /*background-color: rgba(255, 255, 255, 0.8);*/
+      /*border: 1px solid rgba(0, 0, 0, 0.8);*/
+      padding: 10px 20px 20px 20px;
+      /*font-size: 30px;*/
+      text-align: center;
+    }
+    .grid-double-container{
+       grid-template-columns: auto;
+       padding: 5px;
+       text-align: left;
+
+    }
+
+
+
+
+
+
+
+    .collapsible {
+      padding: 0px 0px 0px 0px;
+      margin-bottom: 0px;
+      margin-top: 5px;
+      cursor: pointer;
+    }
+
+    .active, .collapsible:hover {
+      background-color: #cfcfcf;
+    }
+
+    .collapsible:after {
+      content: '\002B';
+
+    }
+
+    .active:after {
+      content: "\2212";
+    }
+
+    .collapseContent {
+      padding: 0px 0px 0px 20px;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.2s ease-out;
+    }
+
+    .centerDiv{
+        display: flex;
+        justify-content: center;
+    }
+
+    .onoffswitch {
+        position: relative; width: 75px;
+        -webkit-user-select:none; -moz-user-select:none; -ms-user-select: none;
+
+    }
+    .onoffswitch-checkbox {
+        position: absolute;
+        opacity: 0;
+        pointer-events: none;
+    }
+    .onoffswitch-label {
+        display: block; overflow: hidden; cursor: pointer;
+        border: 1px solid #222; border-radius: 20px;
+    }
+    .onoffswitch-inner {
+        display: block; width: 200%; margin-left: -100%;
+        transition: margin 0.3s ease-in 0s;
+    }
+    .onoffswitch-inner:before, .onoffswitch-inner:after {
+        display: block; float: left; width: 50%; height: 20px; padding: 0; line-height: 20px;
+        font-size: 10px; color: white; font-family: Trebuchet, Arial, sans-serif; font-weight: bold;
+        box-sizing: border-box;
+    }
+    .onoffswitch-inner:before {
+        content: "Regional";
+        padding-left: 10px;
+        background-color: ; color: #000000;
+    }
+    .onoffswitch-inner:after {
+        content: "National";
+        padding-right: 10px;
+        background-color: ; color: #000000;
+        text-align: right;
+    }
+    .onoffswitch-switch {
+        display: block; width: 10px; margin: 5px;
+        background: #FFFFFF;
+        position: absolute; top: 0; bottom: 0;
+        right: 51px;
+        border: 2px solid #000000; border-radius: 20px;
+        transition: all 0.3s ease-in 0s;
+    }
+    .onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-inner {
+        margin-left: 0;
+    }
+    .onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-switch {
+        right: 0px;
+    }
+
+    /* Style the tab */
+    .tab {
+      overflow: hidden;
+      border: 1px solid #ccc;
+      background-color: #f1f1f1;
+    }
+
+    /* Style the buttons inside the tab */
+    .tab button {
+      background-color: inherit;
+      float: left;
+      border: 1px solid #ccc;
+      outline: none;
+      cursor: pointer;
+      padding: 5px 5px;
+      transition: 0.3s;
+      font-size: 15px;
+    }
+
+    /* Change background color of buttons on hover */
+    .tab button:hover {
+      background-color: #ddd;
+
+    }
+
+    /* Create an active/current tablink class */
+    .tab button.active {
+      background-color: #edf5da;
+      font-weight: 600;
+    }
+
+    .tab button.active::after{
+        content: "";
+    }
+
+    /* Style the tab content */
+    .tabcontent {
+      display: none;
+      padding: 4px 8px;
+      border: 1px solid #ccc;
+      border-top: none;
+    }
+
+    .forCarbPieLabel{
+        display: flex;
+        align-items: center;
+    }
+    .tundra .dijitDialogPaneContent .dijitAlignCenter div{
+        overflow: visible !important;
+    }
+/*}*/
+@page {
+   margin: 1in;
+   size: 8.5in 11in;
+}
+/*@media print
+{
+    .noPrint
+    {
+        display: none !important;
+    }
+    #resultDialog
+    {
+        width:  900px !important;
+        height: 2000px !important;
+        overflow: visible !important;
+        display: inline !important;
+        left: 20px !important;
+    }
+    #resultsPane
+    {
+        overflow: visible !important;
+        display: inline !important;
+    }
+    .column-center{
+        display: block;
+        overflow: visible !important;
+    }
+    .column-left{
+        display: block;
+        overflow: visible !important;
+    }
+    .column-right{
+        display: block;
+        overflow: visible !important;
+    }
+    .printOverflow{
+        overflow: visible !important;
+    }
+    div .dijitDialogPaneContent.dijitAlignCenter{
+        overflow: visible !important;
+    }
+    .dijitDialogUnderlay _underlay #resultDialog_underlay{
+        overflow: visible !important;
+        height: 2000px !important;
+        left:20px !important;
+    }
+    hr {page-break-before: always; }
+}*/

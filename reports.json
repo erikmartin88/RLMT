@@ -1,0 +1,42 @@
+{
+    "reportCovers": {
+        "Northeast" : "northeastReportCover",
+        "Southeast" : "southeastReportCover",
+        "Rocky Mountains" : "rockiesReportCover",
+        "Pacific Northwest" : "pacificNorthwestReportCover",
+        "Lower Mississippi and Ozarks" : "lowerMissReportCover",
+        "Great Plains" : "greatPlainsReportCover",
+        "Great Lakes and Tallgrass Prairie" : "greatLakesReportCover",
+        "Warm Deserts and Tamaulipan" : "desertSouthwestReportCover",
+        "California" : "californiaReportCover", 
+        "Pacific Northwest/California" : ["californiaReportCover","pacificNorthwestReportCover"],
+        "Rocky Mountains/CA" :["californiaReportCover", "rockiesReportCover"],
+        "Warm Deserts and Tamaulipan/CA" :["californiaReportCover", "desertSouthwestReportCover"],
+        "North Atlantic Coast" : "northAtlanticReportCover",
+        "South Atlantic Coast" : "southAtlanticReportCover",
+        "Gulf of Mexico Coast" : "gulfOfMexicoReportCover",
+        "California Coast" : "californiaCoastReportCover",
+        "Pacific Northwest Coast" :"pnwCoastReportCover"
+    },
+    
+    "reportLinks" :{
+        "Northeast" : "https://www.conservationgateway.org/ConservationByGeography/NorthAmerica/UnitedStates/edc/reportsdata/terrestrial/resilience/Pages/default.aspx",
+        "Southeast" : "https://www.conservationgateway.org/ConservationByGeography/NorthAmerica/UnitedStates/edc/reportsdata/terrestrial/resilience/Pages/default.aspx",
+        "Rocky Mountains" : "https://www.conservationgateway.org/ConservationByGeography/NorthAmerica/UnitedStates/westernUS/Pages/Rocky-Mountains-Desert-Southwest-Resilient-and-Connected-Lands.aspx",
+        "Pacific Northwest" : "https://www.conservationgateway.org/ConservationByGeography/NorthAmerica/UnitedStates/oregon/science/Pages/Resilient-Landscapes.aspx",
+        "Lower Mississippi and Ozarks" : "https://www.conservationgateway.org/ConservationByGeography/NorthAmerica/UnitedStates/centralUS/lowerMississippiOzarks/Pages/default.aspx",
+        "Great Plains" : "https://www.conservationgateway.org/ConservationByGeography/NorthAmerica/UnitedStates/centralUS/GreatPlains/Pages/default.aspx",
+        "Great Lakes and Tallgrass Prairie" : "https://www.conservationgateway.org/ConservationByGeography/NorthAmerica/UnitedStates/centralUS/GreatLakes/Pages/default.aspx",
+        "Warm Deserts and Tamaulipan" : "https://www.conservationgateway.org/ConservationByGeography/NorthAmerica/UnitedStates/edc/reportsdata/terrestrial/resilience/Pages/default.aspx",
+        "California" : "https://omniscape.codefornature.org/#/analysis-tour",
+        "Pacific Northwest/California" :["https://omniscape.codefornature.org/#/analysis-tour","https://www.conservationgateway.org/ConservationByGeography/NorthAmerica/UnitedStates/oregon/science/Pages/Resilient-Landscapes.aspx"],
+        "Rocky Mountains/CA" :[ "https://omniscape.codefornature.org/#/analysis-tour","https://www.conservationgateway.org/ConservationByGeography/NorthAmerica/UnitedStates/westernUS/Pages/Rocky-Mountains-Desert-Southwest-Resilient-and-Connected-Lands.aspx"],
+        "Warm Deserts and Tamaulipan/CA" : ["https://omniscape.codefornature.org/#/analysis-tour","https://www.conservationgateway.org/ConservationByGeography/NorthAmerica/UnitedStates/edc/reportsdata/terrestrial/resilience/Pages/default.aspx"],
+        "North Atlantic Coast" : "http://easterndivision.s3.amazonaws.com/coastal/Resilient_Coastal_Sites_for_Conservation_NE_Mid_Atlantic.pdf",
+        "South Atlantic Coast" : "https://www.conservationgateway.org/ConservationByGeography/NorthAmerica/UnitedStates/edc/Documents/SouthAtlantic_Resilient_Coastal_Sites_31Oct2019.pdf",
+        "Gulf of Mexico Coast" : "https://www.conservationgateway.org/ConservationByGeography/NorthAmerica/UnitedStates/edc/Documents/GulfOfMexico_Resilient_Coastal_Sites_31Oct2019.pdf",
+        "California Coast" : "https://www.conservationgateway.org/ConservationPractices/Marine/crr/library/Documents/TNC_SCC_CoastalAssessment_hi%20sngl.pdf",
+        "Pacific Northwest Coast" :"http://easterndivision.s3.amazonaws.com/coastal/ED_101217_Coastal%20Habitats_C.pdf"
+        
+    }
+}

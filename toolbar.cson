@@ -1,0 +1,16 @@
+# This file is used by Flex Tool Bar to create buttons on your Tool Bar.
+# For more information how to use this package and create your own buttons,
+#   read the documentation on https://atom.io/packages/flex-tool-bar
+
+[
+
+  {
+    type: "url"
+    icon: "triangle-right"
+    url: "http://localhost/resilientland"
+    arguments: "incognito"
+    tooltip: "resilientland"
+    color: "red"
+  }
+
+]

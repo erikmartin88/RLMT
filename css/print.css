@@ -1,0 +1,72 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : May 4, 2021, 1:41:18 PM
+    Author     : emartin
+*/
+
+
+    #resultDialog
+    {
+        width:  1000px !important;
+
+        overflow: visible !important;
+        /*display: inline !important;*/
+        left: 0px !important;
+        top: 0px !important;
+         border: none !important;
+        -webkit-box-shadow: none !important;
+    }
+    #resultsPane
+    {
+        overflow: visible !important;
+        display: inline !important;
+    }
+    .column-center{
+        display: block;
+        overflow: visible !important;
+    }
+    .column-left{
+        display: block;
+        overflow: visible !important;
+    }
+    .column-right{
+        display: block;
+        overflow: visible !important;
+    }
+    .printOverflow{
+        overflow: visible !important;
+        background: white !important;
+    }
+    div .dijitDialogPaneContent.dijitAlignCenter{
+        overflow: visible !important;
+    }
+    .dijitDialogUnderlay _underlay #resultDialog_underlay{
+        overflow: visible !important;
+        height: 50px !important;
+        left: 0px !important;
+    }
+    .tundra .dijitDialogTitleBar{
+        background: white;
+    }
+/*    .tundra .dijitLayoutContainer .dijitDialog{
+        border: none !important;
+        -webkit-box-shadow: none !important;
+    }
+    .tundra .dijitLayoutContainer .dijitDialog .dijitDialogFocused .dijitFocused #resultDialog{
+        border: none !important;
+        -webkit-box-shadow: none !important;
+    }*/
+    .grid-item.forCarb2050{
+        padding-top: 200px !important;
+    }
+    hr {
+        page-break-before: always; 
+    }
+    .noPrint
+    {
+        display: none !important;
+    }
