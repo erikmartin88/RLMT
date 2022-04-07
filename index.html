@@ -604,11 +604,12 @@
                 });
 
                 currentScale = map.getScale();
+
+                //figure out where the map is panned to.  THen won't show layers if not there
                 app.mapZones = []
                 dojo.connect(map, "onExtentChange", showExtent);
                 function showExtent(extent) {
-                  console.log(extent)
-
+                  // console.log(extent)
                   if (extent.ymax > 6626587 && extent.xmin <-14363824 ){
                     if(app.mapZones.indexOf("Alaska") == -1){app.mapZones.push("Alaska")}
                   }
@@ -628,7 +629,7 @@
                   else{
                     app.mapZones= app.mapZones.filter(item => item !== "CONUS")
                   }
-                  console.log(app.mapZones)
+                  // console.log(app.mapZones)
                 }
 
 
@@ -946,6 +947,7 @@
                else if (document.getElementById('r1_LD').checked){
                	    $("#legendDiv").show();
                     $("#legendJPEG").hide();
+                    console.log("test")
                     for (var i = 0; i < app.mapLayers.length; i++){
                         app.mapLayers[i].setVisibility(false);
                     }
