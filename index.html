@@ -609,19 +609,19 @@
                 app.mapZones = []
                 dojo.connect(map, "onExtentChange", showExtent);
                 function showExtent(extent) {
-                  // console.log(extent)
+                  console.log(extent)
                   if (extent.ymax > 6626587 && extent.xmin <-14363824 ){
-                    if(app.mapZones.indexOf("Alaska") == -1){app.mapZones.push("Alaska")}
+                    if(app.mapZones.indexOf("AK") == -1){app.mapZones.push("AK")}
                   }
                   else{
-                    app.mapZones= app.mapZones.filter(item => item !== "Alaska")
+                    app.mapZones= app.mapZones.filter(item => item !== "AK")
                   }
 
                   if (extent.ymin < 2129369 && extent.xmin <-17043745 ){
-                    if(app.mapZones.indexOf("Hawaii") == -1){app.mapZones.push("Hawaii")}
+                    if(app.mapZones.indexOf("HI") == -1){app.mapZones.push("HI")}
                   }
                   else{
-                    app.mapZones= app.mapZones.filter(item => item !== "Hawaii")
+                    app.mapZones= app.mapZones.filter(item => item !== "HI")
                   }
                   if (extent.ymax > 280408 && extent.ymin <6922534 && extent.xmin <-6654203 && extent.xmax >-13875235){
                     if(app.mapZones.indexOf("CONUS") == -1){app.mapZones.push("CONUS")}
@@ -947,21 +947,40 @@
                else if (document.getElementById('r1_LD').checked){
                	    $("#legendDiv").show();
                     $("#legendJPEG").hide();
-                    console.log("test")
+
                     for (var i = 0; i < app.mapLayers.length; i++){
                         app.mapLayers[i].setVisibility(false);
-                    }
-                    if (app.regionState === "Region"){
-                        if (currentScale >= 288895.277144){landDivTiles.setVisibility(true); app.legendLayerID = "layer4";}
-                        else{landDivGrid.setVisibility(true); app.legendLayerID = "layer5";}
-                    }
-                    if (app.regionState === "State"){
-                        if (currentScale >= 288895.277144){landDivTilesState.setVisibility(true); app.legendLayerID = "layer6";}
-                        else{landDivGridState.setVisibility(true); app.legendLayerID = "layer7";}
                     }
                     app.tribalLands.setVisibility(false);
                     app.legendLayer = "landDiv";
                     updatePrintTitle();
+
+                    app.mapZones.forEach((zone, i) => {
+                      console.log(zone)
+                      if (zone == "HI"){
+                        if (currentScale >= 288895.277144){landDivTilesHI.setVisibility(true); app.legendLayerID = "layer4";}
+                        else{landDivGridHI.setVisibility(true); app.legendLayerID = "layer5";}
+                      }
+                      // if (zone == "AK"){
+                      //   if (currentScale >= 288895.277144){landDivTilesAK.setVisibility(true); app.legendLayerID = "layer4";}
+                      //   else{landDivGridAK.setVisibility(true); app.legendLayerID = "layer5";}
+                      // }
+                      if (zone == "CONUS"){
+                        if (app.regionState === "Region"){
+                            if (currentScale >= 288895.277144){landDivTiles.setVisibility(true); app.legendLayerID = "layer4";}
+                            else{landDivGrid.setVisibility(true); app.legendLayerID = "layer5";}
+                        }
+                        if (app.regionState === "State"){
+                            if (currentScale >= 288895.277144){landDivTilesState.setVisibility(true); app.legendLayerID = "layer6";}
+                            else{landDivGridState.setVisibility(true); app.legendLayerID = "layer7";}
+                        }
+                      }
+                    });
+
+
+
+
+
                 }
 
 
@@ -1606,8 +1625,20 @@
                 }
              }
 
+             function getClickMapZone(point){
+               let clickZone
+               if (point.y > 6626587 && point.y <11530487 && point.x < -14450397 && point.x >-20883337){clickZone = "AK"}
+               if (point.y >2129369 && point.y <2549210 && point.x < -17221300 && point.x >-17852976){clickZone = "HI"}
+               if (point.y > 2809312 && point.y <6928760 && point.x <-6654203 && point.x >-13875235){clickZone = "CONUS"}
+               return clickZone
+             }
+
             function executeIdentifyTask (event) {
               	// console.log(clickMode);
+                // console.log(event)
+                let clickZone = getClickMapZone(event.mapPoint)
+
+                console.log(clickZone)
 
                 if (clickMode !== "draw"){
                     //this is all set up for raster identify
