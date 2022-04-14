@@ -356,16 +356,21 @@
             $('#secTransp').hide();
 
             //get tiled map layers
-            var resTiles = new ArcGISTiledMapServiceLayer("https://tiles.arcgis.com/tiles/F7DSX1DSNSiWmOqh/arcgis/rest/services/RL_Resilience_Tiles_July20b/MapServer", {visible: true});
+            var resTiles = new ArcGISTiledMapServiceLayer("https://tiles.arcgis.com/tiles/F7DSX1DSNSiWmOqh/arcgis/rest/services/RL_Resilience_CONUS_Tiles_Apr22/MapServer", {visible: true});
             var resTilesState = new ArcGISTiledMapServiceLayer("https://tiles.arcgis.com/tiles/F7DSX1DSNSiWmOqh/arcgis/rest/services/RL_Resilience_Tiles_State_July20b/MapServer", {visible: false});
+            var resTilesHI = new ArcGISTiledMapServiceLayer("https://tiles.arcgis.com/tiles/F7DSX1DSNSiWmOqh/arcgis/rest/services/RL_Resilience_HI_Tiles_Apr22/MapServer", {visible: true});
+            var ResTilesAK =  new ArcGISTiledMapServiceLayer("https://tiles.arcgis.com/tiles/F7DSX1DSNSiWmOqh/arcgis/rest/services/RL_Resilience_AK_Tiles_Apr22/MapServer", {visible: true});
 
-            var landDivTiles = new ArcGISTiledMapServiceLayer("https://tiles.arcgis.com/tiles/F7DSX1DSNSiWmOqh/arcgis/rest/services/RL_LandscapeDiversity_Tiles_July20/MapServer", {visible: false});
+            var landDivTiles = new ArcGISTiledMapServiceLayer("https://tiles.arcgis.com/tiles/F7DSX1DSNSiWmOqh/arcgis/rest/services/RL_LD_CONUS_Tiles_Apr22/MapServer", {visible: false});
             var landDivTilesState = new ArcGISTiledMapServiceLayer("https://tiles.arcgis.com/tiles/F7DSX1DSNSiWmOqh/arcgis/rest/services/RL_LandscapeDiversity_Tiles_State_July20/MapServer", {visible: false});
-            var landDivTilesHI = new ArcGISTiledMapServiceLayer("https://tiles.arcgis.com/tiles/F7DSX1DSNSiWmOqh/arcgis/rest/services/HI_LD_test/MapServer", {visible: false});
+            var landDivTilesHI = new ArcGISTiledMapServiceLayer("https://tiles.arcgis.com/tiles/F7DSX1DSNSiWmOqh/arcgis/rest/services/RL_LD_HI_Tiles_Apr22/MapServer", {visible: false});
+            var landDivTilesAK = new ArcGISTiledMapServiceLayer("https://tiles.arcgis.com/tiles/F7DSX1DSNSiWmOqh/arcgis/rest/services/RL_LD_AK_Tiles_Apr22/MapServer", {visible: false});
 
 
-            var localConnTiles =new ArcGISTiledMapServiceLayer("https://tiles.arcgis.com/tiles/F7DSX1DSNSiWmOqh/arcgis/rest/services/RL_LocalConnectedness_Tiles_Feb21/MapServer", {visible: false});
+            var localConnTiles =new ArcGISTiledMapServiceLayer("https://tiles.arcgis.com/tiles/F7DSX1DSNSiWmOqh/arcgis/rest/services/RL_LC_CONUS_Tiles_Apr22/MapServer", {visible: false});
             var localConnTilesState =new ArcGISTiledMapServiceLayer("https://tiles.arcgis.com/tiles/F7DSX1DSNSiWmOqh/arcgis/rest/services/RL_LocalConnectedness_Tiles_State_Feb21/MapServer", {visible: false});
+            var localConnHI =new ArcGISTiledMapServiceLayer("https://tiles.arcgis.com/tiles/F7DSX1DSNSiWmOqh/arcgis/rest/services/RL_LC_HI_Tiles_Apr22/MapServer", {visible: false});
+            var localConnAK =new ArcGISTiledMapServiceLayer("https://tiles.arcgis.com/tiles/F7DSX1DSNSiWmOqh/arcgis/rest/services/RL_LC_AK_Tiles_Apr22/MapServer", {visible: false});
 
 
             var resConnSimpTiles = new ArcGISTiledMapServiceLayer("https://tiles.arcgis.com/tiles/F7DSX1DSNSiWmOqh/arcgis/rest/services/RL_ResilientConnectedSimple_Tiles_July20/MapServer", {visible: false});
@@ -374,17 +379,45 @@
             var resConnDetTilesState = new ArcGISTiledMapServiceLayer("https://tiles.arcgis.com/tiles/F7DSX1DSNSiWmOqh/arcgis/rest/services/RL_ResilientConnectedDetail_Tiles_State_Apr21/MapServer", {visible: false});
 
             var cliFlowTiles = new ArcGISTiledMapServiceLayer("https://tiles.arcgis.com/tiles/F7DSX1DSNSiWmOqh/arcgis/rest/services/RL_ClimateFlow_Tiles_July20/MapServer", {visible: false});
+            var cliFlowTilesHI = new ArcGISTiledMapServiceLayer("https://tiles.arcgis.com/tiles/F7DSX1DSNSiWmOqh/arcgis/rest/services/RL_ClimateFlow_HI_Tiles_Apr22/MapServer", {visible: false});
+            var cliFlowTilesAK = new ArcGISTiledMapServiceLayer("https://tiles.arcgis.com/tiles/F7DSX1DSNSiWmOqh/arcgis/rest/services/RL_ClimateFlow_AK_Tiles_Apr22/MapServer", {visible: false});
+
             var cliFlowCatTiles = new ArcGISTiledMapServiceLayer("https://tiles.arcgis.com/tiles/F7DSX1DSNSiWmOqh/arcgis/rest/services/RL_ClimateFlowCategorized_Tiles_July20/MapServer", {visible: false});
             var cliFlowCatTilesState = new ArcGISTiledMapServiceLayer("https://tiles.arcgis.com/tiles/F7DSX1DSNSiWmOqh/arcgis/rest/services/RL_ClimateFlowDescriptions_Tiles_State_July20/MapServer", {visible: false});
+            var cliFlowCatTilesHI = new ArcGISTiledMapServiceLayer("https://tiles.arcgis.com/tiles/F7DSX1DSNSiWmOqh/arcgis/rest/services/RL_ClimateFlowCategorized_HI_Tiles_Apr22/MapServer", {visible: false});
+            var cliFlowCatTilesAK = new ArcGISTiledMapServiceLayer("https://tiles.arcgis.com/tiles/F7DSX1DSNSiWmOqh/arcgis/rest/services/RL_ClimateFlowCategorized_AK_Tiles_Apr22/MapServer", {visible: false});
 
 
             var elevTiles = new ArcGISTiledMapServiceLayer("https://tiles.arcgis.com/tiles/F7DSX1DSNSiWmOqh/arcgis/rest/services/RL_Elevation_Tiles_Apr20/MapServer", {visible: false});
+            var elevTilesHI = new ArcGISTiledMapServiceLayer("https://tiles.arcgis.com/tiles/F7DSX1DSNSiWmOqh/arcgis/rest/services/RL_Elevation_HI_Tiles_Apr22/MapServer", {visible: false});
+            var elevTilesAK = new ArcGISTiledMapServiceLayer("https://tiles.arcgis.com/tiles/F7DSX1DSNSiWmOqh/arcgis/rest/services/RL_Elevation_AK_Tiles_Apr22/MapServer", {visible: false});
+
             var rbvSingleTiles = new ArcGISTiledMapServiceLayer("https://tiles.arcgis.com/tiles/F7DSX1DSNSiWmOqh/arcgis/rest/services/RL_RBV_Single_Tiles_July20/MapServer", {visible: false});
+            var rbvSingleTilesHI = new ArcGISTiledMapServiceLayer("https://tiles.arcgis.com/tiles/F7DSX1DSNSiWmOqh/arcgis/rest/services/RL_RBV_Single_HI_Tiles_Apr22/MapServer", {visible: false});
+            var rbvSingleTilesAK = new ArcGISTiledMapServiceLayer("https://tiles.arcgis.com/tiles/F7DSX1DSNSiWmOqh/arcgis/rest/services/RL_RBV_Single_AK_Tiles_Apr22/MapServer", {visible: false});
+
+
             var rbvCatTiles = new ArcGISTiledMapServiceLayer("https://tiles.arcgis.com/tiles/F7DSX1DSNSiWmOqh/arcgis/rest/services/RL_RBV_4Cat_Tiles_July20/MapServer", {visible: false});
+            var rbvCatTilesHI = new ArcGISTiledMapServiceLayer("https://tiles.arcgis.com/tiles/F7DSX1DSNSiWmOqh/arcgis/rest/services/RL_RBV_4Cat_HI_Tiles_Apr22/MapServer", {visible: false});
+            var rbvCatTilesAK = new ArcGISTiledMapServiceLayer("https://tiles.arcgis.com/tiles/F7DSX1DSNSiWmOqh/arcgis/rest/services/RL_RBV_4Cat_AK_Tiles_Apr22/MapServer", {visible: false});
+
             var regionTiles = new ArcGISTiledMapServiceLayer("https://tiles.arcgis.com/tiles/F7DSX1DSNSiWmOqh/arcgis/rest/services/RL_StudyRegion_Tiles_Apr21/MapServer", {visible: false});
+            var regionTilesHI = new ArcGISTiledMapServiceLayer("https://tiles.arcgis.com/tiles/F7DSX1DSNSiWmOqh/arcgis/rest/services/RL_StudyRegion_HI_Tiles_Apr22/MapServer", {visible: false});
+            var regionTilesAK = new ArcGISTiledMapServiceLayer("https://tiles.arcgis.com/tiles/F7DSX1DSNSiWmOqh/arcgis/rest/services/RL_StudyRegion_AKTiles_Apr22/MapServer", {visible: false});
+
             var landformTiles = new ArcGISTiledMapServiceLayer("https://tiles.arcgis.com/tiles/F7DSX1DSNSiWmOqh/arcgis/rest/services/RL_Landforms_Tiles_Apr20/MapServer", {visible: false});
+            var landformTilesHI = new ArcGISTiledMapServiceLayer("https://tiles.arcgis.com/tiles/F7DSX1DSNSiWmOqh/arcgis/rest/services/RL_Landforms_HI_Tiles_Apr22/MapServer", {visible: false});
+            var landformTilesAK = new ArcGISTiledMapServiceLayer("https://tiles.arcgis.com/tiles/F7DSX1DSNSiWmOqh/arcgis/rest/services/RL_Landforms_AK_Tiles_Apr22/MapServer", {visible: false});
+
             var geoTiles = new ArcGISTiledMapServiceLayer("https://tiles.arcgis.com/tiles/F7DSX1DSNSiWmOqh/arcgis/rest/services/RL_GeologySoils_Tiles_July20/MapServer", {visible: false});
-            var tidalHabMigTiles = new ArcGISTiledMapServiceLayer("https://tiles.arcgis.com/tiles/F7DSX1DSNSiWmOqh/arcgis/rest/services/RL_TidalHabMig_Tiles_July20/MapServer", {visible: false});
+            var geoTilesHI = new ArcGISTiledMapServiceLayer("https://tiles.arcgis.com/tiles/F7DSX1DSNSiWmOqh/arcgis/rest/services/RL_GeologySoils_Tiles_July20/MapServer", {visible: false});
+            var geoTilesAK = new ArcGISTiledMapServiceLayer("https://tiles.arcgis.com/tiles/F7DSX1DSNSiWmOqh/arcgis/rest/services/RL_GeologySoils_Tiles_July20/MapServer", {visible: false});
+
+            //TODO
+            var tidalHabMigTiles = new ArcGISTiledMapServiceLayer("https://tiles.arcgis.com/tiles/F7DSX1DSNSiWmOqh/arcgis/rest/services/RL_TidalHabMig_CONUS_Tiles_Apr22/MapServer", {visible: false});
+            var tidalHabMigTilesHI = new ArcGISTiledMapServiceLayer("https://tiles.arcgis.com/tiles/F7DSX1DSNSiWmOqh/arcgis/rest/services/RL_TidalHabMig_HI_Tiles_Apr22/MapServer", {visible: false});
+            var tidalHabMigTilesAK = new ArcGISTiledMapServiceLayer("https://tiles.arcgis.com/tiles/F7DSX1DSNSiWmOqh/arcgis/rest/services/RL_TidalHabMig_AK_Tiles_Apr22/MapServer", {visible: false});
+
 
             //carbon layers
             var nlcdTiles = new ArcGISTiledMapServiceLayer("https://tiles.arcgis.com/tiles/F7DSX1DSNSiWmOqh/arcgis/rest/services/RL_NLCD2016_July20/MapServer", {visible: false});
@@ -392,9 +425,11 @@
             var forestCarbon2050Tiles = new ArcGISTiledMapServiceLayer("https://tiles.arcgis.com/tiles/F7DSX1DSNSiWmOqh/arcgis/rest/services/RL_ForestCarbon2050_Tiles_Feb21/MapServer", {visible: false});
             var forestCarbonSeqTiles = new ArcGISTiledMapServiceLayer("https://tiles.arcgis.com/tiles/F7DSX1DSNSiWmOqh/arcgis/rest/services/RL_ForestCarbonSequestration_Tiles_Feb21/MapServer", {visible: false});
 
-            var soilCarbonTiles = new ArcGISTiledMapServiceLayer("https://tiles.arcgis.com/tiles/F7DSX1DSNSiWmOqh/arcgis/rest/services/RL_SoilCarbon_Tiles_Feb21/MapServer", {visible: false});
+            var soilCarbonTiles = new ArcGISTiledMapServiceLayer("https://tiles.arcgis.com/tiles/F7DSX1DSNSiWmOqh/arcgis/rest/services/RL_SoilCarbon_CONUS_Tiles_Apr22/MapServer", {visible: false});
 
             var securedAreasTiles = new ArcGISTiledMapServiceLayer("https://tiles.arcgis.com/tiles/F7DSX1DSNSiWmOqh/arcgis/rest/services/RL_SecuredLand_Apr21/MapServer", {visible: false});
+            var securedAreasTilesHI = new ArcGISTiledMapServiceLayer("https://tiles.arcgis.com/tiles/F7DSX1DSNSiWmOqh/arcgis/rest/services/RL_SecuredLand_HI_Tiles_Apr22/MapServer", {visible: false});
+            var securedAreasTilesAK = new ArcGISTiledMapServiceLayer("https://tiles.arcgis.com/tiles/F7DSX1DSNSiWmOqh/arcgis/rest/services/RL_SecuredLand_AK_Tiles_Apr22/MapServer", {visible: false});
 
             var dynamicGridURL = "https://cumulus.tnc.org/arcgis/rest/services/easterndiv/RL_dynamicGrids_Apr21/MapServer";
 //            var dynamicGridURL = "http://maspatial.tnc.org/arcgis/rest/services/Resilience/RL_dynamicGrids_Apr21/MapServer";
@@ -407,6 +442,12 @@
             var resGridStateIPs = new ImageParameters();
             resGridStateIPs.layerIds = [16];
             resGridStateIPs.layerOption = ImageParameters.LAYER_OPTION_SHOW;
+            var resGridHIIPs = new ImageParameters();
+            resGridHIIPs.layerIds = [44];
+            resGridHIIPs.layerOption = ImageParameters.LAYER_OPTION_SHOW;
+            var resGridAKIPs = new ImageParameters();
+            resGridAKIPs.layerIds = [30];
+            resGridAKIPs.layerOption = ImageParameters.LAYER_OPTION_SHOW;
 
             var landDivIPs = new ImageParameters();
             landDivIPs.layerIds = [1];
@@ -414,6 +455,12 @@
             var landDivStateIPs = new ImageParameters();
             landDivStateIPs.layerIds = [17];
             landDivStateIPs.layerOption = ImageParameters.LAYER_OPTION_SHOW;
+            var landDivHIIPs = new ImageParameters();
+            landDivHIIPs.layerIds = [45];
+            landDivHIIPs.layerOption = ImageParameters.LAYER_OPTION_SHOW;
+            var landDivAKIPs = new ImageParameters();
+            landDivStateAKIPs.layerIds = [31];
+            landDivStateAKIPs.layerOption = ImageParameters.LAYER_OPTION_SHOW;
 
             var localConnIPs = new ImageParameters();
             localConnIPs.layerIds = [2];
@@ -421,6 +468,12 @@
             var localConnStateIPs = new ImageParameters();
             localConnStateIPs.layerIds = [18];
             localConnStateIPs.layerOption = ImageParameters.LAYER_OPTION_SHOW;
+            var localConnHIIPs = new ImageParameters();
+            localConnHIIPs.layerIds = [46];
+            localConnHIIPs.layerOption = ImageParameters.LAYER_OPTION_SHOW;
+            var localConnAKIPs = new ImageParameters();
+            localConnAKIPs.layerIds = [32];
+            localConnAKIPs.layerOption = ImageParameters.LAYER_OPTION_SHOW;
 
             var resConnSimpIPs = new ImageParameters();
             resConnSimpIPs.layerIds = [5];
@@ -428,47 +481,114 @@
             var resConnSimpStateIPs = new ImageParameters();
             resConnSimpStateIPs.layerIds = [20];
             resConnSimpStateIPs.layerOption = ImageParameters.LAYER_OPTION_SHOW;
+            var resConnSimpHIIPs = new ImageParameters();
+            resConnSimpHIIPs.layerIds = [49];
+            resConnSimpHIIPs.layerOption = ImageParameters.LAYER_OPTION_SHOW;
+            var resConnSimpAKIPs = new ImageParameters();
+            resConnSimpAKIPs.layerIds = [35];
+            resConnSimpAKIPs.layerOption = ImageParameters.LAYER_OPTION_SHOW;
+
             var resConnDetIPs = new ImageParameters();
             resConnDetIPs.layerIds = [25];
             resConnDetIPs.layerOption = ImageParameters.LAYER_OPTION_SHOW;
             var resConnDetStateIPs = new ImageParameters();
             resConnDetStateIPs.layerIds = [26];
             resConnDetStateIPs.layerOption = ImageParameters.LAYER_OPTION_SHOW;
+            var resConnDetHIIPs = new ImageParameters();
+            resConnDetHIIPs.layerIds = [50];
+            resConnDetHIIPs.layerOption = ImageParameters.LAYER_OPTION_SHOW;
+            var resConnDetAKIPs = new ImageParameters();
+            resConnDetAKIPs.layerIds = [36];
+            resConnDetAKIPs.layerOption = ImageParameters.LAYER_OPTION_SHOW;
 
             var geoIPs = new ImageParameters();
             geoIPs.layerIds = [3];
             geoIPs.layerOption = ImageParameters.LAYER_OPTION_SHOW;
+            var geoHIIPs = new ImageParameters();
+            geoHIIPs.layerIds = [47];
+            geoHIIPs.layerOption = ImageParameters.LAYER_OPTION_SHOW;
+            var geoAKIPs = new ImageParameters();
+            geoAKIPs.layerIds = [33];
+            geoAKIPs.layerOption = ImageParameters.LAYER_OPTION_SHOW;
+
             var capnwGeoIPs = new ImageParameters();
             capnwGeoIPs.layerIds = [12];
             capnwGeoIPs.layerOption = ImageParameters.LAYER_OPTION_SHOW;
+
+
             var landformIPs = new ImageParameters();
             landformIPs.layerIds = [4];
             landformIPs.layerOption = ImageParameters.LAYER_OPTION_SHOW;
-
+            var landformHIIPs = new ImageParameters();
+            landformHIIPs.layerIds = [48];
+            landformHIIPs.layerOption = ImageParameters.LAYER_OPTION_SHOW;
+            var landformAKIPs = new ImageParameters();
+            landformAKIPs.layerIds = [34];
+            landformAKIPs.layerOption = ImageParameters.LAYER_OPTION_SHOW;
 
             var cliFlowIPs = new ImageParameters();
             cliFlowIPs.layerIds = [9];
             cliFlowIPs.layerOption = ImageParameters.LAYER_OPTION_SHOW;
+            var cliFlowHIIPs = new ImageParameters();
+            cliFlowHIIPs.layerIds = [52];
+            cliFlowHIIPs.layerOption = ImageParameters.LAYER_OPTION_SHOW;
+            var cliFlowAKIPs = new ImageParameters();
+            cliFlowAKIPs.layerIds = [38];
+            cliFlowAKIPs.layerOption = ImageParameters.LAYER_OPTION_SHOW;
+
             var cliFlowCatIPs = new ImageParameters();
             cliFlowCatIPs.layerIds = [10];
             cliFlowCatIPs.layerOption = ImageParameters.LAYER_OPTION_SHOW;
             var cliFlowCatStateIPs = new ImageParameters();
             cliFlowCatStateIPs.layerIds = [19];
             cliFlowCatStateIPs.layerOption = ImageParameters.LAYER_OPTION_SHOW;
+            var cliFlowCatHIIPs = new ImageParameters();
+            cliFlowCatHIIPs.layerIds = [53];
+            cliFlowCatHIIPs.layerOption = ImageParameters.LAYER_OPTION_SHOW;
+            var cliFlowCatAKIPs = new ImageParameters();
+            cliFlowCatAKIPs.layerIds = [39];
+            cliFlowCatAKIPs.layerOption = ImageParameters.LAYER_OPTION_SHOW;
+
 
             var elevIPs = new ImageParameters();
             elevIPs.layerIds = [11];
             elevIPs.layerOption = ImageParameters.LAYER_OPTION_SHOW;
+            var elevHIIPs = new ImageParameters();
+            elevHIIPs.layerIds = [54];
+            elevHIIPs.layerOption = ImageParameters.LAYER_OPTION_SHOW;
+            var elevAKIPs = new ImageParameters();
+            elevAKIPs.layerIds = [40];
+            elevAKIPs.layerOption = ImageParameters.LAYER_OPTION_SHOW;
+
             var tidalHabMigIPs = new ImageParameters();
             tidalHabMigIPs.layerIds = [27];
             tidalHabMigIPs.layerOption = ImageParameters.LAYER_OPTION_SHOW;
+            var tidalHabMigHIIPs = new ImageParameters();
+            tidalHabMigHIIPs.layerIds = [58];
+            tidalHabMigHIIPs.layerOption = ImageParameters.LAYER_OPTION_SHOW;
+            var tidalHabMigAKIPs = new ImageParameters();
+            tidalHabMigAKIPs.layerIds = [59];
+            tidalHabMigAKIPs.layerOption = ImageParameters.LAYER_OPTION_SHOW;
 
             var rbvSingleIPs = new ImageParameters();
             rbvSingleIPs.layerIds = [13];
             rbvSingleIPs.layerOption = ImageParameters.LAYER_OPTION_SHOW;
+            var rbvSingleHIIPs = new ImageParameters();
+            rbvSingleHIIPs.layerIds = [55];
+            rbvSingleHIIPs.layerOption = ImageParameters.LAYER_OPTION_SHOW;
+            var rbvSingleAKIPs = new ImageParameters();
+            rbvSingleAKIPs.layerIds = [41];
+            rbvSingleAKIPs.layerOption = ImageParameters.LAYER_OPTION_SHOW;
+
             var rbvCatIPs = new ImageParameters();
             rbvCatIPs.layerIds = [14];
             rbvCatIPs.layerOption = ImageParameters.LAYER_OPTION_SHOW;
+            var rbvCatHIIPs = new ImageParameters();
+            rbvCatHIIPs.layerIds = [56];
+            rbvCatHIIPs.layerOption = ImageParameters.LAYER_OPTION_SHOW;
+            var rbvCatAKIPs = new ImageParameters();
+            rbvCatAKIPs.layerIds = [42];
+            rbvCatAKIPs.layerOption = ImageParameters.LAYER_OPTION_SHOW;
 
             // state and ecoregional reference layers
             var ecoregionIPs = new ImageParameters();
@@ -481,6 +601,12 @@
             var securedAreaIPs = new ImageParameters();
             securedAreaIPs.layerIds = [8];
             securedAreaIPs.layerOption = ImageParameters.LAYER_OPTION_SHOW;
+            var securedAreaIPs = new ImageParameters();
+            securedAreaHIIPs.layerIds = [51];
+            securedAreaHIIPs.layerOption = ImageParameters.LAYER_OPTION_SHOW;
+            var securedAreaAKIPs = new ImageParameters();
+            securedAreaAKIPs.layerIds = [37];
+            securedAreaAKIPs.layerOption = ImageParameters.LAYER_OPTION_SHOW;
 
             var tribalLandIPs = new ImageParameters();
             tribalLandIPs.layerIds = [21];
@@ -507,39 +633,84 @@
             var regionIPs = new ImageParameters();
             regionIPs.layerIds = [15];
             regionIPs.layerOption = ImageParameters.LAYER_OPTION_SHOW;
+            var regionHIIPs = new ImageParameters();
+            regionHIIPs.layerIds = [57];
+            regionHIIPs.layerOption = ImageParameters.LAYER_OPTION_SHOW;
+            var regionAKIPs = new ImageParameters();
+            regionAKIPs.layerIds = [43];
+            regionAKIPs.layerOption = ImageParameters.LAYER_OPTION_SHOW;
+
             var ecoregions = new ArcGISDynamicMapServiceLayer(dynamicGridURL, {visible: false, "imageParameters": ecoregionIPs});
             var states = new ArcGISDynamicMapServiceLayer(dynamicGridURL, {visible: false, "imageParameters": stateIPs});
             var securedAreasDyn = new ArcGISDynamicMapServiceLayer(dynamicGridURL, {visible: false, "imageParameters": securedAreaIPs});
+            var securedAreasDynHI = new ArcGISDynamicMapServiceLayer(dynamicGridURL, {visible: false, "imageParameters": securedAreaHIIPs});
+            var securedAreasDynAK = new ArcGISDynamicMapServiceLayer(dynamicGridURL, {visible: false, "imageParameters": securedAreaAKIPs});
 
 
             app.tribalLands = new ArcGISDynamicMapServiceLayer(dynamicGridURL, {visible: false, "imageParameters": tribalLandIPs});
 
             var resGrid = new ArcGISDynamicMapServiceLayer(dynamicGridURL, {visible: false, "imageParameters": resGridIPs});
             var resGridState = new ArcGISDynamicMapServiceLayer(dynamicGridURL, {visible: false, "imageParameters": resGridStateIPs});
+            var resGridHI = new ArcGISDynamicMapServiceLayer(dynamicGridURL, {visible: false, "imageParameters": resGridHIIPs});
+            var resGridAK = new ArcGISDynamicMapServiceLayer(dynamicGridURL, {visible: false, "imageParameters": resGridAKIPs});
 
             var landDivGrid = new ArcGISDynamicMapServiceLayer(dynamicGridURL, {visible: false, "imageParameters": landDivIPs});
             var landDivGridState = new ArcGISDynamicMapServiceLayer(dynamicGridURL, {visible: false, "imageParameters": landDivStateIPs});
+            var landDivGridHI = new ArcGISDynamicMapServiceLayer(dynamicGridURL, {visible: false, "imageParameters": landDivHIIPs});
+            var landDivGridAK = new ArcGISDynamicMapServiceLayer(dynamicGridURL, {visible: false, "imageParameters": landDivAKIPs});
 
             var localConnGrid = new ArcGISDynamicMapServiceLayer(dynamicGridURL, {visible: false, "imageParameters": localConnIPs});
             var localConnGridState = new ArcGISDynamicMapServiceLayer(dynamicGridURL, {visible: false, "imageParameters": localConnStateIPs});
+            var localConnGridHI = new ArcGISDynamicMapServiceLayer(dynamicGridURL, {visible: false, "imageParameters": localConnHIIPs});
+            var localConnGridAK = new ArcGISDynamicMapServiceLayer(dynamicGridURL, {visible: false, "imageParameters": localConnAKIPs});
 
             var cliFlowGrid = new ArcGISDynamicMapServiceLayer(dynamicGridURL, {visible: false, "imageParameters": cliFlowIPs});
+            var cliFlowGridHI = new ArcGISDynamicMapServiceLayer(dynamicGridURL, {visible: false, "imageParameters": cliFlowHIIPs});
+            var cliFlowGridAK = new ArcGISDynamicMapServiceLayer(dynamicGridURL, {visible: false, "imageParameters": cliFlowAKIPs});
+
             var cliFlowCatGrid = new ArcGISDynamicMapServiceLayer(dynamicGridURL, {visible: false, "imageParameters": cliFlowCatIPs});
             var cliFlowCatGridState = new ArcGISDynamicMapServiceLayer(dynamicGridURL, {visible: false, "imageParameters": cliFlowCatStateIPs});
+            var cliFlowCatGridHI = new ArcGISDynamicMapServiceLayer(dynamicGridURL, {visible: false, "imageParameters": cliFlowCatHIIPs});
+            var cliFlowCatGridAK = new ArcGISDynamicMapServiceLayer(dynamicGridURL, {visible: false, "imageParameters": cliFlowCatAKIPs});
 
             var resConnSimpGrid = new ArcGISDynamicMapServiceLayer(dynamicGridURL, {visible: false, "imageParameters": resConnSimpIPs});
             var resConnSimpGridState = new ArcGISDynamicMapServiceLayer(dynamicGridURL, {visible: false, "imageParameters": resConnSimpStateIPs});
+            var resConnSimpGridHI = new ArcGISDynamicMapServiceLayer(dynamicGridURL, {visible: false, "imageParameters": resConnSimpHIIPs});
+            var resConnSimpGridAK = new ArcGISDynamicMapServiceLayer(dynamicGridURL, {visible: false, "imageParameters": resConnSimpAKIPs});
+
             var resConnDetGrid = new ArcGISDynamicMapServiceLayer(dynamicGridURL, {visible: false, "imageParameters": resConnDetIPs});
             var resConnDetGridState = new ArcGISDynamicMapServiceLayer(dynamicGridURL, {visible: false, "imageParameters": resConnDetStateIPs});
+            var resConnDetGridHI = new ArcGISDynamicMapServiceLayer(dynamicGridURL, {visible: false, "imageParameters": resConnDetHIIPs});
+            var resConnDetGridAK = new ArcGISDynamicMapServiceLayer(dynamicGridURL, {visible: false, "imageParameters": resConnDetAKIPs});
 
             var geoGrid = new ArcGISDynamicMapServiceLayer(dynamicGridURL, {visible: false, "imageParameters": geoIPs});
             var capnwGeoGrid = new ArcGISDynamicMapServiceLayer(dynamicGridURL, {visible: false, "imageParameters": capnwGeoIPs});
+            var geoGridHI = new ArcGISDynamicMapServiceLayer(dynamicGridURL, {visible: false, "imageParameters": geoHIIPs});
+            var geoGridAK = new ArcGISDynamicMapServiceLayer(dynamicGridURL, {visible: false, "imageParameters": geoAKIPs});
+
             var landformGrid = new ArcGISDynamicMapServiceLayer(dynamicGridURL, {visible: false, "imageParameters": landformIPs});
+            var landformGridHI = new ArcGISDynamicMapServiceLayer(dynamicGridURL, {visible: false, "imageParameters": landformHIIPs});
+            var landformGridAK = new ArcGISDynamicMapServiceLayer(dynamicGridURL, {visible: false, "imageParameters": landformAKIPs});
+
             var elevGrid = new ArcGISDynamicMapServiceLayer(dynamicGridURL, {visible: false, "imageParameters": elevIPs});
+            var elevGridHI = new ArcGISDynamicMapServiceLayer(dynamicGridURL, {visible: false, "imageParameters": elevHIIPs});
+            var elevGridAK = new ArcGISDynamicMapServiceLayer(dynamicGridURL, {visible: false, "imageParameters": elevAKIPs});
+
             var rbvSingleGrid = new ArcGISDynamicMapServiceLayer(dynamicGridURL, {visible: false, "imageParameters": rbvSingleIPs});
+            var rbvSingleGridHI = new ArcGISDynamicMapServiceLayer(dynamicGridURL, {visible: false, "imageParameters": rbvSingleHIIPs});
+            var rbvSingleGridAK = new ArcGISDynamicMapServiceLayer(dynamicGridURL, {visible: false, "imageParameters": rbvSingleAKIPs});
+
             var rbvCatGrid = new ArcGISDynamicMapServiceLayer(dynamicGridURL, {visible: false, "imageParameters": rbvCatIPs});
+            var rbvCatGridHI = new ArcGISDynamicMapServiceLayer(dynamicGridURL, {visible: false, "imageParameters": rbvCatHIIPs});
+            var rbvCatGridAK = new ArcGISDynamicMapServiceLayer(dynamicGridURL, {visible: false, "imageParameters": rbvCatAKIPs});
+
             var regionGrid = new ArcGISDynamicMapServiceLayer(dynamicGridURL, {visible: false, "imageParameters": regionIPs});
+            var regionGridHI = new ArcGISDynamicMapServiceLayer(dynamicGridURL, {visible: false, "imageParameters": regionHIIPs});
+            var regionGridAK = new ArcGISDynamicMapServiceLayer(dynamicGridURL, {visible: false, "imageParameters": regionAKIPs});
+
             var tidalHabMigGrid = new ArcGISDynamicMapServiceLayer(dynamicGridURL, {visible: false, "imageParameters": tidalHabMigIPs});
+            var tidalHabMigGridHI = new ArcGISDynamicMapServiceLayer(dynamicGridURL, {visible: false, "imageParameters": tidalHabMigHIIPs});
+            var tidalHabMigGridAK = new ArcGISDynamicMapServiceLayer(dynamicGridURL, {visible: false, "imageParameters": tidalHabMigAKIPs});
 
         //carbonLayers
             var nlcdGrid = new ArcGISDynamicMapServiceLayer(dynamicGridURL, {visible: false, "imageParameters": nlcdIPs});
@@ -553,7 +724,7 @@
             app.securedVisible = false;
 
             //order impacts print legend
-            app.mapLayers = [resTiles, resGrid, resTilesState, resGridState, landDivTiles, landDivTilesHI, landDivGrid, landDivTilesState, landDivGridState, localConnTiles, localConnGrid, localConnTilesState, localConnGridState, geoTiles, geoGrid, capnwGeoGrid, landformTiles, landformGrid, resConnSimpTiles, resConnSimpGrid, resConnSimpTilesState, resConnSimpGridState, resConnDetTiles, resConnDetGrid, resConnDetTilesState, resConnDetGridState, cliFlowTiles, cliFlowGrid, cliFlowCatTiles, cliFlowCatGrid, cliFlowCatTilesState, cliFlowCatGridState, tidalHabMigTiles, tidalHabMigGrid, nlcdTiles, nlcdGrid, forestCarbon2010Tiles, forestCarbon2010Grid, forestCarbon2050Tiles, forestCarbon2050Grid, forestCarbonSeqTiles, forestCarbonSeqGrid, soilCarbonTiles, soilCarbonGrid, rbvSingleTiles, rbvSingleGrid, rbvCatTiles, rbvCatGrid, securedAreasDyn, securedAreasTiles, elevTiles, elevGrid, regionTiles, regionGrid, app.tribalLands, ecoregions, states ];
+            app.mapLayers = [resTiles, resTilesHI, resTilesAK, resGrid, resGridHI, resGridAK, resTilesState, resGridState, landDivTiles, landDivTilesHI, landDivTilesAK, landDivGrid, landDivGridHI, landDivGridAK, landDivTilesState, landDivGridState, localConnTiles, localConnTilesHI, localConnTilesAK, localConnGrid, localConnGridHI, localConnGridAK, localConnTilesState, localConnGridState, geoTiles, geoTilesHI, geoTilesAK, geoGrid, geoGridHI, geoGridAK, capnwGeoGrid, landformTiles, landformTilesHI, landformTilesAK, landformGrid, landformGridHI, landformGridAK, resConnSimpTiles, resConnSimpTilesHI, resConnSimpTilesAK, resConnSimpGrid, resConnSimpGridHI, resConnSimpGridAK, resConnSimpTilesState, resConnSimpGridState, resConnDetTiles, resConnDetTilesHI, resConnDetTilesAK, resConnDetGrid, resConnDetGridHI, resConnDetGridAK, resConnDetTilesState, resConnDetGridState, cliFlowTiles, cliFlowTilesHI, cliFlowTilesAK, cliFlowGrid, cliFlowGridHI, cliFlowGridAK, cliFlowCatTiles, cliFlowCatTilesHI, cliFlowCatTilesAK, cliFlowCatGrid, cliFlowCatGridHI, cliFlowCatGridAK, cliFlowCatTilesState, cliFlowCatGridState, tidalHabMigTiles, tidalHabMigTilesHI, tidalHabMigTilesAK, tidalHabMigGrid, tidalHabMigGridHI, tidalHabMigGridAK, nlcdTiles, nlcdGrid, forestCarbon2010Tiles, forestCarbon2010Grid, forestCarbon2050Tiles, forestCarbon2050Grid, forestCarbonSeqTiles, forestCarbonSeqGrid, soilCarbonTiles, soilCarbonGrid, rbvSingleTiles, rbvSingleTilesHI, rbvSingleTilesAK, rbvSingleGrid, rbvSingleGridHI, rbvSingleGridAK, rbvCatTiles, rbvCatTilesHI, rbvCatTilesAK, rbvCatGrid, rbvCatGridHI, rbvCatGridAK, securedAreasDyn, securedAreasDynHI, securedAreasDynAK, securedAreasTiles, securedAreasTilesHI, securedAreasTilesAK, elevTiles, elevTilesHI, elevTilesAK, elevGrid, elevGridHI, elevGridAK, regionTiles, regionTilesHI, regionTilesAK, regionGrid, regionGridHI, regionGridAK, app.tribalLands, ecoregions, states];
 
             map.addLayers(app.mapLayers);
             // console.log(map)
@@ -927,21 +1098,33 @@
                     for (var i = 0; i < app.mapLayers.length; i++){
                         app.mapLayers[i].setVisibility(false);
                     }
-                    if (app.regionState === "Region"){
-                        if (currentScale >= 288895.277144){
-                            resTiles.setVisibility(true);
-                            app.legendLayerID = "layer0";
-                        }
-                        else{resGrid.setVisibility(true); app.legendLayerID = "layer1";}
-                    }
-                    if (app.regionState === "State"){
-                        if (currentScale >= 288895.277144){resTilesState.setVisibility(true); app.legendLayerID = "layer2";}
-                        else{resGridState.setVisibility(true); app.legendLayerID = "layer3";}
-                    }
+
                     if(app.loggedIn === true){app.tribalLands.setVisibility(false); $("#indigLink").hide()}
                     else{app.tribalLands.setVisibility(true);}
                     app.legendLayer = "res";
+
+                    app.mapZones.forEach((zone, i) => {
+                      if (zone == "HI"){
+                        if (currentScale >= 288895.277144){resTilesHI.setVisibility(true); app.legendLayerID = "layer1";}
+                        else{resGridHI.setVisibility(true); app.legendLayerID = "layer4";}
+                      }
+                      if (zone == "AK"){
+                        if (currentScale >= 288895.277144){resTilesAK.setVisibility(true); app.legendLayerID = "layer2";}
+                        else{resGridAK.setVisibility(true); app.legendLayerID = "layer5";}
+                      }
+                      if (zone == "CONUS"){
+                        if (app.regionState === "Region"){
+                            if (currentScale >= 288895.277144){resTiles.setVisibility(true);app.legendLayerID = "layer0";}
+                            else{resGrid.setVisibility(true); app.legendLayerID = "layer3";}
+                        }
+                        if (app.regionState === "State"){
+                            if (currentScale >= 288895.277144){resTilesState.setVisibility(true); app.legendLayerID = "layer6";}
+                            else{resGridState.setVisibility(true); app.legendLayerID = "layer7";}
+                        }
+                      }
+                    });
                     updatePrintTitle();
+
                 }
 
                else if (document.getElementById('r1_LD').checked){
@@ -953,34 +1136,28 @@
                     }
                     app.tribalLands.setVisibility(false);
                     app.legendLayer = "landDiv";
-                    updatePrintTitle();
 
                     app.mapZones.forEach((zone, i) => {
-                      console.log(zone)
                       if (zone == "HI"){
-                        if (currentScale >= 288895.277144){landDivTilesHI.setVisibility(true); app.legendLayerID = "layer4";}
-                        else{landDivGridHI.setVisibility(true); app.legendLayerID = "layer5";}
+                        if (currentScale >= 288895.277144){landDivTilesHI.setVisibility(true); app.legendLayerID = "layer9";}
+                        else{landDivGridHI.setVisibility(true); app.legendLayerID = "layer12";}
                       }
-                      // if (zone == "AK"){
-                      //   if (currentScale >= 288895.277144){landDivTilesAK.setVisibility(true); app.legendLayerID = "layer4";}
-                      //   else{landDivGridAK.setVisibility(true); app.legendLayerID = "layer5";}
-                      // }
+                      if (zone == "AK"){
+                        if (currentScale >= 288895.277144){landDivTilesAK.setVisibility(true); app.legendLayerID = "layer10";}
+                        else{landDivGridAK.setVisibility(true); app.legendLayerID = "layer13";}
+                      }
                       if (zone == "CONUS"){
                         if (app.regionState === "Region"){
-                            if (currentScale >= 288895.277144){landDivTiles.setVisibility(true); app.legendLayerID = "layer4";}
-                            else{landDivGrid.setVisibility(true); app.legendLayerID = "layer5";}
+                            if (currentScale >= 288895.277144){landDivTiles.setVisibility(true); app.legendLayerID = "layer8";}
+                            else{landDivGrid.setVisibility(true); app.legendLayerID = "layer11";}
                         }
                         if (app.regionState === "State"){
-                            if (currentScale >= 288895.277144){landDivTilesState.setVisibility(true); app.legendLayerID = "layer6";}
-                            else{landDivGridState.setVisibility(true); app.legendLayerID = "layer7";}
+                            if (currentScale >= 288895.277144){landDivTilesState.setVisibility(true); app.legendLayerID = "layer14";}
+                            else{landDivGridState.setVisibility(true); app.legendLayerID = "layer15";}
                         }
                       }
                     });
-
-
-
-
-
+                    updatePrintTitle();
                 }
 
 
@@ -990,17 +1167,32 @@
                     for (var i = 0; i < app.mapLayers.length; i++){
                         app.mapLayers[i].setVisibility(false);
                     }
-                    if (app.regionState === "Region"){
-                        if (currentScale >= 288895.277144){localConnTiles.setVisibility(true); app.legendLayerID = "layer8";}
-                        else{localConnGrid.setVisibility(true); app.legendLayerID = "layer9";}
-                    }
-                    if (app.regionState === "State"){
-                        if (currentScale >= 288895.277144){localConnTilesState.setVisibility(true); app.legendLayerID = "layer10";}
-                        else{localConnGridState.setVisibility(true); app.legendLayerID = "layer11";}
-                    }
+
                     app.tribalLands.setVisibility(false);
                     app.legendLayer = "localConn";
+
+                    app.mapZones.forEach((zone, i) => {
+                      if (zone == "HI"){
+                        if (currentScale >= 288895.277144){localConnTilesHI.setVisibility(true); app.legendLayerID = "layer17";}
+                        else{localConnGridHI.setVisibility(true); app.legendLayerID = "layer20";}
+                      }
+                      if (zone == "AK"){
+                        if (currentScale >= 288895.277144){localConnTilesAK.setVisibility(true); app.legendLayerID = "layer18";}
+                        else{localConnGridAK.setVisibility(true); app.legendLayerID = "layer21";}
+                      }
+                      if (zone == "CONUS"){
+                        if (app.regionState === "Region"){
+                            if (currentScale >= 288895.277144){localConnTiles.setVisibility(true); app.legendLayerID = "layer16";}
+                            else{localConnGrid.setVisibility(true); app.legendLayerID = "layer19";}
+                        }
+                        if (app.regionState === "State"){
+                            if (currentScale >= 288895.277144){localConnTilesState.setVisibility(true); app.legendLayerID = "layer22";}
+                            else{localConnGridState.setVisibility(true); app.legendLayerID = "layer23";}
+                        }
+                      }
+                    });
                     updatePrintTitle();
+
                 }
 
 
@@ -1012,17 +1204,30 @@
                     for (var i = 0; i < app.mapLayers.length; i++){
                         app.mapLayers[i].setVisibility(false);
                     }
-                    if (currentScale >= 288895.277144){geoTiles.setVisibility(true); app.legendLayerID = "layer12";}
-                    else{
-                        geoGrid.setVisibility(true);
-                        app.legendLayerID = "layer13";
-                        //also CA & PNW
-                        capnwGeoGrid.setVisibility(true);
-
-                    }
                     app.tribalLands.setVisibility(false);
                     app.legendLayer = "geo";
+
+                    app.mapZones.forEach((zone, i) => {
+                      if (zone == "HI"){
+                        if (currentScale >= 288895.277144){geoTilesHI.setVisibility(true); app.legendLayerID = "layer25";}
+                        else{geoGridHI.setVisibility(true); app.legendLayerID = "layer28";}
+                      }
+                      if (zone == "AK"){
+                        if (currentScale >= 288895.277144){geoTilesAK.setVisibility(true); app.legendLayerID = "layer26";}
+                        else{geoGridAK.setVisibility(true); app.legendLayerID = "layer29";}
+                      }
+                      if (zone == "CONUS"){
+                        if (currentScale >= 288895.277144){geoTiles.setVisibility(true); app.legendLayerID = "layer24";}
+                        else{
+                            geoGrid.setVisibility(true);
+                            app.legendLayerID = "layer27";
+                            //also CA & PNW
+                            capnwGeoGrid.setVisibility(true);
+                        }
+                      }
+                    });
                     updatePrintTitle();
+
                 }
 
 
@@ -1032,11 +1237,26 @@
                     for (var i = 0; i < app.mapLayers.length; i++){
                         app.mapLayers[i].setVisibility(false);
                     }
-                    if (currentScale >= 288895.277144){landformTiles.setVisibility(true); app.legendLayerID = "layer15";}
-                    else{landformGrid.setVisibility(true); app.legendLayerID = "layer16";}
+
                     app.tribalLands.setVisibility(false);
                     app.legendLayer = "landforms";
+
+                    app.mapZones.forEach((zone, i) => {
+                      if (zone == "HI"){
+                        if (currentScale >= 288895.277144){landformTilesHI.setVisibility(true); app.legendLayerID = "layer32";}
+                        else{landformGridHI.setVisibility(true); app.legendLayerID = "layer35";}
+                      }
+                      if (zone == "AK"){
+                        if (currentScale >= 288895.277144){landformTilesAK.setVisibility(true); app.legendLayerID = "layer33";}
+                        else{landformGridAK.setVisibility(true); app.legendLayerID = "layer36";}
+                      }
+                      if (zone == "CONUS"){
+                        if (currentScale >= 288895.277144){landformTiles.setVisibility(true); app.legendLayerID = "layer31";}
+                        else{landformGrid.setVisibility(true); app.legendLayerID = "layer34";}
+                      }
+                    });
                     updatePrintTitle();
+
                 }
 
                 else if (document.getElementById('r1_tidalHabMig').checked){
@@ -1045,11 +1265,26 @@
                     for (var i = 0; i < app.mapLayers.length; i++){
                         app.mapLayers[i].setVisibility(false);
                     }
-                    if (currentScale >= 288895.277144){tidalHabMigTiles.setVisibility(true); app.legendLayerID = "layer31";}
-                    else{tidalHabMigGrid.setVisibility(true); app.legendLayerID = "layer32";}
+
                     app.tribalLands.setVisibility(false);
                     app.legendLayer = "tidalHab";
+
+                    app.mapZones.forEach((zone, i) => {
+                      if (zone == "HI"){
+                        if (currentScale >= 288895.277144){tidalHabMigTilesHI.setVisibility(true); app.legendLayerID = "layer68";}
+                        else{tidalHabMigGridHI.setVisibility(true); app.legendLayerID = "layer71";}
+                      }
+                      if (zone == "AK"){
+                        if (currentScale >= 288895.277144){tidalHabMigTilesAK.setVisibility(true); app.legendLayerID = "layer69";}
+                        else{tidalHabMigGridAK.setVisibility(true); app.legendLayerID = "layer72";}
+                      }
+                      if (zone == "CONUS"){
+                        if (currentScale >= 288895.277144){tidalHabMigTiles.setVisibility(true); app.legendLayerID = "layer67";}
+                        else{tidalHabMigGrid.setVisibility(true); app.legendLayerID = "layer70";}
+                      }
+                    });
                     updatePrintTitle();
+
                 }
 
 
@@ -1059,18 +1294,33 @@
                     for (var i = 0; i < app.mapLayers.length; i++){
                         app.mapLayers[i].setVisibility(false);
                     }
-                    if (app.regionState === "Region"){
-                        if (currentScale >= 288895.277144){resConnSimpTiles.setVisibility(true); app.legendLayerID = "layer17";}
-                        else{resConnSimpGrid.setVisibility(true); app.legendLayerID = "layer18";}
-                    }
-                    if (app.regionState === "State"){
-                        if (currentScale >= 288895.277144){resConnSimpTilesState.setVisibility(true); app.legendLayerID = "layer19";}
-                        else{resConnSimpGridState.setVisibility(true); app.legendLayerID = "layer20";}
-                    }
+
                     if(app.loggedIn === true){app.tribalLands.setVisibility(false);}
                     else{app.tribalLands.setVisibility(true);}
                     app.legendLayer = "resConnSimp";
+
+                    app.mapZones.forEach((zone, i) => {
+                      if (zone == "HI"){
+                        if (currentScale >= 288895.277144){resConnSimpTilesHI.setVisibility(true); app.legendLayerID = "layer38";}
+                        else{resConnSimpGridHI.setVisibility(true); app.legendLayerID = "layer41";}
+                      }
+                      if (zone == "AK"){
+                        if (currentScale >= 288895.277144){resConnSimpTilesAK.setVisibility(true); app.legendLayerID = "layer39";}
+                        else{resConnSimpGridAK.setVisibility(true); app.legendLayerID = "layer42";}
+                      }
+                      if (zone == "CONUS"){
+                        if (app.regionState === "Region"){
+                            if (currentScale >= 288895.277144){resConnSimpTiles.setVisibility(true); app.legendLayerID = "layer37";}
+                            else{resConnSimpGrid.setVisibility(true); app.legendLayerID = "layer40";}
+                        }
+                        if (app.regionState === "State"){
+                            if (currentScale >= 288895.277144){resConnSimpTilesState.setVisibility(true); app.legendLayerID = "layer43";}
+                            else{resConnSimpGridState.setVisibility(true); app.legendLayerID = "layer44";}
+                        }
+                      }
+                    });
                     updatePrintTitle();
+
                 }
 
                 else if (document.getElementById('r1_resConnDet').checked){
@@ -1079,17 +1329,31 @@
                     for (var i = 0; i < app.mapLayers.length; i++){
                         app.mapLayers[i].setVisibility(false);
                     }
-                    if (app.regionState === "Region"){
-                        if (currentScale >= 288895.277144){resConnDetTiles.setVisibility(true); app.legendLayerID = "layer21";}
-                        else{resConnDetGrid.setVisibility(true); app.legendLayerID = "layer22";}
-                    }
-                    if (app.regionState === "State"){
-                        if (currentScale >= 288895.277144){resConnDetTilesState.setVisibility(true); app.legendLayerID = "layer23";}
-                        else{resConnDetGridState.setVisibility(true); app.legendLayerID = "layer24";}
-                    }
+
                     if(app.loggedIn === true){app.tribalLands.setVisibility(false);}
                     else{app.tribalLands.setVisibility(true);}
                     app.legendLayer = "resConnDet";
+
+                    app.mapZones.forEach((zone, i) => {
+                      if (zone == "HI"){
+                        if (currentScale >= 288895.277144){resConnDetTilesHI.setVisibility(true); app.legendLayerID = "layer46";}
+                        else{resConnDetGridHI.setVisibility(true); app.legendLayerID = "layer49";}
+                      }
+                      if (zone == "AK"){
+                        if (currentScale >= 288895.277144){resConnDetTilesAK.setVisibility(true); app.legendLayerID = "layer47";}
+                        else{resConnDetGridAK.setVisibility(true); app.legendLayerID = "layer50";}
+                      }
+                      if (zone == "CONUS"){
+                        if (app.regionState === "Region"){
+                            if (currentScale >= 288895.277144){resConnDetTiles.setVisibility(true); app.legendLayerID = "layer45";}
+                            else{resConnDetGrid.setVisibility(true); app.legendLayerID = "layer48";}
+                        }
+                        if (app.regionState === "State"){
+                            if (currentScale >= 288895.277144){resConnDetTilesState.setVisibility(true); app.legendLayerID = "layer51";}
+                            else{resConnDetGridState.setVisibility(true); app.legendLayerID = "layer52";}
+                        }
+                      }
+                    });
                     updatePrintTitle();
                 }
 
@@ -1099,16 +1363,30 @@
                     for (var i = 0; i < app.mapLayers.length; i++){
                         app.mapLayers[i].setVisibility(false);
                     }
-                    if (app.regionState === "Region"){
-                        if (currentScale >= 288895.277144){cliFlowTiles.setVisibility(true); app.legendLayerID = "layer25";}
-                        else{cliFlowGrid.setVisibility(true); app.legendLayerID = "layer26";}
-                    }
-                    if (app.regionState === "State"){
-                        if (currentScale >= 288895.277144){cliFlowTiles.setVisibility(true); app.legendLayerID = "layer25";}
-                        else{cliFlowGrid.setVisibility(true); app.legendLayerID = "layer26";}
-                    }
+
                     app.tribalLands.setVisibility(false);
                     app.legendLayer = "cliFlow";
+
+                    app.mapZones.forEach((zone, i) => {
+                      if (zone == "HI"){
+                        if (currentScale >= 288895.277144){cliFlowTilesHI.setVisibility(true); app.legendLayerID = "layer54";}
+                        else{cliFlowGridHI.setVisibility(true); app.legendLayerID = "layer57";}
+                      }
+                      if (zone == "AK"){
+                        if (currentScale >= 288895.277144){cliFlowTilesAK.setVisibility(true); app.legendLayerID = "layer55";}
+                        else{cliFlowGridAK.setVisibility(true); app.legendLayerID = "layer58";}
+                      }
+                      if (zone == "CONUS"){
+                        if (app.regionState === "Region"){
+                            if (currentScale >= 288895.277144){cliFlowTiles.setVisibility(true); app.legendLayerID = "layer53";}
+                            else{cliFlowGrid.setVisibility(true); app.legendLayerID = "layer56";}
+                        }
+                        if (app.regionState === "State"){
+                            if (currentScale >= 288895.277144){cliFlowTiles.setVisibility(true); app.legendLayerID = "layer53";}
+                            else{cliFlowGrid.setVisibility(true); app.legendLayerID = "layer56";}
+                        }
+                      }
+                    });
                     updatePrintTitle();
                 }
 
@@ -1118,28 +1396,58 @@
                     for (var i = 0; i < app.mapLayers.length; i++){
                         app.mapLayers[i].setVisibility(false);
                     }
-                    if (app.regionState === "Region"){
-                        if (currentScale >= 288895.277144){cliFlowCatTiles.setVisibility(true); app.legendLayerID = "layer27";}
-                        else{cliFlowCatGrid.setVisibility(true); app.legendLayerID = "layer28";}
-                    }
-                    if (app.regionState === "State"){
-                        if (currentScale >= 288895.277144){cliFlowCatTilesState.setVisibility(true); app.legendLayerID = "layer29";}
-                        else{cliFlowCatGridState.setVisibility(true); app.legendLayerID = "layer30";}
-                    }
+
                     app.tribalLands.setVisibility(false);
                     app.legendLayer = "cliFlow";
+
+
+                    app.mapZones.forEach((zone, i) => {
+                      if (zone == "HI"){
+                        if (currentScale >= 288895.277144){cliFlowCatTilesHI.setVisibility(true); app.legendLayerID = "layer60";}
+                        else{cliFlowCatGridHI.setVisibility(true); app.legendLayerID = "layer63";}
+                      }
+                      if (zone == "AK"){
+                        if (currentScale >= 288895.277144){cliFlowCatTilesAK.setVisibility(true); app.legendLayerID = "layer61";}
+                        else{cliFlowCatGridAK.setVisibility(true); app.legendLayerID = "layer64";}
+                      }
+                      if (zone == "CONUS"){
+                        if (app.regionState === "Region"){
+                            if (currentScale >= 288895.277144){cliFlowCatTiles.setVisibility(true); app.legendLayerID = "layer59";}
+                            else{cliFlowCatGrid.setVisibility(true); app.legendLayerID = "layer62";}
+                        }
+                        if (app.regionState === "State"){
+                            if (currentScale >= 288895.277144){cliFlowCatTilesState.setVisibility(true); app.legendLayerID = "layer65";}
+                            else{cliFlowCatGridState.setVisibility(true); app.legendLayerID = "layer66";}
+                        }
+                      }
+                    });
                     updatePrintTitle();
                 }
-                 else if (document.getElementById('r1_elev').checked){
+
+               else if (document.getElementById('r1_elev').checked){
                     $("#legendDiv").show();
                     $("#legendJPEG").hide();
                     for (var i = 0; i < app.mapLayers.length; i++){
                         app.mapLayers[i].setVisibility(false);
                     }
-                    if (currentScale >= 288895.277144){elevTiles.setVisibility(true); app.legendLayerID = "layer49";}
-                    else{elevGrid.setVisibility(true); app.legendLayerID = "layer50";}
+
                     app.tribalLands.setVisibility(false);
                     app.legendLayer = "elev";
+
+                    app.mapZones.forEach((zone, i) => {
+                      if (zone == "HI"){
+                        if (currentScale >= 288895.277144){elevTilesHI.setVisibility(true); app.legendLayerID = "layer102";}
+                        else{elevGridHI.setVisibility(true); app.legendLayerID = "layer105";}
+                      }
+                      if (zone == "AK"){
+                        if (currentScale >= 288895.277144){elevTilesAK.setVisibility(true); app.legendLayerID = "layer103";}
+                        else{elevGridAK.setVisibility(true); app.legendLayerID = "layer106";}
+                      }
+                      if (zone == "CONUS"){
+                        if (currentScale >= 288895.277144){elevTiles.setVisibility(true); app.legendLayerID = "layer101";}
+                        else{elevGrid.setVisibility(true); app.legendLayerID = "layer104";}
+                      }
+                    });
                     updatePrintTitle();
                 }
 
@@ -1149,35 +1457,77 @@
                     for (var i = 0; i < app.mapLayers.length; i++){
                         app.mapLayers[i].setVisibility(false);
                     }
-                    if (currentScale >= 288895.277144){rbvSingleTiles.setVisibility(true); app.legendLayerID = "layer43";}
-                    else{rbvSingleGrid.setVisibility(true); app.legendLayerID = "layer44";}
+
                     app.tribalLands.setVisibility(false);
                     app.legendLayer = "rbvSingle";
+                    app.mapZones.forEach((zone, i) => {
+                      if (zone == "HI"){
+                        if (currentScale >= 288895.277144){rbvSingleTilesHI.setVisibility(true); app.legendLayerID = "layer84";}
+                        else{rbvSingleGridHI.setVisibility(true); app.legendLayerID = "layer87";}
+                      }
+                      if (zone == "AK"){
+                        if (currentScale >= 288895.277144){rbvSingleTilesAK.setVisibility(true); app.legendLayerID = "layer85";}
+                        else{rbvSingleGridAK.setVisibility(true); app.legendLayerID = "layer88";}
+                      }
+                      if (zone == "CONUS"){
+                        if (currentScale >= 288895.277144){rbvSingleTiles.setVisibility(true); app.legendLayerID = "layer83";}
+                        else{rbvSingleGrid.setVisibility(true); app.legendLayerID = "layer86";}
+                      }
+                    });
                     updatePrintTitle();
                 }
+
                 else if (document.getElementById('r1_rbvCat').checked){
                     $("#legendDiv").show();
                     $("#legendJPEG").hide();
                     for (var i = 0; i < app.mapLayers.length; i++){
                         app.mapLayers[i].setVisibility(false);
                     }
-                    if (currentScale >= 288895.277144){rbvCatTiles.setVisibility(true); app.legendLayerID = "layer45";}
-                    else{rbvCatGrid.setVisibility(true); app.legendLayerID = "layer46";}
+
                     app.tribalLands.setVisibility(false);
                     app.legendLayer = "rbvCat";
+
+                    app.mapZones.forEach((zone, i) => {
+                      if (zone == "HI"){
+                        if (currentScale >= 288895.277144){rbvCatTilesHI.setVisibility(true); app.legendLayerID = "layer90";}
+                        else{rbvCatGridHI.setVisibility(true); app.legendLayerID = "layer93";}
+                      }
+                      if (zone == "AK"){
+                        if (currentScale >= 288895.277144){rbvCatTilesAK.setVisibility(true); app.legendLayerID = "layer91";}
+                        else{rbvCatGridAK.setVisibility(true); app.legendLayerID = "layer94";}
+                      }
+                      if (zone == "CONUS"){
+                        if (currentScale >= 288895.277144){rbvCatTiles.setVisibility(true); app.legendLayerID = "layer89";}
+                        else{rbvCatGrid.setVisibility(true); app.legendLayerID = "layer92";}
+                      }
+                    });
                     updatePrintTitle();
                 }
+
                 else if (document.getElementById('r1_region').checked){
                     $("#legendDiv").show();
                     $("#legendJPEG").hide();
                     for (var i = 0; i < app.mapLayers.length; i++){
                         app.mapLayers[i].setVisibility(false);
                     }
-                    if (currentScale >= 288895.277144){regionTiles.setVisibility(true); app.legendLayerID = "layer51";}
-                    else{regionGrid.setVisibility(true); app.legendLayerID = "layer52";}
-                    app.tribalLands.setVisibility(false);
 
+                    app.tribalLands.setVisibility(false);
                     app.legendLayer = "region";
+
+                    app.mapZones.forEach((zone, i) => {
+                      if (zone == "HI"){
+                        if (currentScale >= 288895.277144){regionCatTilesHI.setVisibility(true); app.legendLayerID = "layer108";}
+                        else{regionCatGridHI.setVisibility(true); app.legendLayerID = "layer111";}
+                      }
+                      if (zone == "AK"){
+                        if (currentScale >= 288895.277144){regionTilesAK.setVisibility(true); app.legendLayerID = "layer109";}
+                        else{regionGridAK.setVisibility(true); app.legendLayerID = "layer112";}
+                      }
+                      if (zone == "CONUS"){
+                        if (currentScale >= 288895.277144){regionTiles.setVisibility(true); app.legendLayerID = "layer107";}
+                        else{regionGrid.setVisibility(true); app.legendLayerID = "layer110";}
+                      }
+                    });
                     updatePrintTitle();
                 }
 
@@ -1188,20 +1538,21 @@
                     for (var i = 0; i < app.mapLayers.length; i++){
                         app.mapLayers[i].setVisibility(false);
                     }
-                    if (currentScale >= 288895.277144){nlcdTiles.setVisibility(true); app.legendLayerID = "layer33";}
-                    else{nlcdGrid.setVisibility(true); app.legendLayerID = "layer34";}
+                    if (currentScale >= 288895.277144){nlcdTiles.setVisibility(true); app.legendLayerID = "layer73";}
+                    else{nlcdGrid.setVisibility(true); app.legendLayerID = "layer74";}
                     app.tribalLands.setVisibility(false);
                     app.legendLayer = "nlcd";
                     updatePrintTitle();
                 }
+
                 else if (document.getElementById('r1_forestCarbon2010').checked){
                     $("#legendDiv").show();
                     $("#legendJPEG").hide();
                     for (var i = 0; i < app.mapLayers.length; i++){
                         app.mapLayers[i].setVisibility(false);
                     }
-                    if (currentScale >= 288895.277144){forestCarbon2010Tiles.setVisibility(true); app.legendLayerID = "layer35";}
-                    else{forestCarbon2010Grid.setVisibility(true); app.legendLayerID = "layer36";}
+                    if (currentScale >= 288895.277144){forestCarbon2010Tiles.setVisibility(true); app.legendLayerID = "layer75";}
+                    else{forestCarbon2010Grid.setVisibility(true); app.legendLayerID = "layer76";}
                     app.tribalLands.setVisibility(false);
                     app.legendLayer = "forCarb2010";
                     updatePrintTitle();
@@ -1212,8 +1563,8 @@
                     for (var i = 0; i < app.mapLayers.length; i++){
                         app.mapLayers[i].setVisibility(false);
                     }
-                    if (currentScale >= 288895.277144){forestCarbon2050Tiles.setVisibility(true); app.legendLayerID = "layer37";}
-                    else{forestCarbon2050Grid.setVisibility(true); app.legendLayerID = "layer38";}
+                    if (currentScale >= 288895.277144){forestCarbon2050Tiles.setVisibility(true); app.legendLayerID = "layer77";}
+                    else{forestCarbon2050Grid.setVisibility(true); app.legendLayerID = "layer78";}
                     app.tribalLands.setVisibility(false);
                     app.legendLayer = "forestCarb2050";
                     updatePrintTitle();
@@ -1224,8 +1575,8 @@
                     for (var i = 0; i < app.mapLayers.length; i++){
                         app.mapLayers[i].setVisibility(false);
                     }
-                    if (currentScale >= 288895.277144){forestCarbonSeqTiles.setVisibility(true); app.legendLayerID = "layer39";}
-                    else{forestCarbonSeqGrid.setVisibility(true); app.legendLayerID = "layer40";}
+                    if (currentScale >= 288895.277144){forestCarbonSeqTiles.setVisibility(true); app.legendLayerID = "layer79";}
+                    else{forestCarbonSeqGrid.setVisibility(true); app.legendLayerID = "layer80";}
                     app.tribalLands.setVisibility(false);
                     app.legendLayer = "forestCarbSeq";
                     updatePrintTitle();
@@ -1236,8 +1587,8 @@
                     for (var i = 0; i < app.mapLayers.length; i++){
                         app.mapLayers[i].setVisibility(false);
                     }
-                    if (currentScale >= 288895.277144){soilCarbonTiles.setVisibility(true); app.legendLayerID = "layer41";}
-                    else{soilCarbonGrid.setVisibility(true); app.legendLayerID = "layer42";}
+                    if (currentScale >= 288895.277144){soilCarbonTiles.setVisibility(true); app.legendLayerID = "layer81";}
+                    else{soilCarbonGrid.setVisibility(true); app.legendLayerID = "layer82";}
                     app.tribalLands.setVisibility(false);
                     app.legendLayer = "soilCarbon";
                     updatePrintTitle();
@@ -1584,7 +1935,7 @@
 //                console.log(parcelJSON);
 //                console.log(featureSetParcel);
 
- 		app.useCarbon =$("#carbonCheck").is(":checked");
+ 		            app.useCarbon =$("#carbonCheck").is(":checked");
                 app.showCarbonResults = app.useCarbon;
                 var fsInParams = {"Parcel_as_FeatureSet" : parcelJSON, 'loggedIn':app.loggedIn, 'useCarbon':app.useCarbon};
                 app.gpFS.submitJob(fsInParams, completeFSCallback, statusCallback, function(error){
@@ -1639,7 +1990,7 @@
                 let clickZone = getClickMapZone(event.mapPoint)
 
                 console.log(clickZone)
-
+                var qLayers = []
                 if (clickMode !== "draw"){
                     //this is all set up for raster identify
                     identifyParams.geometry = event.mapPoint;
@@ -1648,91 +1999,125 @@
 
                     //set the  layer being identified to correspond to the selected layer
                     if (document.getElementById('r1_resil').checked){
-                        if (app.loggedIn === false){
-                            if (app.regionState === "Region"){identifyParams.layerIds = [21, 0];}
-                            else {identifyParams.layerIds = [21, 16];}
+                        if (app.loggedIn === false){qLayers.push(21);}
+                        if (app.mapZones.includes("CONUS")){
+                          if (app.regionState === "Region"){qLayers.push(0);}
+                          else{qLayers.push(16);}
                         }
-                        else{
-                            if (app.regionState === "Region"){identifyParams.layerIds = [0];}
-                            else {identifyParams.layerIds = [16];}
-                        }
+                        if (app.mapZones.includes("HI")){qLayers.push(44);}
+                        if (app.mapZones.includes("AK")){qLayers.push(30);}
                     }
                     else if (document.getElementById('r1_LD').checked){
-                         if (app.regionState === "Region"){identifyParams.layerIds = [1];}
-                         else{identifyParams.layerIds = [17];}
+                        if (app.mapZones.includes("CONUS")){
+                          if (app.regionState === "Region"){qLayers.push(1);}
+                          else{qLayers.push(17);}
+                        }
+                        if (app.mapZones.includes("HI")){qLayers.push(45);}
+                        if (app.mapZones.includes("AK")){qLayers.push(31);}
                     }
-                    else if (document.getElementById('r1_LC').checked){
-                        if (app.regionState === "Region"){identifyParams.layerIds = [2];}
-                        else{identifyParams.layerIds = [18];}
 
+                    else if (document.getElementById('r1_LC').checked){
+                        if (app.mapZones.includes("CONUS")){
+                          if (app.regionState === "Region"){qLayers.push(2);}
+                          else{qLayers.push(18);}
+                        }
+                        if (app.mapZones.includes("HI")){qLayers.push(46);}
+                        if (app.mapZones.includes("AK")){qLayers.push(32);}
                     }
+
                     else if (document.getElementById('r1_geo').checked){
-                        identifyParams.layerIds = [3];
+                        if (app.mapZones.includes("CONUS")){qLayers.push(3);}
+                        if (app.mapZones.includes("HI")){qLayers.push(47);}
+                        if (app.mapZones.includes("AK")){qLayers.push(33);}
                     }
+
                     else if (document.getElementById('r1_landforms').checked){
-                        identifyParams.layerIds = [4];
+                        if (app.mapZones.includes("CONUS")){qLayers.push(4);}
+                        if (app.mapZones.includes("HI")){qLayers.push(48);}
+                        if (app.mapZones.includes("AK")){qLayers.push(34);}
                     }
                     else if (document.getElementById('r1_tidalHabMig').checked){
-                        identifyParams.layerIds = [27];
+                        if (app.mapZones.includes("CONUS")){qLayers.push(27);}
+                        if (app.mapZones.includes("HI")){qLayers.push(58);}
+                        if (app.mapZones.includes("AK")){qLayers.push(59);}
                     }
 
                     else if (document.getElementById('r1_resConnSimp').checked){
-                        if (app.loggedIn === false){
-                            if (app.regionState === "Region"){identifyParams.layerIds = [21, 5];}
-                            else{identifyParams.layerIds = [21, 20];}
+                        if (app.loggedIn === false){qLayers.push(21);}
+                        if (app.mapZones.includes("CONUS")){
+                          if (app.regionState === "Region"){qLayers.push(5);}
+                          else{qLayers.push(20);}
                         }
-                        else{
-                            if (app.regionState === "Region"){identifyParams.layerIds = [5];}
-                            else{identifyParams.layerIds = [20];}
-                        }
+                        if (app.mapZones.includes("HI")){qLayers.push(49);}
+                        if (app.mapZones.includes("AK")){qLayers.push(35);}
                     }
+
                     else if (document.getElementById('r1_resConnDet').checked){
-                        if (app.loggedIn === false){
-                            if (app.regionState === "Region"){identifyParams.layerIds = [21, 25];}
-                            else{identifyParams.layerIds = [21, 26];}
+                        if (app.loggedIn === false){qLayers.push(21);}
+                        if (app.mapZones.includes("CONUS")){
+                          if (app.regionState === "Region"){qLayers.push(25);}
+                          else{qLayers.push(26);}
                         }
-                        else{
-                            if (app.regionState === "Region"){identifyParams.layerIds = [25];}
-                            else{identifyParams.layerIds = [26];}
+                        if (app.mapZones.includes("HI")){qLayers.push(50);}
+                        if (app.mapZones.includes("AK")){qLayers.push(36);}
+                    }
+
+	                  else if (document.getElementById('r1_cliFlow').checked){
+                        if (app.mapZones.includes("CONUS")){
+                          if (app.regionState === "Region"){qLayers.push(9);}
+                          else{qLayers.push(9);}
                         }
+                        if (app.mapZones.includes("HI")){qLayers.push(52);}
+                        if (app.mapZones.includes("AK")){qLayers.push(38);}
                     }
-	            else if (document.getElementById('r1_cliFlow').checked){
-                        identifyParams.layerIds = [9];
-                    }
+
                     else if (document.getElementById('r1_cliFlowCat').checked){
-                        if (app.regionState === "Region"){identifyParams.layerIds = [10];}
-                        else{identifyParams.layerIds = [19];}
+                        if (app.mapZones.includes("CONUS")){
+                          if (app.regionState === "Region"){qLayers.push(10);}
+                          else{qLayers.push(19);}
+                        }
+                        if (app.mapZones.includes("HI")){qLayers.push(53);}
+                        if (app.mapZones.includes("AK")){qLayers.push(39);}
                     }
                     else if (document.getElementById('r1_elev').checked){
-                        identifyParams.layerIds = [11];
+                        if (app.mapZones.includes("CONUS")){qLayers.push(11);}
+                        if (app.mapZones.includes("HI")){qLayers.push(54);}
+                        if (app.mapZones.includes("AK")){qLayers.push(40);}
                     }
                     else if (document.getElementById('r1_rbvSingle').checked){
-                        identifyParams.layerIds = [13];
+                        if (app.mapZones.includes("CONUS")){qLayers.push(13);}
+                        if (app.mapZones.includes("HI")){qLayers.push(55);}
+                        if (app.mapZones.includes("AK")){qLayers.push(41);}
                     }
                     else if (document.getElementById('r1_rbvCat').checked){
-                        identifyParams.layerIds = [14];
+                        if (app.mapZones.includes("CONUS")){qLayers.push(14);}
+                        if (app.mapZones.includes("HI")){qLayers.push(56);}
+                        if (app.mapZones.includes("AK")){qLayers.push(42);}
                     }
                     else if (document.getElementById('r1_region').checked){
-                        identifyParams.layerIds = [15];
+                        if (app.mapZones.includes("CONUS")){qLayers.push(15);}
+                        if (app.mapZones.includes("HI")){qLayers.push(57);}
+                        if (app.mapZones.includes("AK")){qLayers.push(43);}
                     }
                     else if (document.getElementById('r1_forestCarbon2010').checked){
-                        identifyParams.layerIds = [23];
+                        qLayers.push(23);
                     }
                     else if (document.getElementById('r1_forestCarbon2050').checked){
-                        identifyParams.layerIds = [28];
+                        qLayers.push(28);
                     }
                     else if (document.getElementById('r1_forestCarbonSeq').checked){
-                        identifyParams.layerIds = [29];
+                        qLayers.push(29);
                     }
                     else if (document.getElementById('r1_soilCarbon').checked){
-                        identifyParams.layerIds = [24];
+                        qLayers.push(24);
                     }
                     else if (document.getElementById('r1_nlcd').checked){
-                        identifyParams.layerIds = [22];
+                        qLayers.push(22);
                     }
                     if (document.getElementById('securedCheck').checked){
-                        identifyParams.layerIds.push(8);
+                        qLayers.push(8);
                     }
+                    identifyParams.layerIds = qLayers;
                     var deferred = identifyRes
                         .execute(identifyParams)
                         .addCallback(function (response) {
@@ -2037,18 +2422,16 @@
                                         pixelAnalysis = "Tidal Habitat";
                                     }
                                     if (pixelAnalysis.indexOf("Migration") >-1){
-                                            if (pixelAnalysis === "Additional Marsh Migration Space" && (["CA", "PNW"].includes(idRegion) === false)){
-                                                var tidalHabMigTemplate = new InfoTemplate("Migration Space for Tidal Habitat", "<b>" + pixelCat + " " +pixelValLink + "</b>" + "<br><br><tr><strong>Site Resilience (" + pixelAnalysis +")</strong>: Additional marsh migration space includes future marsh areas that were not spatially linked with current tidal marshes or with the migration space of current tidal marshes. The separation could be due to roads, waterbodies, waterways, oil and gas fields, etc. Depending on local factors and context, the degree to which these features will prevent marshes from accessing the additional migration space areas in the future is unknown and likely varies.</p><p>We assigned resilience scores to the additional migration space areas using several approaches. First, we spatially allocated resilience scores based on Euclidean distance from tidal marshes or migration space units. While this approach was a good starting point, there were migration space areas whose score assignments had to be done manually or by taking the highest of two equidistant nearby scores. The manual assignment included straightforward cases, but often it was unclear how marshes might move into a migration space area. As a result, please interpret the scores of the additional migration space with caution and use local expertise and knowledge as you see fit. Lastly, there were thousands of small and disconnected additional migration space areas, often individual pixels, typically found in urban settings, remote upstream riverine areas, or far from any migration space units or tidal marshes. We did not consider these isolated occurrences as additional migration space because they are unlikely to be important future marsh areas. For more information see the <a href='coreConcepts_coastalMig.html' onClick='return windowPopup(this, \"notes\")'>resilient coastal sites core concepts</a>.</p> </tr>");
-                                            }
-                                            else if(pixelAnalysis === "Additional Marsh Migration Space" && (["CA", "PNW"].includes(idRegion) === true)){
-                                                var tidalHabMigTemplate = new InfoTemplate("Migration Space for Tidal Habitat", "<b>" + pixelCat + " " +pixelValLink + "</b>" + "<br><br><tr><strong>Site Resilience</strong>: Each site received a resilience score based on the likelihood that its coastal habitats can and will migrate to adjacent lowlands, referred to as “migration space.” Each site is scored relative to all other sites within discrete geographic stretches of shoreline that share similar processes and dominant estuary types, which we call Coastal Shoreline Regions (CSRs). Relative to all sites within the same CSR, the tidal complex associated with this migration space has <strong>" + pixelCat + "</strong> resilience for the most extreme sea level rise scenario (e.g. 5-ft. or higher). </tr>");
-                                            }
-
-                                            else{
-                                                var tidalHabMigTemplate = new InfoTemplate("Migration Space for Tidal Habitat", "<b>" + pixelCat + " " +pixelValLink + "</b>" + "<br><br><tr><strong>Site Resilience (" + pixelAnalysis +")</strong>: Each site received a resilience score based on the likelihood that its coastal habitats can and will migrate to adjacent lowlands, referred to as “migration space.” Each site is scored relative to all other sites within discrete geographic stretches of shoreline that share similar processes and dominant estuary types, which we call Coastal Shoreline Regions (CSRs). Relative to all sites within the same CSR, the tidal complex associated with this migration space has <strong>" + pixelCat + "</strong> resilience for the most extreme sea level rise scenario (e.g. 5-ft. or higher). </tr>");
-                                            }
-
+                                        if (pixelAnalysis === "Additional Marsh Migration Space" && (["CA", "PNW"].includes(idRegion) === false)){
+                                            var tidalHabMigTemplate = new InfoTemplate("Migration Space for Tidal Habitat", "<b>" + pixelCat + " " +pixelValLink + "</b>" + "<br><br><tr><strong>Site Resilience (" + pixelAnalysis +")</strong>: Additional marsh migration space includes future marsh areas that were not spatially linked with current tidal marshes or with the migration space of current tidal marshes. The separation could be due to roads, waterbodies, waterways, oil and gas fields, etc. Depending on local factors and context, the degree to which these features will prevent marshes from accessing the additional migration space areas in the future is unknown and likely varies.</p><p>We assigned resilience scores to the additional migration space areas using several approaches. First, we spatially allocated resilience scores based on Euclidean distance from tidal marshes or migration space units. While this approach was a good starting point, there were migration space areas whose score assignments had to be done manually or by taking the highest of two equidistant nearby scores. The manual assignment included straightforward cases, but often it was unclear how marshes might move into a migration space area. As a result, please interpret the scores of the additional migration space with caution and use local expertise and knowledge as you see fit. Lastly, there were thousands of small and disconnected additional migration space areas, often individual pixels, typically found in urban settings, remote upstream riverine areas, or far from any migration space units or tidal marshes. We did not consider these isolated occurrences as additional migration space because they are unlikely to be important future marsh areas. For more information see the <a href='coreConcepts_coastalMig.html' onClick='return windowPopup(this, \"notes\")'>resilient coastal sites core concepts</a>.</p> </tr>");
                                         }
+                                        else if(pixelAnalysis === "Additional Marsh Migration Space" && (["CA", "PNW"].includes(idRegion) === true)){
+                                            var tidalHabMigTemplate = new InfoTemplate("Migration Space for Tidal Habitat", "<b>" + pixelCat + " " +pixelValLink + "</b>" + "<br><br><tr><strong>Site Resilience</strong>: Each site received a resilience score based on the likelihood that its coastal habitats can and will migrate to adjacent lowlands, referred to as “migration space.” Each site is scored relative to all other sites within discrete geographic stretches of shoreline that share similar processes and dominant estuary types, which we call Coastal Shoreline Regions (CSRs). Relative to all sites within the same CSR, the tidal complex associated with this migration space has <strong>" + pixelCat + "</strong> resilience for the most extreme sea level rise scenario (e.g. 5-ft. or higher). </tr>");
+                                        }
+                                        else{
+                                            var tidalHabMigTemplate = new InfoTemplate("Migration Space for Tidal Habitat", "<b>" + pixelCat + " " +pixelValLink + "</b>" + "<br><br><tr><strong>Site Resilience (" + pixelAnalysis +")</strong>: Each site received a resilience score based on the likelihood that its coastal habitats can and will migrate to adjacent lowlands, referred to as “migration space.” Each site is scored relative to all other sites within discrete geographic stretches of shoreline that share similar processes and dominant estuary types, which we call Coastal Shoreline Regions (CSRs). Relative to all sites within the same CSR, the tidal complex associated with this migration space has <strong>" + pixelCat + "</strong> resilience for the most extreme sea level rise scenario (e.g. 5-ft. or higher). </tr>");
+                                        }
+                                    }
 
                                     else if (pixelAnalysis.indexOf("Tidal") >-1){
                                         if (pixelVal <500){//Tidal only uses 2 classes
@@ -2065,14 +2448,12 @@
                                     if (pixelVal === '-3502'){	 //sea levl rise area -- unassessed coastal area
                                         pixelCat = "Sea Level Rise Area";
                                         var tidalHabMigTemplate = new InfoTemplate("Resilience", "<b>" + pixelCat +  "</b>" + "<br><br><tr>This location is at risk of inundation under a 6-foot sea level rise scenario.</tr>");
-
                                     }
-
                                     feature.setInfoTemplate(tidalHabMigTemplate);
                                 }
+
                                 else if(document.getElementById('r1_forestCarbon2010').checked){
                                     var idLayer = "ID Forest Carbon 2010";
-
                                     var tonsacre = feature.attributes['Pixel Value'];
                                     if (tonsacre !== undefined){
                                         tonsacre = Math.max(roundNumber(tonsacre, 2));
@@ -2085,7 +2466,6 @@
                                 }
                                 else if(document.getElementById('r1_forestCarbon2050').checked){
                                     var idLayer = "ID Forest Carbon 2050";
-
                                     var tonsacre = feature.attributes['Pixel Value'];
                                     if (tonsacre !== undefined){
                                         tonsacre = Math.max(roundNumber(tonsacre, 2));
@@ -2096,9 +2476,9 @@
                                     }
                                     feature.setInfoTemplate(forestCarbon2050Template);
                                 }
+
                                 else if(document.getElementById('r1_forestCarbonSeq').checked){
                                     var idLayer = "ID Forest Carbon Sequestration";
-
                                     var tonsacre = feature.attributes['Pixel Value'];
                                     if (tonsacre !== undefined){
                                         tonsacre = Math.max(roundNumber(tonsacre, 2));
@@ -2108,24 +2488,23 @@
                                         var forestCarbonSeqTemplate = new InfoTemplate("Avg. Annual Sequestration", "<tr><strong>Potential Forest Ecosystem Carbon Sequestration</strong>:  No forest carbon data is available for this location.  Forest carbon data is only available in forested areas.  Refer to the NLCD 2016 to locate forested areas.</tr>");
                                     }
                                     feature.setInfoTemplate(forestCarbonSeqTemplate);
+
                                 }
                                 else if(document.getElementById('r1_soilCarbon').checked){
                                     var idLayer = "ID Soil Carbon";
-
                                     var tonsacre = feature.attributes['Pixel Value'];
                                     tonsacre = Math.max(roundNumber(tonsacre, 2));
                                     var soilCarbonTemplate = new InfoTemplate("Soil Organic Carbon", "<tr><strong>Soil Organic Carbon</strong>: <strong>" + tonsacre + "</strong> metric tons / acre. <p>Estimates of soil organic carbon (SOC) for 0-30 cm topsoil layer at a at 250-m resolution for the conterminous USA (CONUS) are from Oak Ridge Lab (<a href='assets/nrs_2020_guevara.pdf' target='_blank'>Guevara et al 2020</a>). The estimates are for the for the period 1991-2010 and were derived using the USDR Rapid Carbon Assessment (RaCA) including 6418 field pedon samples and multiple environmental variables representative of the soil forming environment coupled with a machine learning approach (i.e., simulated annealing) and regression tree ensemble modeling for optimized SOC prediction. Across the continental US nearly 31% of SOC was found in forests, 28% in croplands and 35% in grasslands and shrublands respectively.</p> </tr>");
-
                                     feature.setInfoTemplate(soilCarbonTemplate);
                                 }
+
                                 else if(document.getElementById('r1_nlcd').checked){
                                     var idLayer = "ID NLCD";
-
                                     var lc = feature.attributes['NLCD_Land_Cover_Class'];
-
                                     var nlcdTemplate = new InfoTemplate("NLCD", "<tr><strong>National Landcover Database</strong>:  This location has <strong>" + lc + "</strong> landcover. </tr>");
                                     feature.setInfoTemplate(nlcdTemplate);
                                 }
+
                                 else if(document.getElementById('r1_region').checked){
                                     var idLayer = "ID Regions";
                                     var region = feature.attributes['Stateandregion'];
@@ -2148,8 +2527,6 @@
                                         else{
                                             var regionTemplate = new InfoTemplate("Study Regions", "<tr>This location is part of the <b>" + region + "</b> study area. Click on the image to read the report or access the data.</tr>" + coverImageHTML);
                                         }
-
-
                                     }
                                     feature.setInfoTemplate(regionTemplate);
                                 }
@@ -2166,8 +2543,6 @@
                                     feature.setInfoTemplate(rbvSingleTemplate);
                                 }
 
-
-
                                 //analytics event tracking
                                 ga('send', 'event', {
                                    eventCategory:"Resilient Land",
@@ -2176,7 +2551,6 @@
                                 });
                             return feature;
                             }
-
                         });
                     });
 
@@ -2292,9 +2666,7 @@
                             overflow: "auto"
                         }
                     });
-
                 }
-
             }
 
             function completeCallback(jobInfo){
