@@ -375,13 +375,13 @@
             var localConnTilesAK =new ArcGISTiledMapServiceLayer("https://tiles.arcgis.com/tiles/F7DSX1DSNSiWmOqh/arcgis/rest/services/RL_LC_AK_Tiles_Apr22/MapServer", {visible: false});
 
 
-            var resConnSimpTiles = new ArcGISTiledMapServiceLayer("https://tiles.arcgis.com/tiles/F7DSX1DSNSiWmOqh/arcgis/rest/services/RL_ResilientConnectedSimple_Tiles_July20/MapServer", {visible: false});
-            var resConnSimpTilesState = new ArcGISTiledMapServiceLayer("https://tiles.arcgis.com/tiles/F7DSX1DSNSiWmOqh/arcgis/rest/services/RL_ResilientConnectedSimple_Tiles_State_Apr21/MapServer", {visible: false});
+            var resConnSimpTiles = new ArcGISTiledMapServiceLayer("https://tiles.arcgis.com/tiles/F7DSX1DSNSiWmOqh/arcgis/rest/services/RL_ResilientConnectedSimple_CONUS_Tiles_Apr22/MapServer", {visible: false});
+            var resConnSimpTilesState = new ArcGISTiledMapServiceLayer("https://tiles.arcgis.com/tiles/F7DSX1DSNSiWmOqh/arcgis/rest/services/RL_ResilientConnectedSimple_STATE_Tiles_Apr22/MapServer", {visible: false});
             var resConnSimpTilesHI = new ArcGISTiledMapServiceLayer("https://tiles.arcgis.com/tiles/F7DSX1DSNSiWmOqh/arcgis/rest/services/RL_ResilientConnectedSimple_HI_Tiles_Apr22/MapServer", {visible: false});
             var resConnSimpTilesAK = new ArcGISTiledMapServiceLayer("https://tiles.arcgis.com/tiles/F7DSX1DSNSiWmOqh/arcgis/rest/services/RL_ResilientConnectedSimple_AK_Tiles_Apr22/MapServer", {visible: false});
 
-            var resConnDetTiles = new ArcGISTiledMapServiceLayer("https://tiles.arcgis.com/tiles/F7DSX1DSNSiWmOqh/arcgis/rest/services/RL_ResilientConnectedDetail_Tiles_July20/MapServer", {visible: false});
-            var resConnDetTilesState = new ArcGISTiledMapServiceLayer("https://tiles.arcgis.com/tiles/F7DSX1DSNSiWmOqh/arcgis/rest/services/RL_ResilientConnectedDetail_Tiles_State_Apr21/MapServer", {visible: false});
+            var resConnDetTiles = new ArcGISTiledMapServiceLayer("https://tiles.arcgis.com/tiles/F7DSX1DSNSiWmOqh/arcgis/rest/services/RL_ResilientConnectedDetailed_CONUS_Tiles_Apr22/MapServer", {visible: false});
+            var resConnDetTilesState = new ArcGISTiledMapServiceLayer("https://tiles.arcgis.com/tiles/F7DSX1DSNSiWmOqh/arcgis/rest/services/RL_ResilientConnectedDetailed_STATE_Tiles_Apr22/MapServer", {visible: false});
             var resConnDetTilesHI = new ArcGISTiledMapServiceLayer("https://tiles.arcgis.com/tiles/F7DSX1DSNSiWmOqh/arcgis/rest/services/RL_ResilientConnectedDetailed_HI_Tiles_Apr22/MapServer", {visible: false});
             var resConnDetTilesAK = new ArcGISTiledMapServiceLayer("https://tiles.arcgis.com/tiles/F7DSX1DSNSiWmOqh/arcgis/rest/services/RL_ResilientConnectedDetailed_AK_Tiles_Apr22/MapServer", {visible: false});
 
@@ -420,17 +420,17 @@
             var geoTilesHI = new ArcGISTiledMapServiceLayer("https://tiles.arcgis.com/tiles/F7DSX1DSNSiWmOqh/arcgis/rest/services/RL_GeoSoils_HI_Tiles_Apr22/MapServer", {visible: false});
             var geoTilesAK = new ArcGISTiledMapServiceLayer("https://tiles.arcgis.com/tiles/F7DSX1DSNSiWmOqh/arcgis/rest/services/RL_GeoSoils_AK_Tiles_Apr22/MapServer", {visible: false});
 
-            //TODO
+
             var tidalHabMigTiles = new ArcGISTiledMapServiceLayer("https://tiles.arcgis.com/tiles/F7DSX1DSNSiWmOqh/arcgis/rest/services/RL_TidalHabMig_CONUS_Tiles_Apr22/MapServer", {visible: false});
             var tidalHabMigTilesHI = new ArcGISTiledMapServiceLayer("https://tiles.arcgis.com/tiles/F7DSX1DSNSiWmOqh/arcgis/rest/services/RL_TidalHabMig_HI_Tiles_Apr22/MapServer", {visible: false});
             var tidalHabMigTilesAK = new ArcGISTiledMapServiceLayer("https://tiles.arcgis.com/tiles/F7DSX1DSNSiWmOqh/arcgis/rest/services/RL_TidalHabMig_AK_Tiles_Apr22/MapServer", {visible: false});
 
 
             //carbon layers
-            var nlcdTiles = new ArcGISTiledMapServiceLayer("https://tiles.arcgis.com/tiles/F7DSX1DSNSiWmOqh/arcgis/rest/services/RL_NLCD2016_July20/MapServer", {visible: false});
-            var forestCarbon2010Tiles = new ArcGISTiledMapServiceLayer("https://tiles.arcgis.com/tiles/F7DSX1DSNSiWmOqh/arcgis/rest/services/RL_ForestCarbon2010_Tiles_Feb21/MapServer", {visible: false});
-            var forestCarbon2050Tiles = new ArcGISTiledMapServiceLayer("https://tiles.arcgis.com/tiles/F7DSX1DSNSiWmOqh/arcgis/rest/services/RL_ForestCarbon2050_Tiles_Feb21/MapServer", {visible: false});
-            var forestCarbonSeqTiles = new ArcGISTiledMapServiceLayer("https://tiles.arcgis.com/tiles/F7DSX1DSNSiWmOqh/arcgis/rest/services/RL_ForestCarbonSequestration_Tiles_Feb21/MapServer", {visible: false});
+            var nlcdTiles = new ArcGISTiledMapServiceLayer("https://tiles.arcgis.com/tiles/F7DSX1DSNSiWmOqh/arcgis/rest/services/RL_NLCD2019_CONUS_Tiles_Apr22/MapServer", {visible: false});
+            var forestCarbon2010Tiles = new ArcGISTiledMapServiceLayer("https://tiles.arcgis.com/tiles/F7DSX1DSNSiWmOqh/arcgis/rest/services/RL_ForestCarbon2010_CONUS_Tiles_Apr22/MapServer", {visible: false});
+            var forestCarbon2050Tiles = new ArcGISTiledMapServiceLayer("https://tiles.arcgis.com/tiles/F7DSX1DSNSiWmOqh/arcgis/rest/services/RL_ForestCarbon2050_CONUS_Tiles_Apr22/MapServer", {visible: false});
+            var forestCarbonSeqTiles = new ArcGISTiledMapServiceLayer("https://tiles.arcgis.com/tiles/F7DSX1DSNSiWmOqh/arcgis/rest/services/RL_ForestCarbonSequestration_CONUS_Tiles_Apr22/MapServer", {visible: false});
 
             var soilCarbonTiles = new ArcGISTiledMapServiceLayer("https://tiles.arcgis.com/tiles/F7DSX1DSNSiWmOqh/arcgis/rest/services/RL_SoilCarbon_CONUS_Tiles_Apr22/MapServer", {visible: false});
 
@@ -1945,8 +1945,9 @@
 //                console.log(featureSetParcel);
 
  		            app.useCarbon =$("#carbonCheck").is(":checked");
+                app.nationalState = $("#nationalStateCheck").is(":checked");
                 app.showCarbonResults = app.useCarbon;
-                var fsInParams = {"Parcel_as_FeatureSet" : parcelJSON, 'loggedIn':app.loggedIn, 'useCarbon':app.useCarbon};
+                var fsInParams = {"Parcel_as_FeatureSet" : parcelJSON, 'loggedIn':app.loggedIn, 'useCarbon':app.useCarbon, 'nationalState':app.nationalState};
                 app.gpFS.submitJob(fsInParams, completeFSCallback, statusCallback, function(error){
                     alert("There was a problem with your analysis.  Please double check your inputs and try again. " + error);
                 });
@@ -2667,7 +2668,7 @@
                 app.useCarbon =$("#carbonCheck").is(":checked");
                 app.showCarbonResults = app.useCarbon;
                 //submit the GP Task by passing the itemID info the input parameter
-                var params = {'Parcel_as_Zipped_Shapefile': "{'itemID':" + itemID + "}", 'Polygon_ID':"Name", 'loggedIn':app.loggedIn, 'useCarbon':app.useCarbon};
+                var params = {'Parcel_as_Zipped_Shapefile': "{'itemID':" + itemID + "}", 'Polygon_ID':"Name", 'loggedIn':app.loggedIn, 'useCarbon':app.useCarbon, 'nationalState':app.nationalState};
                 // console.log(params);
                 app.gp.submitJob(params, completeCallback, statusCallback, function(error){
                     alert(error);
@@ -2956,6 +2957,8 @@
                     else if (metric === "ADDITIONAL_RESILIENT_SECURED__GAP_3_"){resConnTextVals["Additional Resilient Secured (GAP 3)"] = acreVal; }
                     else if (metric === "RESILIENT__CONCENTRATED_FLOW__CLIMATE_INFORMED_"){resConnTextVals["Resilient, Concentrated Flow (Climate Informed)"] = acreVal; }
                     else if (metric === "DIFFUSE_FLOW__RECOGNIZED_BIODIVERSITY_VALUE"){resConnTextVals["Diffuse Flow, Recognized Biodiversity Value"] = acreVal; }
+                    else if (metric === "FLOW_AND_RECOGNIZED_BIODIVERSITY"){resConnTextVals["Flow and Recognized Biodiversity"] = acreVal; }
+                    else if (metric === "RESTORATION_SITES"){resConnTextVals["Restoration Sites"] = acreVal; }
 
 
 
@@ -4369,6 +4372,8 @@
           <div id="gpResInfo" >&nbsp;</div>
           <div style="display: table;">
           <input id="carbonCheck"  type="checkbox" title="Select to assess forest and soil carbon within your area of interest"><label title="Select to assess forest and soil carbon within your area of interest" id="carbonCheckLabel">Assess <a id="carbonCheckLink" href='coreConcepts_carbon.html' onClick='return windowPopup(this, "notes")'>Carbon Data</a>? (increases processing time) </label>
+          <br>
+          <input id="nationalStateCheck"  type="checkbox" title="Select to evaluate your AOI against the TNC Division-augmented RCN data"><label title="Select to evaluate your AOI against the TNC Division-augmented RCN data" id="nationalStateCheckLabel">Assess <a id="nationalStateCheckLink" href='coreConcepts_nationalState.html' onClick='return windowPopup(this, "notes")'>TNC Division-augmented RCN</a></label>
           </div>
         </div>
         <div class="map-service-options">
