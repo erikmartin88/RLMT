@@ -2965,13 +2965,24 @@
 
                     else if (metric === "Bio_NO_RECOGNIZED_BIODIVERSITY"){biodivVals["No Recognized Biodiversity"] = acreVal;}
                     else if (metric === "Bio_RECOGNIZED_BIODIVERSITY"){biodivVals["Recognized Biodiversity"] = acreVal;}
+                    else if (metric === "Bio_HB1__INTACT_NATIVE_ECOSYSTEMS_HIGHEST_BIODIVERSITY"){biodivVals["Intact Native Ecosystems Highest Biodiversity"] = acreVal;}
+                    else if (metric === "Bio_HB2__INTACT_NATIVE_ECOSYSTEMS"){biodivVals["Intact Native Ecosystems"] = acreVal;}
+                    else if (metric === "Bio_HB3__THREATENED_NATIVE_ECOSYSTEMS"){biodivVals["Threatened Native Ecosystems"] = acreVal;}
+                    else if (metric === "Bio_HB4__RAPIDLY_DEGRADING_ECOSYSTEMS"){biodivVals["Recognized Biodiversity"] = acreVal;}
+                    else if (metric === "Bio_PORTFOLIO_COASTAL_BIRD_NESTING___ANCHIALINE_POOLS"){biodivVals["Portfolio Coastal Bird Nesting & Anchialine Pools"] = acreVal;}
 
                     else if (metric === "Flow_CONCENTRATED_FLOW"){flowVals["Concentrated Flow"] = acreVal;}
                     else if (metric === "Flow_CONCENTRATED_FLOW__CLIMATE_INFORMED_"){flowVals["Concentrated Flow (Climate Informed)"] = acreVal;}
                     else if (metric === "Flow_DIFFUSE_FLOW__CLIMATE_INFORMED_"){flowVals["Diffuse Flow (Climate Informed)"] = acreVal;}
                     else if (metric === "Flow_DIFFUSE_FLOW_HIGH"){flowVals["Diffuse Flow (High)"] = acreVal;}
                     else if (metric === "Flow_NO_FLOW"){flowVals["No Flow"] = acreVal;}
-                    
+                    else if (metric === "Flow_FLOW_THROUGH_NATURAL_HABITAT"){flowVals["Flow Through Natural Habitat"] = acreVal;}
+                    else if (metric === "Flow_CLIMATE_FLOW_THROUGH_NATURAL_HABITAT"){flowVals["Climate Flow Through Natural Habitat"] = acreVal;}
+                    else if (metric === "Flow_CLIMATE_FLOW_THROUGH_MODIFIED_HABITAT"){flowVals["Climate Flow Through Modified Habitat"] = acreVal;}
+                    else if (metric === "Flow_FLOW_THROUGH_MODIFIED_HABITAT"){flowVals["Flow Through Modified Habitat"] = acreVal;}
+                    else if (metric === "Flow_COASTAL_MIGRATION_SPACE"){flowVals["Coastal Migration Space"] = acreVal;}
+                    else if (metric === "Flow_SEA_LEVEL_RISE_AREA"){flowVals["Sea Level Rise Area"] = acreVal;}
+
 
                     else {
                         if (app.geoDicts.newNamePrettyName.hasOwnProperty(metric) === true){
