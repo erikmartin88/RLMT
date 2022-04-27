@@ -241,7 +241,7 @@
                 disableCloseButton: false,
                 style: {
                     width : "250px",
-                    height : "200px",
+                    height : "235px",
                     color : "black"
                 }
             });
@@ -261,7 +261,9 @@
 
                 if (this.title.includes("carbon")){
                   // console.log(this.title)
-                  var carbonCavText = "The estimates of 2050 forest carbon stock and sequestration project forest growth into the future absent major disturbances and do not account for potentially improved management practices nor increases in the frequency and severity of climatic disturbances."
+
+                  var conusWarning = "Carbon data is only available for the contiguous 48 states.<br><br>"
+                  var carbonCavText = conusWarning + "The estimates of 2050 forest carbon stock and sequestration project forest growth into the future absent major disturbances and do not account for potentially improved management practices nor increases in the frequency and severity of climatic disturbances."
                   var carbonCavButtons =   "<table align=\"center\">" +"<tr align=\"center\">" +"<td align=\"center\" colspan=\"2\">" +"<button data-dojo-type=\"dijit.form.Button\" type=\"button\"" +"data-dojo-props=\"onClick:function(){dijit.byId('carbonCaveatDialog').hide();}\">OK</button>" +"</td>"+"</tr>" +"</table>" ;
                   var carbonCavContent = carbonCavText + "<br><br>" + carbonCavButtons;
                   carbonCaveatDialog.set("content", carbonCavContent)
@@ -359,7 +361,7 @@
             var resTiles = new ArcGISTiledMapServiceLayer("https://tiles.arcgis.com/tiles/F7DSX1DSNSiWmOqh/arcgis/rest/services/RL_Resilience_CONUS_Tiles_Apr22/MapServer", {visible: true});
             var resTilesState = new ArcGISTiledMapServiceLayer("https://tiles.arcgis.com/tiles/F7DSX1DSNSiWmOqh/arcgis/rest/services/RL_Resilience_Tiles_State_July20b/MapServer", {visible: false});
             var resTilesHI = new ArcGISTiledMapServiceLayer("https://tiles.arcgis.com/tiles/F7DSX1DSNSiWmOqh/arcgis/rest/services/RL_Resilience_HI_Tiles_Apr22/MapServer", {visible: true});
-            var ResTilesAK =  new ArcGISTiledMapServiceLayer("https://tiles.arcgis.com/tiles/F7DSX1DSNSiWmOqh/arcgis/rest/services/RL_Resilience_AK_Tiles_Apr22/MapServer", {visible: true});
+            var resTilesAK =  new ArcGISTiledMapServiceLayer("https://tiles.arcgis.com/tiles/F7DSX1DSNSiWmOqh/arcgis/rest/services/RL_Resilience_AK_Tiles_Apr22/MapServer", {visible: true});
 
             var landDivTiles = new ArcGISTiledMapServiceLayer("https://tiles.arcgis.com/tiles/F7DSX1DSNSiWmOqh/arcgis/rest/services/RL_LD_CONUS_Tiles_Apr22/MapServer", {visible: false});
             var landDivTilesState = new ArcGISTiledMapServiceLayer("https://tiles.arcgis.com/tiles/F7DSX1DSNSiWmOqh/arcgis/rest/services/RL_LandscapeDiversity_Tiles_State_July20/MapServer", {visible: false});
@@ -369,14 +371,19 @@
 
             var localConnTiles =new ArcGISTiledMapServiceLayer("https://tiles.arcgis.com/tiles/F7DSX1DSNSiWmOqh/arcgis/rest/services/RL_LC_CONUS_Tiles_Apr22/MapServer", {visible: false});
             var localConnTilesState =new ArcGISTiledMapServiceLayer("https://tiles.arcgis.com/tiles/F7DSX1DSNSiWmOqh/arcgis/rest/services/RL_LocalConnectedness_Tiles_State_Feb21/MapServer", {visible: false});
-            var localConnHI =new ArcGISTiledMapServiceLayer("https://tiles.arcgis.com/tiles/F7DSX1DSNSiWmOqh/arcgis/rest/services/RL_LC_HI_Tiles_Apr22/MapServer", {visible: false});
-            var localConnAK =new ArcGISTiledMapServiceLayer("https://tiles.arcgis.com/tiles/F7DSX1DSNSiWmOqh/arcgis/rest/services/RL_LC_AK_Tiles_Apr22/MapServer", {visible: false});
+            var localConnTilesHI =new ArcGISTiledMapServiceLayer("https://tiles.arcgis.com/tiles/F7DSX1DSNSiWmOqh/arcgis/rest/services/RL_LC_HI_Tiles_Apr22/MapServer", {visible: false});
+            var localConnTilesAK =new ArcGISTiledMapServiceLayer("https://tiles.arcgis.com/tiles/F7DSX1DSNSiWmOqh/arcgis/rest/services/RL_LC_AK_Tiles_Apr22/MapServer", {visible: false});
 
 
             var resConnSimpTiles = new ArcGISTiledMapServiceLayer("https://tiles.arcgis.com/tiles/F7DSX1DSNSiWmOqh/arcgis/rest/services/RL_ResilientConnectedSimple_Tiles_July20/MapServer", {visible: false});
             var resConnSimpTilesState = new ArcGISTiledMapServiceLayer("https://tiles.arcgis.com/tiles/F7DSX1DSNSiWmOqh/arcgis/rest/services/RL_ResilientConnectedSimple_Tiles_State_Apr21/MapServer", {visible: false});
+            var resConnSimpTilesHI = new ArcGISTiledMapServiceLayer("https://tiles.arcgis.com/tiles/F7DSX1DSNSiWmOqh/arcgis/rest/services/RL_ResilientConnectedSimple_HI_Tiles_Apr22/MapServer", {visible: false});
+            var resConnSimpTilesAK = new ArcGISTiledMapServiceLayer("https://tiles.arcgis.com/tiles/F7DSX1DSNSiWmOqh/arcgis/rest/services/RL_ResilientConnectedSimple_AK_Tiles_Apr22/MapServer", {visible: false});
+
             var resConnDetTiles = new ArcGISTiledMapServiceLayer("https://tiles.arcgis.com/tiles/F7DSX1DSNSiWmOqh/arcgis/rest/services/RL_ResilientConnectedDetail_Tiles_July20/MapServer", {visible: false});
             var resConnDetTilesState = new ArcGISTiledMapServiceLayer("https://tiles.arcgis.com/tiles/F7DSX1DSNSiWmOqh/arcgis/rest/services/RL_ResilientConnectedDetail_Tiles_State_Apr21/MapServer", {visible: false});
+            var resConnDetTilesHI = new ArcGISTiledMapServiceLayer("https://tiles.arcgis.com/tiles/F7DSX1DSNSiWmOqh/arcgis/rest/services/RL_ResilientConnectedDetailed_HI_Tiles_Apr22/MapServer", {visible: false});
+            var resConnDetTilesAK = new ArcGISTiledMapServiceLayer("https://tiles.arcgis.com/tiles/F7DSX1DSNSiWmOqh/arcgis/rest/services/RL_ResilientConnectedDetailed_AK_Tiles_Apr22/MapServer", {visible: false});
 
             var cliFlowTiles = new ArcGISTiledMapServiceLayer("https://tiles.arcgis.com/tiles/F7DSX1DSNSiWmOqh/arcgis/rest/services/RL_ClimateFlow_Tiles_July20/MapServer", {visible: false});
             var cliFlowTilesHI = new ArcGISTiledMapServiceLayer("https://tiles.arcgis.com/tiles/F7DSX1DSNSiWmOqh/arcgis/rest/services/RL_ClimateFlow_HI_Tiles_Apr22/MapServer", {visible: false});
@@ -410,8 +417,8 @@
             var landformTilesAK = new ArcGISTiledMapServiceLayer("https://tiles.arcgis.com/tiles/F7DSX1DSNSiWmOqh/arcgis/rest/services/RL_Landforms_AK_Tiles_Apr22/MapServer", {visible: false});
 
             var geoTiles = new ArcGISTiledMapServiceLayer("https://tiles.arcgis.com/tiles/F7DSX1DSNSiWmOqh/arcgis/rest/services/RL_GeologySoils_Tiles_July20/MapServer", {visible: false});
-            var geoTilesHI = new ArcGISTiledMapServiceLayer("https://tiles.arcgis.com/tiles/F7DSX1DSNSiWmOqh/arcgis/rest/services/RL_GeologySoils_Tiles_July20/MapServer", {visible: false});
-            var geoTilesAK = new ArcGISTiledMapServiceLayer("https://tiles.arcgis.com/tiles/F7DSX1DSNSiWmOqh/arcgis/rest/services/RL_GeologySoils_Tiles_July20/MapServer", {visible: false});
+            var geoTilesHI = new ArcGISTiledMapServiceLayer("https://tiles.arcgis.com/tiles/F7DSX1DSNSiWmOqh/arcgis/rest/services/RL_GeoSoils_HI_Tiles_Apr22/MapServer", {visible: false});
+            var geoTilesAK = new ArcGISTiledMapServiceLayer("https://tiles.arcgis.com/tiles/F7DSX1DSNSiWmOqh/arcgis/rest/services/RL_GeoSoils_AK_Tiles_Apr22/MapServer", {visible: false});
 
             //TODO
             var tidalHabMigTiles = new ArcGISTiledMapServiceLayer("https://tiles.arcgis.com/tiles/F7DSX1DSNSiWmOqh/arcgis/rest/services/RL_TidalHabMig_CONUS_Tiles_Apr22/MapServer", {visible: false});
@@ -431,7 +438,7 @@
             var securedAreasTilesHI = new ArcGISTiledMapServiceLayer("https://tiles.arcgis.com/tiles/F7DSX1DSNSiWmOqh/arcgis/rest/services/RL_SecuredLand_HI_Tiles_Apr22/MapServer", {visible: false});
             var securedAreasTilesAK = new ArcGISTiledMapServiceLayer("https://tiles.arcgis.com/tiles/F7DSX1DSNSiWmOqh/arcgis/rest/services/RL_SecuredLand_AK_Tiles_Apr22/MapServer", {visible: false});
 
-            var dynamicGridURL = "https://cumulus.tnc.org/arcgis/rest/services/easterndiv/RL_dynamicGrids_Apr21/MapServer";
+            var dynamicGridURL = "https://cumulus.tnc.org/arcgis/rest/services/easterndiv/RL_dynamicGrids_Apr22_noStateRCN/MapServer";
 //            var dynamicGridURL = "http://maspatial.tnc.org/arcgis/rest/services/Resilience/RL_dynamicGrids_Apr21/MapServer";
 
 
@@ -459,8 +466,8 @@
             landDivHIIPs.layerIds = [45];
             landDivHIIPs.layerOption = ImageParameters.LAYER_OPTION_SHOW;
             var landDivAKIPs = new ImageParameters();
-            landDivStateAKIPs.layerIds = [31];
-            landDivStateAKIPs.layerOption = ImageParameters.LAYER_OPTION_SHOW;
+            landDivAKIPs.layerIds = [31];
+            landDivAKIPs.layerOption = ImageParameters.LAYER_OPTION_SHOW;
 
             var localConnIPs = new ImageParameters();
             localConnIPs.layerIds = [2];
@@ -601,7 +608,7 @@
             var securedAreaIPs = new ImageParameters();
             securedAreaIPs.layerIds = [8];
             securedAreaIPs.layerOption = ImageParameters.LAYER_OPTION_SHOW;
-            var securedAreaIPs = new ImageParameters();
+            var securedAreaHIIPs = new ImageParameters();
             securedAreaHIIPs.layerIds = [51];
             securedAreaHIIPs.layerOption = ImageParameters.LAYER_OPTION_SHOW;
             var securedAreaAKIPs = new ImageParameters();
@@ -788,7 +795,7 @@
                     app.mapZones= app.mapZones.filter(item => item !== "AK")
                   }
 
-                  if (extent.ymin < 2129369 && extent.xmin <-17043745 ){
+                  if (extent.ymin < 2535042 && extent.xmin <-17043745 ){
                     if(app.mapZones.indexOf("HI") == -1){app.mapZones.push("HI")}
                   }
                   else{
@@ -1085,6 +1092,7 @@
             function getResData() {
                 currentScale = map.getScale();
 
+
                 // console.log('Scale: ' + currentScale);
                 if (currentScale >=4622324.434309){
                     if (basemapGallery.getSelected() === landformsBasemap){
@@ -1301,6 +1309,7 @@
 
                     app.mapZones.forEach((zone, i) => {
                       if (zone == "HI"){
+                        console.log(zone)
                         if (currentScale >= 288895.277144){resConnSimpTilesHI.setVisibility(true); app.legendLayerID = "layer38";}
                         else{resConnSimpGridHI.setVisibility(true); app.legendLayerID = "layer41";}
                       }
@@ -1989,9 +1998,10 @@
                 // console.log(event)
                 let clickZone = getClickMapZone(event.mapPoint)
 
-                console.log(clickZone)
+
                 var qLayers = []
                 if (clickMode !== "draw"){
+
                     //this is all set up for raster identify
                     identifyParams.geometry = event.mapPoint;
                     identifyParams.mapExtent = map.extent;
@@ -2000,104 +2010,104 @@
                     //set the  layer being identified to correspond to the selected layer
                     if (document.getElementById('r1_resil').checked){
                         if (app.loggedIn === false){qLayers.push(21);}
-                        if (app.mapZones.includes("CONUS")){
+                        if (clickZone === "CONUS"){
                           if (app.regionState === "Region"){qLayers.push(0);}
                           else{qLayers.push(16);}
                         }
-                        if (app.mapZones.includes("HI")){qLayers.push(44);}
-                        if (app.mapZones.includes("AK")){qLayers.push(30);}
+                        if (clickZone === "HI"){qLayers.push(44);}
+                        if (clickZone === "AK"){qLayers.push(30);}
                     }
                     else if (document.getElementById('r1_LD').checked){
-                        if (app.mapZones.includes("CONUS")){
+                        if (clickZone === "CONUS"){
                           if (app.regionState === "Region"){qLayers.push(1);}
                           else{qLayers.push(17);}
                         }
-                        if (app.mapZones.includes("HI")){qLayers.push(45);}
-                        if (app.mapZones.includes("AK")){qLayers.push(31);}
+                        if (clickZone === "HI"){qLayers.push(45);}
+                        if (clickZone === "AK"){qLayers.push(31);}
                     }
 
                     else if (document.getElementById('r1_LC').checked){
-                        if (app.mapZones.includes("CONUS")){
+                        if (clickZone === "CONUS"){
                           if (app.regionState === "Region"){qLayers.push(2);}
                           else{qLayers.push(18);}
                         }
-                        if (app.mapZones.includes("HI")){qLayers.push(46);}
-                        if (app.mapZones.includes("AK")){qLayers.push(32);}
+                        if (clickZone === "HI"){qLayers.push(46);}
+                        if (clickZone === "AK"){qLayers.push(32);}
                     }
 
                     else if (document.getElementById('r1_geo').checked){
-                        if (app.mapZones.includes("CONUS")){qLayers.push(3);}
-                        if (app.mapZones.includes("HI")){qLayers.push(47);}
-                        if (app.mapZones.includes("AK")){qLayers.push(33);}
+                        if (clickZone === "CONUS"){qLayers.push(3);}
+                        if (clickZone === "HI"){qLayers.push(47);}
+                        if (clickZone === "AK"){qLayers.push(33);}
                     }
 
                     else if (document.getElementById('r1_landforms').checked){
-                        if (app.mapZones.includes("CONUS")){qLayers.push(4);}
-                        if (app.mapZones.includes("HI")){qLayers.push(48);}
-                        if (app.mapZones.includes("AK")){qLayers.push(34);}
+                        if (clickZone === "CONUS"){qLayers.push(4);}
+                        if (clickZone === "HI"){qLayers.push(48);}
+                        if (clickZone === "AK"){qLayers.push(34);}
                     }
                     else if (document.getElementById('r1_tidalHabMig').checked){
-                        if (app.mapZones.includes("CONUS")){qLayers.push(27);}
-                        if (app.mapZones.includes("HI")){qLayers.push(58);}
-                        if (app.mapZones.includes("AK")){qLayers.push(59);}
+                        if (clickZone === "CONUS"){qLayers.push(27);}
+                        if (clickZone === "HI"){qLayers.push(58);}
+                        if (clickZone === "AK"){qLayers.push(59);}
                     }
 
                     else if (document.getElementById('r1_resConnSimp').checked){
                         if (app.loggedIn === false){qLayers.push(21);}
-                        if (app.mapZones.includes("CONUS")){
+                        if (clickZone === "CONUS"){
                           if (app.regionState === "Region"){qLayers.push(5);}
                           else{qLayers.push(20);}
                         }
-                        if (app.mapZones.includes("HI")){qLayers.push(49);}
-                        if (app.mapZones.includes("AK")){qLayers.push(35);}
+                        if (clickZone === "HI"){qLayers.push(49);}
+                        if (clickZone === "AK"){qLayers.push(35);}
                     }
 
                     else if (document.getElementById('r1_resConnDet').checked){
                         if (app.loggedIn === false){qLayers.push(21);}
-                        if (app.mapZones.includes("CONUS")){
+                        if (clickZone === "CONUS"){
                           if (app.regionState === "Region"){qLayers.push(25);}
                           else{qLayers.push(26);}
                         }
-                        if (app.mapZones.includes("HI")){qLayers.push(50);}
-                        if (app.mapZones.includes("AK")){qLayers.push(36);}
+                        if (clickZone === "HI"){qLayers.push(50);}
+                        if (clickZone === "AK"){qLayers.push(36);}
                     }
 
 	                  else if (document.getElementById('r1_cliFlow').checked){
-                        if (app.mapZones.includes("CONUS")){
+                        if (clickZone === "CONUS"){
                           if (app.regionState === "Region"){qLayers.push(9);}
                           else{qLayers.push(9);}
                         }
-                        if (app.mapZones.includes("HI")){qLayers.push(52);}
-                        if (app.mapZones.includes("AK")){qLayers.push(38);}
+                        if (clickZone === "HI"){qLayers.push(52);}
+                        if (clickZone === "AK"){qLayers.push(38);}
                     }
 
                     else if (document.getElementById('r1_cliFlowCat').checked){
-                        if (app.mapZones.includes("CONUS")){
+                        if (clickZone === "CONUS"){
                           if (app.regionState === "Region"){qLayers.push(10);}
                           else{qLayers.push(19);}
                         }
-                        if (app.mapZones.includes("HI")){qLayers.push(53);}
-                        if (app.mapZones.includes("AK")){qLayers.push(39);}
+                        if (clickZone === "HI"){qLayers.push(53);}
+                        if (clickZone === "AK"){qLayers.push(39);}
                     }
                     else if (document.getElementById('r1_elev').checked){
-                        if (app.mapZones.includes("CONUS")){qLayers.push(11);}
-                        if (app.mapZones.includes("HI")){qLayers.push(54);}
-                        if (app.mapZones.includes("AK")){qLayers.push(40);}
+                        if (clickZone === "CONUS"){qLayers.push(11);}
+                        if (clickZone === "HI"){qLayers.push(54);}
+                        if (clickZone === "AK"){qLayers.push(40);}
                     }
                     else if (document.getElementById('r1_rbvSingle').checked){
-                        if (app.mapZones.includes("CONUS")){qLayers.push(13);}
-                        if (app.mapZones.includes("HI")){qLayers.push(55);}
-                        if (app.mapZones.includes("AK")){qLayers.push(41);}
+                        if (clickZone === "CONUS"){qLayers.push(13);}
+                        if (clickZone === "HI"){qLayers.push(55);}
+                        if (clickZone === "AK"){qLayers.push(41);}
                     }
                     else if (document.getElementById('r1_rbvCat').checked){
-                        if (app.mapZones.includes("CONUS")){qLayers.push(14);}
-                        if (app.mapZones.includes("HI")){qLayers.push(56);}
-                        if (app.mapZones.includes("AK")){qLayers.push(42);}
+                        if (clickZone === "CONUS"){qLayers.push(14);}
+                        if (clickZone === "HI"){qLayers.push(56);}
+                        if (clickZone === "AK"){qLayers.push(42);}
                     }
                     else if (document.getElementById('r1_region').checked){
-                        if (app.mapZones.includes("CONUS")){qLayers.push(15);}
-                        if (app.mapZones.includes("HI")){qLayers.push(57);}
-                        if (app.mapZones.includes("AK")){qLayers.push(43);}
+                        if (clickZone === "CONUS"){qLayers.push(15);}
+                        if (clickZone === "HI"){qLayers.push(57);}
+                        if (clickZone === "AK"){qLayers.push(43);}
                     }
                     else if (document.getElementById('r1_forestCarbon2010').checked){
                         qLayers.push(23);
@@ -2175,9 +2185,9 @@
     //                                else if (pixelVal === -3501) {var pixelCat ="Developed Lands";}
     //                                else if (pixelVal === -3502) {var pixelCat ="Sea Level Rise Area";}
     //                                else if (pixelVal === -3503) {var pixelCat ="Tribal Land Excluded (pending review)";}
-                                    var pixelCat = feature.attributes['CONUS_popup'];
+                                    var pixelCat = feature.attributes['CONUS_popup2'];
                                     pixelCat = pixelCat.replace(" Marsh Migration Space", "");
-                                    // console.log(pixelAnalysis)
+                                    // console.log(pixelCat)
                                     var pixelLegend = feature.attributes['CONUS_Legend'].substring(3);
 
                                     if (pixelVal > -3501){	 //not developed
@@ -2213,10 +2223,10 @@
                                             }
                                         }
                                     }
-                                    else if (pixelVal === '-3501'){	 // developed
+                                   else if (pixelVal === '-3501'){	 // developed
                                         var resTemplate = new InfoTemplate("Resilience", "<tr><strong>Developed Lands</strong>: Low, Medium, High Density Developed Lands and Roads were not included in the analysis.");
                                    }
-                                    else if (pixelVal === '-3502'){	 //sea levl rise area -- unassessed coastal area
+                                   else if (pixelVal === '-3502'){	 //sea levl rise area -- unassessed coastal area
                                         pixelCat = "Sea Level Rise Area";
     //                                    var resTemplate = new InfoTemplate("Resilience", "<b>" + pixelCat +  "</b>" + "<br><br><tr>We assessed all interconnected tidal and estuarine habitats that had at least two acres of contiguous estuarine emergent wetland (salt marsh) as mapped in the 2010 Coastal-Change Analysis Program (C-CAP) land cover data (<a target='_blank' href='https://coast.noaa.gov/digitalcoast/tools/lca'>NOAA 2010</a>). Due to errors in how unconsolidated shoreline was mapped, we did not include any sites that consisted solely of unconsolidated shoreline. </tr>");
                                         var resTemplate = new InfoTemplate("Resilience", "<b>" + pixelCat +  "</b>" + "<br><br><tr>This location is at risk of inundation under a 6-foot sea level rise scenario.</tr>");
@@ -2228,14 +2238,19 @@
                                         var resTemplate = new InfoTemplate("Resilience", "<b>" + pixelCat +  "</b>" + "<br><br><tr>Tribal lands are excluded from the results pending a review with tribal representatives. </tr>");
 
                                     }
-                                   else if (pixelVal === '-4000' && pixelAnalysis.indexOf("Tidal") >-1){	 // handful of cell are below average coastal
+                                  else if (pixelVal === '-3504'){	 //sea levl rise area -- unassessed coastal area
+                                        pixelCat = "Pioneer Lava";
+                                        var resTemplate = new InfoTemplate("Resilience", "<tr><strong>Pioneer Lava</strong>: This area is composed of pioneer lava.");
+
+                                  }
+                                  else if (pixelVal === '-4000' && pixelAnalysis.indexOf("Tidal") >-1){	 // handful of cell are below average coastal
                                         pixelCat = "Below Average";
                                         var resTemplate = new InfoTemplate("Resilience", "<b>" + pixelCat + " Resilience " +pixelValLink + "</b>" + "<br><br><tr><strong>Site Resilience (" + pixelAnalysis +")</strong>: Each site received a resilience score based on the likelihood that its coastal habitats can and will migrate to adjacent lowlands, referred to as “migration space.” Each site is scored relative to all other sites within discrete geographic stretches of shoreline that share similar processes and dominant estuary types, which we call Coastal Shoreline Regions (CSRs). Relative to all sites within the same CSR, this tidal complex scores greater than <strong>" + pixelCat + "</strong> resilience or lower for the 6-ft. sea level rise scenario.</tr>");
-                                   }
-                                   else if (pixelVal === '-4000' && pixelAnalysis.indexOf("Migration") >-1){	 // handful of cell are below average coastal
+                                  }
+                                  else if (pixelVal === '-4000' && pixelAnalysis.indexOf("Migration") >-1){	 // handful of cell are below average coastal
                                         pixelCat = "Far Below Average";
                                         var resTemplate = new InfoTemplate("Resilience", "<b>" + pixelCat + " Resilience " +pixelValLink + "</b>" + "<br><br><tr><strong>Site Resilience (" + pixelAnalysis +")</strong>: Each site received a resilience score based on the likelihood that its coastal habitats can and will migrate to adjacent lowlands, referred to as “migration space.” Each site is scored relative to all other sites within discrete geographic stretches of shoreline that share similar processes and dominant estuary types, which we call Coastal Shoreline Regions (CSRs). Relative to all sites within the same CSR, the tidal complex associated with this migration space has <strong>" + pixelCat + "</strong> resilience for the 6-ft. sea level rise scenario. </tr>");
-                                   }
+                                  }
 
                                    idLayer = "ID Resilience";
                                    feature.setInfoTemplate(resTemplate);
@@ -2243,7 +2258,7 @@
 
 
                                 if (document.getElementById('r1_LD').checked){
-                                    var pixelVal = feature.attributes['LD_value'];
+                                    var pixelVal = feature.attributes['LD_Value'];
                                     var idRegion = feature.attributes['Region'];
                                     // console.log(pixelVal)
     //                                if (pixelVal >= -3500 && pixelVal <-2000){var pixelCat = "Far Below Average";}
@@ -2256,6 +2271,9 @@
     //                                else if (pixelVal === -3501) {var pixelCat ="Developed Lands";}
                                     var pixelCat = feature.attributes['LD_Pop_up'];
                                     var pixelLegend = feature.attributes['LD_Legend'].substring(2);
+                                    console.log(pixelCat)
+                                    console.log(pixelLegend)
+                                    console.log(pixelVal)
                                     if (pixelVal > -3501){	 //not developed
                                         if (["CA", "PNW"].includes(idRegion) === false){
                                             var pixelValLink = "(" + roundNumber(pixelVal/1000, 2)  + " <a href='sd.html' onClick='return windowPopup(this, \"SDnotes\")'>SD</a>)";
@@ -2412,7 +2430,7 @@
                                     if (["CA", "PNW"].includes(idRegion) === false){
                                             var pixelValLink = "(" + roundNumber(pixelVal/1000, 2) + " <a href='sd.html' onClick='return windowPopup(this, \"SDnotes\")'>SD</a>)";
                                     }
-                                    var pixelCat = feature.attributes['CONUS_popup'];
+                                    var pixelCat = feature.attributes['CONUS_popup2'];
                                     pixelCat = pixelCat.replace(" Marsh Migration Space", "");
                                     var pixelAnalysis = feature.attributes['type_des'];
                                     if (pixelAnalysis === "Marsh Migration Space"){
@@ -2727,6 +2745,8 @@
                 var nlcdTabAreaTextVals = {};
                 var forCarbTabAreaTextVals = {};
                 var securedTabAreaVals = {};
+                var biodivVals = {};
+                var flowVals = {}
 
                 var aboveBelow;
                 var geoDict = {};
@@ -2943,7 +2963,15 @@
                     else if (metric === "GAP_S_2"){securedTabAreaVals["GAP 2"] = acreVal;}
                     else if (metric === "GAP_S_1"){securedTabAreaVals["GAP 1"] = acreVal;}
 
+                    else if (metric === "Bio_NO_RECOGNIZED_BIODIVERSITY"){biodivVals["No Recognized Biodiversity"] = acreVal;}
+                    else if (metric === "Bio_RECOGNIZED_BIODIVERSITY"){biodivVals["Recognized Biodiversity"] = acreVal;}
 
+                    else if (metric === "Flow_CONCENTRATED_FLOW"){flowVals["Concentrated Flow"] = acreVal;}
+                    else if (metric === "Flow_CONCENTRATED_FLOW__CLIMATE_INFORMED_"){flowVals["Concentrated Flow (Climate Informed)"] = acreVal;}
+                    else if (metric === "Flow_DIFFUSE_FLOW__CLIMATE_INFORMED_"){flowVals["Diffuse Flow (Climate Informed)"] = acreVal;}
+                    else if (metric === "Flow_DIFFUSE_FLOW_HIGH"){flowVals["Diffuse Flow (High)"] = acreVal;}
+                    else if (metric === "Flow_NO_FLOW"){flowVals["No Flow"] = acreVal;}
+                    
 
                     else {
                         if (app.geoDicts.newNamePrettyName.hasOwnProperty(metric) === true){
