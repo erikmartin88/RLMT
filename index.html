@@ -3579,7 +3579,7 @@
                 if (app.nationalState){
 //                    var resilienceText = "<hr><div style='display: inline-block'><h4 style='margin:0px;'>Terrestrial Resilience Categories within Polygon</h4>" + resTabAreaText + ldTabAreaText + lcTabAreaText;
                     var resilienceText = "<div  class='printOverflow'><hr><h4 style='margin:0px;'>Terrestrial Resilience Categories</h4>" + resTabAreaText + ldTabAreaText + lcTabAreaText;
-                    var stateText = 'These results are based on the <b>state-specific</b> analysis.  You can view the input layers by toggling the "Augmented - National" to "Augmented".';
+                    var stateText = 'These results are based on the <b>state-specific</b> analysis.  You can view the input layers by toggling the "Customized - National" to "Customized".';
                 }
                 else{
                     var resilienceText = "<div style='display: inline-block'  class='printOverflow'><hr><h4 style='margin:0px;'>Average Terrestrial Resilience with Polygon</h4><p style='margin-top:0px !important; margin-left: 9px;'>(all scores relative to ecoregion)</p><div style='display:inline-block;'>" + resText + LDText + LCText +  "</div></div><div><hr><h4 style='margin:0px;'>Terrestrial Resilience Categories</h4>" + resTabAreaText + ldTabAreaText + lcTabAreaText;
@@ -4517,10 +4517,10 @@
           <span class="gp-results" style="opacity:1; display:none" id="gpResults" title="Results from the previous analysis run are displayed here."></span>
           <div id="gpResInfo" >&nbsp;</div>
           <div style="display: table;">
-            <input id="carbonCheck"  type="checkbox" title="Select to assess forest and soil carbon within your area of interest"><label title="Select to assess forest and soil carbon within your area of interest" id="carbonCheckLabel">Assess <a id="carbonCheckLink" href='coreConcepts_carbon.html' onClick='return windowPopup(this, "notes")'>Carbon Data</a>? (increases processing time) </label>
+            <input id="carbonCheck"  type="checkbox" title="Select to assess forest and soil carbon within your area of interest"><label title="Select to assess forest and soil carbon within your area of interest" id="carbonCheckLabel">Assess <a id="carbonCheckLink" href='coreConcepts_carbon.html' onClick='return windowPopup(this, "notes")'>Carbon Data</a>?</label>
           </div>
           <div style="display: table;">
-            <input id="nationalStateCheck"  type="checkbox" title="Select to evaluate your AOI against the TNC Division-augmented RCN data"><label title="Select to evaluate your AOI against the TNC Division-augmented RCN data" id="nationalStateCheckLabel">Assess <a id="nationalStateCheckLink" href='coreConcepts_nationalState.html' onClick='return windowPopup(this, "notes")'>TNC Division-augmented RCN</a></label>
+            <input id="nationalStateCheck"  type="checkbox" title="Select to evaluate your AOI against the TNC Customized RCN data"><label title="Select to evaluate your AOI against the TNC Customized RCN data" id="nationalStateCheckLabel">Assess <a id="nationalStateCheckLink" href='coreConcepts_nationalState.html' onClick='return windowPopup(this, "notes")'>TNC Customized RCN</a></label>
           </div>
         </div>
         <div class="map-service-options">
@@ -4530,7 +4530,7 @@
                     <div class="centerDiv">
                         <div class="onoffswitch">
                             <input type="checkbox" name="onoffswitch"  class="onoffswitch-checkbox" id="regionSwitch" tabindex="0" >
-                            <label class="onoffswitch-label" for="regionSwitch" title="Toggle between the nationally-consistent data or the TNC division-augmented data">
+                            <label class="onoffswitch-label" for="regionSwitch" title="Toggle between the nationally-consistent data or the TNC Customized RCN">
                                 <span class="onoffswitch-inner"></span>
                                 <span class="onoffswitch-switch"></span>
                             </label>
