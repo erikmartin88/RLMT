@@ -8,7 +8,7 @@
         "Great Plains" : "greatPlainsReportCover",
         "Great Lakes and Tallgrass Prairie" : "greatLakesReportCover",
         "Warm Deserts and Tamaulipan" : "desertSouthwestReportCover",
-        "California" : "californiaReportCover", 
+        "California" : "californiaReportCover",
         "Pacific Northwest/California" : ["californiaReportCover","pacificNorthwestReportCover"],
         "Rocky Mountains/CA" :["californiaReportCover", "rockiesReportCover"],
         "Warm Deserts and Tamaulipan/CA" :["californiaReportCover", "desertSouthwestReportCover"],
@@ -16,9 +16,13 @@
         "South Atlantic Coast" : "southAtlanticReportCover",
         "Gulf of Mexico Coast" : "gulfOfMexicoReportCover",
         "California Coast" : "californiaCoastReportCover",
-        "Pacific Northwest Coast" :"pnwCoastReportCover"
+        "Pacific Northwest Coast" :"pnwCoastReportCover",
+        "Hawaii" : "hiReportCover",
+        "Hawaii Coast" : "hiCoastReportCover",
+        "Alaska" : "akReportCover",
+        "Alaska Coast" : "akCoastReportCover",
     },
-    
+
     "reportLinks" :{
         "Northeast" : "https://www.conservationgateway.org/ConservationByGeography/NorthAmerica/UnitedStates/edc/reportsdata/terrestrial/resilience/Pages/default.aspx",
         "Southeast" : "https://www.conservationgateway.org/ConservationByGeography/NorthAmerica/UnitedStates/edc/reportsdata/terrestrial/resilience/Pages/default.aspx",
@@ -36,7 +40,11 @@
         "South Atlantic Coast" : "https://www.conservationgateway.org/ConservationByGeography/NorthAmerica/UnitedStates/edc/Documents/SouthAtlantic_Resilient_Coastal_Sites_31Oct2019.pdf",
         "Gulf of Mexico Coast" : "https://www.conservationgateway.org/ConservationByGeography/NorthAmerica/UnitedStates/edc/Documents/GulfOfMexico_Resilient_Coastal_Sites_31Oct2019.pdf",
         "California Coast" : "https://www.conservationgateway.org/ConservationPractices/Marine/crr/library/Documents/TNC_SCC_CoastalAssessment_hi%20sngl.pdf",
-        "Pacific Northwest Coast" :"http://easterndivision.s3.amazonaws.com/coastal/ED_101217_Coastal%20Habitats_C.pdf"
-        
+        "Pacific Northwest Coast" :"http://easterndivision.s3.amazonaws.com/coastal/ED_101217_Coastal%20Habitats_C.pdf",
+        "Hawaii" : "https://www.conservationgateway.org/ConservationByGeography/NorthAmerica/UnitedStates/edc/reportsdata/terrestrial/resilience/Pages/default.aspx",
+        "Hawaii Coast" : "https://www.conservationgateway.org/ConservationByGeography/NorthAmerica/UnitedStates/edc/reportsdata/terrestrial/resilience/Pages/default.aspx",
+        "Alaska" : "https://www.conservationgateway.org/ConservationByGeography/NorthAmerica/UnitedStates/edc/reportsdata/terrestrial/resilience/Pages/default.aspx",
+        "Alaska Coast" : "https://www.conservationgateway.org/ConservationByGeography/NorthAmerica/UnitedStates/edc/reportsdata/terrestrial/resilience/Pages/default.aspx",
+
     }
 }

@@ -298,6 +298,10 @@
         width: 50%;
         text-align: center;
     }
+    #natStateCheck{
+      position: absolute;
+      top: 205px;
+    }
 
 
     .grid-container {
@@ -327,12 +331,6 @@
        text-align: left;
 
     }
-
-
-
-
-
-
 
     .collapsible {
       padding: 0px 0px 0px 0px;
@@ -367,7 +365,7 @@
     }
 
     .onoffswitch {
-        position: relative; width: 75px;
+        position: relative; width: 80px;
         -webkit-user-select:none; -moz-user-select:none; -ms-user-select: none;
 
     }
@@ -390,8 +388,8 @@
         box-sizing: border-box;
     }
     .onoffswitch-inner:before {
-        content: "Regional";
-        padding-left: 10px;
+        content: "Augmented";
+        padding-left: 5px;
         background-color: ; color: #000000;
     }
     .onoffswitch-inner:after {

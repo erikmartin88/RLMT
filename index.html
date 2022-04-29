@@ -69,6 +69,8 @@
             "esri/graphicsUtils",
             "esri/layers/ArcGISTiledMapServiceLayer",
             "esri/layers/ArcGISDynamicMapServiceLayer",
+            "esri/layers/ArcGISImageServiceLayer",
+            "esri/layers/ImageServiceParameters",
             "esri/layers/ImageParameters",
             "esri/request",
             "esri/geometry/scaleUtils",
@@ -121,7 +123,8 @@
         ],
 
 //Set up and initialize******************************************
-        function (esriConfig, InfoTemplate, Map, Basemap, BasemapToggle, BasemapLayer, BasemapGallery, Search, Print, PrintTemplate, Draw, Extent, Graphic, graphicsUtils, ArcGISTiledMapServiceLayer, ArcGISDynamicMapServiceLayer, ImageParameters, request, scaleUtils, Point, Geoprocessor, FeatureSet, IdentifyTask, IdentifyParameters, LegendLayer, esriConfig, FeatureLayer,
+        function (esriConfig, InfoTemplate, Map, Basemap, BasemapToggle, BasemapLayer, BasemapGallery, Search, Print, PrintTemplate, Draw, Extent, Graphic, graphicsUtils, ArcGISTiledMapServiceLayer, ArcGISDynamicMapServiceLayer, ArcGISImageServiceLayer,
+        ImageServiceParameters, ImageParameters, request, scaleUtils, Point, Geoprocessor, FeatureSet, IdentifyTask, IdentifyParameters, LegendLayer, esriConfig, FeatureLayer,
         SimpleRenderer, PictureMarkerSymbol, SimpleFillSymbol, SimpleLineSymbol, SimpleMarkerSymbol, LocateButton, Legend, Popup, PopupTemplate, ClassBreaksRenderer, Scalebar,
         dom, connect, JSON, on, parser, sniff, arrayUtils, Chart, Pie, theme,  Tooltip, MoveSlice,  Color, lang, registry, Dialog, string, domConstruct, ready, geoDicts, reports, BorderContainer, ContentPane,AccordionContainer, fx, domReady )
         {
@@ -129,9 +132,9 @@
             parser.parse();
             app.geoDicts = dojo.eval("[" + geoDicts + "]")[0];
             app.reports = dojo.eval("[" + reports + "]")[0];
-            app.gp = new esri.tasks.Geoprocessor("https://cumulus.tnc.org/arcgis/rest/services/easterndiv/RL_ResilienceScore_Nov21/GPServer/RL_ResilienceScore");
-            app.gpUploadURL = "https://cumulus.tnc.org/arcgis/rest/services/easterndiv/RL_ResilienceScore_Nov21/GPServer/uploads/upload";
-            app.gpFS = new esri.tasks.Geoprocessor("https://cumulus.tnc.org/arcgis/rest/services/easterndiv/RL_ResilienceScoreFS_Nov21/GPServer/RL_ResilienceScoreFS");
+            app.gp = new esri.tasks.Geoprocessor("https://cumulus.tnc.org/arcgis/rest/services/easterndiv/RL_ResilienceScore_Apr22/GPServer/RL_ResilienceScore");
+            app.gpUploadURL = "https://cumulus.tnc.org/arcgis/rest/services/easterndiv/RL_ResilienceScore_Apr22/GPServer/uploads/upload";
+            app.gpFS = new esri.tasks.Geoprocessor("https://cumulus.tnc.org/arcgis/rest/services/easterndiv/RL_ResilienceScoreFS_Apr22/GPServer/RL_ResilienceScoreFS");
 
             app.gp.setUpdateDelay(500); //status check in milliseconds
             app.gpFS.setUpdateDelay(500); //status check in milliseconds
@@ -410,7 +413,7 @@
 
             var regionTiles = new ArcGISTiledMapServiceLayer("https://tiles.arcgis.com/tiles/F7DSX1DSNSiWmOqh/arcgis/rest/services/RL_StudyRegion_Tiles_Apr21/MapServer", {visible: false});
             var regionTilesHI = new ArcGISTiledMapServiceLayer("https://tiles.arcgis.com/tiles/F7DSX1DSNSiWmOqh/arcgis/rest/services/RL_StudyRegion_HI_Tiles_Apr22/MapServer", {visible: false});
-            var regionTilesAK = new ArcGISTiledMapServiceLayer("https://tiles.arcgis.com/tiles/F7DSX1DSNSiWmOqh/arcgis/rest/services/RL_StudyRegion_AKTiles_Apr22/MapServer", {visible: false});
+            var regionTilesAK = new ArcGISTiledMapServiceLayer("https://tiles.arcgis.com/tiles/F7DSX1DSNSiWmOqh/arcgis/rest/services/RL_StudyRegion_AK_Tiles_Apr22/MapServer", {visible: false});
 
             var landformTiles = new ArcGISTiledMapServiceLayer("https://tiles.arcgis.com/tiles/F7DSX1DSNSiWmOqh/arcgis/rest/services/RL_Landforms_Tiles_Apr20/MapServer", {visible: false});
             var landformTilesHI = new ArcGISTiledMapServiceLayer("https://tiles.arcgis.com/tiles/F7DSX1DSNSiWmOqh/arcgis/rest/services/RL_Landforms_HI_Tiles_Apr22/MapServer", {visible: false});
@@ -438,7 +441,7 @@
             var securedAreasTilesHI = new ArcGISTiledMapServiceLayer("https://tiles.arcgis.com/tiles/F7DSX1DSNSiWmOqh/arcgis/rest/services/RL_SecuredLand_HI_Tiles_Apr22/MapServer", {visible: false});
             var securedAreasTilesAK = new ArcGISTiledMapServiceLayer("https://tiles.arcgis.com/tiles/F7DSX1DSNSiWmOqh/arcgis/rest/services/RL_SecuredLand_AK_Tiles_Apr22/MapServer", {visible: false});
 
-            var dynamicGridURL = "https://cumulus.tnc.org/arcgis/rest/services/easterndiv/RL_dynamicGrids_Apr22_noStateRCN/MapServer";
+            var dynamicGridURL = "https://cumulus.tnc.org/arcgis/rest/services/easterndiv/RL_dynamicGrids_Apr22/MapServer";
 //            var dynamicGridURL = "http://maspatial.tnc.org/arcgis/rest/services/Resilience/RL_dynamicGrids_Apr21/MapServer";
 
 
@@ -1041,14 +1044,30 @@
                     userIPs.layerOption = ImageParameters.LAYER_OPTION_SHOW;
                     shortUserURL = userURL.substring(0,userURL.lastIndexOf("/"));
                     if (userURL.indexOf("FeatureServer") !== -1){
-                            console.log("FeatureServer");
+                            // console.log("FeatureServer");
                             app.userMapLayer = new FeatureLayer(userURL);
                             map.addLayer(app.userMapLayer);
                     }
+
                     else{
                         app.userMapLayer = new ArcGISDynamicMapServiceLayer(shortUserURL, {visible: true, "imageParameters": userIPs});
                         map.addLayer(app.userMapLayer);
                     }
+                }
+                else if (userURL.indexOf("ImageServer") !== -1){
+                  // console.log("ImageServer");
+                  var params = new ImageServiceParameters();
+                  app.userMapLayer = new ArcGISImageServiceLayer(userURL, {
+                    imageServiceParameters: params,
+                    opacity: 0.75
+                  });
+                  map.addLayer(app.userMapLayer);
+                }
+                else if (userURL.indexOf("tiles") !== -1){
+                  // console.log("TileServer");
+                  var params = new ImageServiceParameters();
+                  app.userMapLayer = new ArcGISTiledMapServiceLayer(userURL);
+                  map.addLayer(app.userMapLayer);
                 }
                 else{
                     console.log(userURL);
@@ -1525,8 +1544,8 @@
 
                     app.mapZones.forEach((zone, i) => {
                       if (zone == "HI"){
-                        if (currentScale >= 288895.277144){regionCatTilesHI.setVisibility(true); app.legendLayerID = "layer108";}
-                        else{regionCatGridHI.setVisibility(true); app.legendLayerID = "layer111";}
+                        if (currentScale >= 288895.277144){regionTilesHI.setVisibility(true); app.legendLayerID = "layer108";}
+                        else{regionGridHI.setVisibility(true); app.legendLayerID = "layer111";}
                       }
                       if (zone == "AK"){
                         if (currentScale >= 288895.277144){regionTilesAK.setVisibility(true); app.legendLayerID = "layer109";}
@@ -1655,16 +1674,59 @@
                legendDijit.refresh();
             };
 
+            //user layer transp
+            var userSlider = document.getElementById('userLayerTransp');
+            userSlider.oninput = function(){
+                var val = (this.value)/100;
+                app.userMapLayer.setOpacity(val);
+            };
+
+            userSlider.onchange = function(){
+              var val = (this.value)/100;
+              app.userMapLayer.setOpacity(val);
+            };
+
+
+
+
+
+
             var securedSlider = document.getElementById('secTransp');
             securedSlider.oninput = function(){
                 var val = (this.value)/100;
-                securedAreasDyn.setOpacity(val);
-                securedAreasTiles.setOpacity(val);
+
+
+                app.mapZones.forEach((zone, i) => {
+                  if (zone == "HI"){
+                    securedAreasDynHI.setOpacity(val);
+                    securedAreasTilesHI.setOpacity(val);
+                  }
+                  if (zone == "AK"){
+                    securedAreasDynAK.setOpacity(val);
+                    securedAreasTilesAK.setOpacity(val);
+                  }
+                  if (zone == "CONUS"){
+                    securedAreasDyn.setOpacity(val);
+                    securedAreasTiles.setOpacity(val);
+                  }
+                });
             };
             securedSlider.onchange = function(){
                 var val = (this.value)/100;
-                securedAreasDyn.setOpacity(val);
-                securedAreasTiles.setOpacity(val);
+                app.mapZones.forEach((zone, i) => {
+                  if (zone == "HI"){
+                    securedAreasDynHI.setOpacity(val);
+                    securedAreasTilesHI.setOpacity(val);
+                  }
+                  if (zone == "AK"){
+                    securedAreasDynAK.setOpacity(val);
+                    securedAreasTilesAK.setOpacity(val);
+                  }
+                  if (zone == "CONUS"){
+                    securedAreasDyn.setOpacity(val);
+                    securedAreasTiles.setOpacity(val);
+                  }
+                });
             };
 
             var scalebar = new Scalebar({
@@ -1775,8 +1837,23 @@
                         app.securedVisible = true;
                         var securedSlider = document.getElementById('secTransp');
                         // console.log(securedSlider.value)
-                        securedAreasDyn.setOpacity(securedSlider.value/100);
-                        securedAreasTiles.setOpacity(securedSlider.value/100);
+
+                        app.mapZones.forEach((zone, i) => {
+                          if (zone == "HI"){
+                            securedAreasDynHI.setOpacity(securedSlider.value/100);
+                            securedAreasTilesHI.setOpacity(securedSlider.value/100);
+                          }
+                          if (zone == "AK"){
+                            securedAreasDynAK.setOpacity(securedSlider.value/100);
+                            securedAreasTilesAK.setOpacity(securedSlider.value/100);
+                          }
+                          if (zone == "CONUS"){
+                            securedAreasDyn.setOpacity(securedSlider.value/100);
+                            securedAreasTiles.setOpacity(securedSlider.value/100);
+                          }
+                        });
+
+
                         refreshReferenceLayers();
                     }
                     else{app.securedVisible = false; refreshReferenceLayers();}
@@ -1789,14 +1866,38 @@
                 else{states.setVisibility(false);}
                 if (app.securedVisible === true){
                     $('#secTransp').show();
-                    if (currentScale >= 288895.277144){
-                        securedAreasTiles.setVisibility(true);
-                        securedAreasDyn.setVisibility(false);
-                    }
-                    else{
-                        securedAreasTiles.setVisibility(false);
-                        securedAreasDyn.setVisibility(true);
-                    }
+                    app.mapZones.forEach((zone, i) => {
+                      if (zone == "HI"){
+                        if (currentScale >= 288895.277144){
+                            securedAreasTilesHI.setVisibility(true);
+                            securedAreasDynHI.setVisibility(false);
+                        }
+                        else{
+                            securedAreasTilesHI.setVisibility(false);
+                            securedAreasDynHI.setVisibility(true);
+                        }
+                      }
+                      if (zone == "AK"){
+                        if (currentScale >= 288895.277144){
+                            securedAreasTilesAK.setVisibility(true);
+                            securedAreasDynAK.setVisibility(false);
+                        }
+                        else{
+                            securedAreasTilesAK.setVisibility(false);
+                            securedAreasDynAK.setVisibility(true);
+                        }
+                      }
+                      if (zone == "CONUS"){
+                        if (currentScale >= 288895.277144){
+                            securedAreasTiles.setVisibility(true);
+                            securedAreasDyn.setVisibility(false);
+                        }
+                        else{
+                            securedAreasTiles.setVisibility(false);
+                            securedAreasDyn.setVisibility(true);
+                        }
+                      }
+                    });
                 }
                 else{
                     $('#secTransp').hide();
@@ -1831,7 +1932,7 @@
                 else if (app.legendLayer === "rbvCat"){var layerName = "Recognized Biodiversity Value - Categories";}
                 else if (app.legendLayer === "rbvSingle"){var layerName = "Recognized Biodiversity Value";}
                 else if (app.legendLayer === "region"){var layerName = "Study Regions";}
-                else if (app.legendLayer === "nlcd"){var layerName = "Landcover (NLCD 2016)";}
+                else if (app.legendLayer === "nlcd"){var layerName = "Landcover (NLCD 2019)";}
                 else if (app.legendLayer === "forestCarb2010"){var layerName = "Forest Ecosystem Carbon (2010)";}
                 else if (app.legendLayer === "forestCarb2050"){var layerName = "Forest Ecosystem Carbon (2050)";}
                 else if (app.legendLayer === "forestCarbSeq"){var layerName = "Potential Forest Carbon Sequestration (2010-2050)";}
@@ -2126,7 +2227,9 @@
                         qLayers.push(22);
                     }
                     if (document.getElementById('securedCheck').checked){
-                        qLayers.push(8);
+                      if(app.mapZones.indexOf("CONUS") != -1){qLayers.push(8);}
+                      if(app.mapZones.indexOf("HI") != -1){qLayers.push(51);}
+                      if(app.mapZones.indexOf("AK") != -1){qLayers.push(37);}
                     }
                     identifyParams.layerIds = qLayers;
                     var deferred = identifyRes
@@ -2158,7 +2261,7 @@
                                 // console.log(feature);
                                 return feature;
                             }
-                            if (idResult.layerId === 8){
+                            if (idResult.layerId === 8 || idResult.layerId === 37 || idResult.layerId === 51){
                                 var securedTemplate = new InfoTemplate("Conservation  Lands", "<strong>" + idResult.value + "</strong></br>GAP Status: " + feature.attributes.GAP_STATUS + "</br>Acres: " + numberWithCommas(roundNumber(parseFloat(feature.attributes.GIS_ACRES), 2)));
                                 feature.setInfoTemplate(securedTemplate);
                                 return feature;
@@ -2374,7 +2477,7 @@
                                     var pixelDescSimp =feature.attributes['rcn_simp_legend'].substr(2);  // if field starts with a number for sorting, then need to omit the first 2 chars
                                     if (pixelDescSimp === undefined|| pixelDescSimp === ""){pixelDescSimp = "Outside prioritized network";}
                                     var idLayer = "ID Resilient & Connected (Detail)";
-                                    var pixelDescDet =feature.attributes['RCN_DESC_NEW'].substr(3);  // if field starts with a number for sorting, then need to omit the first 2 chars
+                                    var pixelDescDet =feature.attributes['Prioritized_Network'];  // if field starts with a number for sorting, then need to omit the first 2 chars
                                     if (pixelDescDet === "Resilient Coastal Migration Space"){pixelDescDet = "Migration Space for Tidal Habitat";}
                                     if (pixelDescDet === undefined || pixelDescDet === ""){pixelDescDet = "Outside prioritized network";}
                                     var resConnSimpTemplate = new InfoTemplate("Resilient and Connected Landscapes", "<tr><strong>Resilient and Connected Network</strong>: This map integrates 1) representative climate-resilient sites - places where high topoclimatic diversity and low levels of human modification provide species with connected, diverse climatic conditions they will need to persist and adapt to changing regional climates; 2) connectivity and climate flow areas - places important for sustaining regional connectivity to support dispersal, gene flow, and range shifts; and 3) recognized biodiversity areas - places recognized for their biodiversity value such as rare species, intact habitat, or exemplary natural communities.  The results naturally align these features into a connected network of resilient sites that, if conserved, could sustain the diversity of the conterminous US while ensuring species can move and adapt to climate change. Using the simple network classes, this location is characterized as  <b>" + pixelDescSimp+ "</b>.  Using the detailed classes it is characterized as <b>"+ pixelDescDet +"</b>.</tr>");
@@ -2382,7 +2485,7 @@
                                 }
                                 else if(document.getElementById('r1_resConnDet').checked){
                                     var idLayer = "ID Resilient & Connected (Detail)";
-                                    var pixelDescDet =feature.attributes['RCN_DESC_NEW'].substr(3);  // if field starts with a number for sorting, then need to omit the first 2 chars
+                                    var pixelDescDet =feature.attributes['Prioritized_Network'];  // if field starts with a number for sorting, then need to omit the first 2 chars
                                     if (pixelDescDet === "Resilient Coastal Migration Space"){pixelDescDet = "Migration Space for Tidal Habitat"}
                                     if (pixelDescDet === undefined){pixelDescDet = "Outside prioritized network";}
                                     var resConnDetTemplate = new InfoTemplate("Resilient and Connected Landscapes (Detail)", "<tr><strong>Resilient and Connected Network</strong>: This map integrates 1) representative climate-resilient sites - places where high topoclimatic diversity and low levels of human modification provide species with connected, diverse climatic conditions they will need to persist and adapt to changing regional climates; 2) connectivity and climate flow areas - places important for sustaining regional connectivity to support dispersal, gene flow, and range shifts; and 3) recognized biodiversity areas - places recognized for their biodiversity value such as rare species, intact habitat, or exemplary natural communities.  The results naturally align these features into a connected network of resilient sites that, if conserved, could sustain the diversity of the conterminous US while ensuring species can move and adapt to climate change. This location is in the network based on  <b>" + pixelDescDet + "</b>.</tr>");
@@ -2479,7 +2582,7 @@
                                         var forestCarbon2010Template = new InfoTemplate("Forest Ecosystem Carbon", "<tr><strong>Forest Ecosystem Carbon (2010)</strong>:  <strong>" + tonsacre + "</strong> mt/acre. <p>Estimates of Forest Carbon (Aboveground, Coarse Woody Debris and Total Ecosystem) are from <a href='https://daac.ornl.gov/CMS/guides/AGB_NEP_Disturbance_US_Forests.html' target='_blank'>Williams et al. (2021b)</a> following methods described in Gu et al. (2019) for the Southeast US.  To estimate carbon stock, attributes were determined for all forested 30-m pixels in the continental United States and a forest carbon cycle model trained to match Forest Inventory and Analysis (FIA) data was used to predict carbon stocks for 2010 based on site‐level attributes of forest type group, years since disturbance, and site productivity class. Results were iterated backward in time to provide continuous, annual reporting of forest carbon dynamics for each pixel.  Unlike in most prior studies that lack spatial detail on the stand age of forest stands that persisted in a forested condition during the satellite data era, this study used remotely sensed biomass to estimate the stand age condition of these persisting, intact forests, distinguishing relatively young stands (e.g., 30 to 50 year old) from older stands.</p> </tr>");
                                     }
                                     else{
-                                        var forestCarbon2010Template = new InfoTemplate("Forest Ecosystem Carbon", "<tr><strong>Forest Ecosystem Carbon (2010)</strong>:  No forest carbon data is available for this location.  Forest carbon data is only available in forested areas.  Refer to the NLCD 2016 to locate forested areas.</tr>");
+                                        var forestCarbon2010Template = new InfoTemplate("Forest Ecosystem Carbon", "<tr><strong>Forest Ecosystem Carbon (2010)</strong>:  No forest carbon data is available for this location.  Forest carbon data is only available in forested areas.  Refer to the NLCD 2019 to locate forested areas.</tr>");
                                     }
                                     feature.setInfoTemplate(forestCarbon2010Template);
                                 }
@@ -2491,7 +2594,7 @@
                                         var forestCarbon2050Template = new InfoTemplate("Forest Ecosystem Carbon", "<tr><strong>Forest Ecosystem Carbon (2050)</strong>:  <strong>" + tonsacre + "</strong> metric tons / acre. <p>Estimates of Forest Carbon (Aboveground, Coarse Woody Debris and Total Ecosystem) are from <a href='https://daac.ornl.gov/CMS/guides/AGB_NEP_Disturbance_US_Forests.html' target='_blank'>Williams et al. (2021b)</a> following methods described in Gu et al. (2019) for the Southeast US.  To estimate carbon stock, attributes were determined for all forested 30-m pixels in the continental United States and a forest carbon cycle model trained to match Forest Inventory and Analysis (FIA) data was used to predict carbon stocks for 2010 based on site‐level attributes of forest type group, years since disturbance, and site productivity class. Results were iterated backward in time to provide continuous, annual reporting of forest carbon dynamics for each pixel.  Unlike in most prior studies that lack spatial detail on the stand age of forest stands that persisted in a forested condition during the satellite data era, this study used remotely sensed biomass to estimate the stand age condition of these persisting, intact forests, distinguishing relatively young stands (e.g., 30 to 50 year old) from older stands.</p> </tr>");
                                     }
                                     else{
-                                        var forestCarbon2050Template = new InfoTemplate("Forest Ecosystem Carbon", "<tr><strong>Forest Ecosystem Carbon (2050)</strong>:  No forest carbon data is available for this location.  Forest carbon data is only available in forested areas.  Refer to the NLCD 2016 to locate forested areas.</tr>");
+                                        var forestCarbon2050Template = new InfoTemplate("Forest Ecosystem Carbon", "<tr><strong>Forest Ecosystem Carbon (2050)</strong>:  No forest carbon data is available for this location.  Forest carbon data is only available in forested areas.  Refer to the NLCD 2019 to locate forested areas.</tr>");
                                     }
                                     feature.setInfoTemplate(forestCarbon2050Template);
                                 }
@@ -2504,7 +2607,7 @@
                                         var forestCarbonSeqTemplate = new InfoTemplate("Avg. Annual Sequestration", "<tr><strong>Potential Forest Ecosystem Carbon Sequestration</strong>:  <strong>" + tonsacre + "</strong> metric tons / acre. <p>Estimates of Forest Carbon (Aboveground, Coarse Woody Debris and Total Ecosystem) are from <a href='https://daac.ornl.gov/CMS/guides/AGB_NEP_Disturbance_US_Forests.html' target='_blank'>Williams et al. (2021b)</a> following methods described in Gu et al. (2019) for the Southeast US.  To estimate carbon stock, attributes were determined for all forested 30-m pixels in the continental United States and a forest carbon cycle model trained to match Forest Inventory and Analysis (FIA) data was used to predict carbon stocks for 2010 based on site‐level attributes of forest type group, years since disturbance, and site productivity class. Results were iterated backward in time to provide continuous, annual reporting of forest carbon dynamics for each pixel.  Unlike in most prior studies that lack spatial detail on the stand age of forest stands that persisted in a forested condition during the satellite data era, this study used remotely sensed biomass to estimate the stand age condition of these persisting, intact forests, distinguishing relatively young stands (e.g., 30 to 50 year old) from older stands.</p> </tr>");
                                     }
                                     else{
-                                        var forestCarbonSeqTemplate = new InfoTemplate("Avg. Annual Sequestration", "<tr><strong>Potential Forest Ecosystem Carbon Sequestration</strong>:  No forest carbon data is available for this location.  Forest carbon data is only available in forested areas.  Refer to the NLCD 2016 to locate forested areas.</tr>");
+                                        var forestCarbonSeqTemplate = new InfoTemplate("Avg. Annual Sequestration", "<tr><strong>Potential Forest Ecosystem Carbon Sequestration</strong>:  No forest carbon data is available for this location.  Forest carbon data is only available in forested areas.  Refer to the NLCD 2019 to locate forested areas.</tr>");
                                     }
                                     feature.setInfoTemplate(forestCarbonSeqTemplate);
 
@@ -2527,6 +2630,7 @@
                                 else if(document.getElementById('r1_region').checked){
                                     var idLayer = "ID Regions";
                                     var region = feature.attributes['Stateandregion'];
+                                    if (region == undefined){region = feature.attributes['stateandregion'];}
                                     if (["Warm Deserts and Tamaulipan/CA", "Rocky Mountains/CA", "Pacific Northwest/California"].includes(region) === true){
                                         var coverImage0 = 'assets/' + app.reports.reportCovers[region][0] + '.jpg';
                                         var reportLink0 = app.reports.reportLinks[region][0];
@@ -2700,16 +2804,24 @@
             function completeFSCallback(jobInfo){
                 if(jobInfo.jobStatus !== "esriJobFailed"){
                     // console.log("getting data");
+                    app.gpFS.getResultData(jobInfo.jobId, "zone", getZone);
                     app.gpFS.getResultData(jobInfo.jobId, "Result", displayResult);
+
                     statusCallbackIterator = 0;
                 }
+            }
+            function getZone(zone, message){
+              app.analysisZone = zone.value;
+              if (app.analysisZone != "CONUS"){
+                app.showCarbonResults = false;
+              }
             }
 
             function displayResult(result, messages){
             	//show button that reopens results
             	var showResultButtonDiv = document.getElementById('reopenRes');
             	showResultButtonDiv.style.display='block';
-		document.getElementById('gpResults').style.display = "block";
+		            document.getElementById('gpResults').style.display = "block";
                 var gpResultDiv = dom.byId('gpResults');
                 gpResultDiv.innerHTML = "";
 
@@ -2856,6 +2968,15 @@
                         else if (metric === "LC_SLIGHTLY_BELOW_AVERAGE_LOCAL_CONNECTEDNESS"){lcTabAreaTextVals["Slightly Below Average"] = acreVal; }
                         else if (metric === "LC_BELOW_AVERAGE_LOCAL_CONNECTEDNESS"){lcTabAreaTextVals["Below Average"] = acreVal; }
                         else if (metric === "LC_FAR_BELOW_AVERAGE_LOCAL_CONNECTEDNESS"){lcTabAreaTextVals["Far Below Average"] = acreVal; }
+                        else if (metric === "LC_MOST_LOCAL_CONNECTEDNESS"){lcTabAreaTextVals["Most local connectedness"] = acreVal; }
+                        else if (metric === "LC_MORE_LOCAL_CONNECTEDNESS"){lcTabAreaTextVals["More local connectedness"] = acreVal; }
+                        else if (metric === "LC_SLIGHTLY_MORE_LOCAL_CONNECTEDNESS"){lcTabAreaTextVals["Slightly more local connectedness"] = acreVal; }
+                        else if (metric === "LC_AVERAGE_MEDIAN_LOCAL_CONNECTEDNESS"){lcTabAreaTextVals["Average/Median local connectedness"] = acreVal; }
+                        else if (metric === "LC_SLIGHTLY_LESS_LOCAL_CONNECTEDNESS"){lcTabAreaTextVals["Slightly less local connectedness"] = acreVal; }
+                        else if (metric === "LC_LESS_LOCAL_CONNECTEDNESS"){lcTabAreaTextVals["Less local connectedness"] = acreVal; }
+                        else if (metric === "LC_LEAST_LOCAL_CONNECTEDNESS"){lcTabAreaTextVals["Least local connectedness"] = acreVal; }
+                        else if (metric === "LC_GLACIER"){lcTabAreaTextVals["Glacier"] = acreVal; }
+                        else if (metric === "LC_PIONEER_LAVA"){lcTabAreaTextVals["Pioneer Lava"] = acreVal; }
                         else if (metric === "LC_DEVELOPED"){lcTabAreaTextVals["Developed"] = acreVal; }
 
                         else if (metric === "LD_FAR_ABOVE_AVERAGE_LANDSCAPE_DIVERSITY"){ldTabAreaTextVals["Far Above Average"] = acreVal; }
@@ -2988,21 +3109,23 @@
 
 
                     else {
+                      console.log(metric)
                         if (app.geoDicts.newNamePrettyName.hasOwnProperty(metric) === true){
                             geoDict[metric] = val;
                         }
                     }
+                    console.log(app.geoDicts.newNamePrettyName)
                     //if there's no portion outside the RCN, set this to zero, otherwise NaN causes errors later
                     if(isNaN(resConnTextVals["Outside Prioritized Network"])){
                       resConnTextVals["Outside Prioritized Network"] = 0
                     }
                 }
-                // console.log(securedTabAreaVals)
+                console.log(geoDict)
 
                 const arrSum = arr => arr.reduce((a,b) => a + b, 0);
                 app.sumTotalAcres = arrSum(totalAcres);
                 //calc other carbon values
-                if (app.useCarbon){
+                if (app.useCarbon && Object.keys(forCarbTabAreaTextVals).length > 0){
                     forCarbTabAreaTextVals["Belowground/Other 2010"] = app.forestCarbon2010SumVal - forCarbTabAreaTextVals["Aboveground Wood 2010"] - forCarbTabAreaTextVals["Coarse Woody Debris 2010"];
                     forCarbTabAreaTextVals["Belowground/Other 2050"] = app.forestCarbon2050SumVal - forCarbTabAreaTextVals["Aboveground Wood 2050"] - forCarbTabAreaTextVals["Coarse Woody Debris 2050"];
                     app.forestCarbonSeqSumVal = app.forestCarbon2050SumVal - app.forestCarbon2010SumVal;
@@ -3060,7 +3183,7 @@
                 //if polygon is located outside the extent of the resilient & connected data use Geology to get total area
                 if (geoArea ===0){
                   for (var key in geoDict) {
-                          geoArea += Math.max(roundNumber(geoDict[key]*0.000247105), 1);
+                      geoArea += Math.max(roundNumber(geoDict[key]*0.000247105), 1);
                   }
                 }
 
@@ -3087,27 +3210,28 @@
 
                 //calculate the % area and add it to the geology dictionary, if there is geology data
                 if (Object.keys(geoDict).length >0){
-                    for (var key in geoDict) {
-	              	var rawVal = roundNumber(geoDict[key]* 0.000247105, 0); // convert sq meters to acres
-	              	var tmp = {};
-	              	var keyText = app.geoDicts.newNamePrettyName[key];
-	                var photoName = app.geoDicts.photoNames[key];
-                        if (typeof photoName === "undefined"){photoName = "noPhoto";}
-	              	var geoPhoto = '<table align="center"><tr align="center"><td align="center"><img src="assets/' + photoName + '.JPG" alt="' + keyText + '" width="300" height="200"></td></tr></table>';
-                        var percent = Number(geoDict[key]) / geoArea * 100; //use area based on sum of geophyiscal settings
-                        geoRawValList.push(rawVal);
-                        percent = roundNumber(percent+0.00001, 2);
-                        geoDict[key] = percent;
-                        geoValList.push(percent);
-                        var text = keyText + " : <strong>" + geoDict[key] + "%</strong><br />";
-                        geoPieText += text;
-                        tmp.y = rawVal;
-                        tmp.key = key;
-	              	//tmp.text below creates labels with geo type and % -- looks horrible
-	              	tmp.text = '<div align="center">' + keyText + '<br>' + percent +'%</div>';
-	              	tmp.tooltip = geoPhoto + "\n" + keyText+ "</strong><br>" + numberWithCommas(roundNumber(rawVal, 0)) + " acres";
-	              	geoSummData.push(tmp);
-                    }
+                  for (var key in geoDict) {
+                  	var rawVal = roundNumber(geoDict[key]* 0.000247105, 0); // convert sq meters to acres
+                  	var tmp = {};
+                  	var keyText = app.geoDicts.newNamePrettyName[key];
+                    var photoName = app.geoDicts.photoNames[key];
+                          if (typeof photoName === "undefined"){photoName = "noPhoto";}
+                  	var geoPhoto = '<table align="center"><tr align="center"><td align="center"><img src="assets/' + photoName + '.JPG" alt="' + keyText + '" width="300" height="200"></td></tr></table>';
+                    var percent = Number(geoDict[key]) / geoArea * 100; //use area based on sum of geophyiscal settings
+                    geoRawValList.push(rawVal);
+                    percent = roundNumber(percent+0.00001, 2);
+                    geoDict[key] = percent;
+                    geoValList.push(percent);
+                    var text = keyText + " : <strong>" + geoDict[key] + "%</strong><br />";
+                    geoPieText += text;
+                    tmp.y = rawVal;
+                    tmp.key = key;
+                  	//tmp.text below creates labels with geo type and % -- looks horrible
+                  	tmp.text = '<div align="center">' + keyText + '<br>' + percent +'%</div>';
+                  	tmp.tooltip = geoPhoto + "\n" + keyText+ "</strong><br>" + numberWithCommas(roundNumber(rawVal, 0)) + " acres";
+                  	geoSummData.push(tmp);
+                  }
+                  console.log(geoSummData)
                 }
                 else{
                     var geoPieText = "The user supplied polygon is outside the extent of the geophysical settings data.";
@@ -3281,12 +3405,12 @@
                         forCarb2050TonsVals.push(Number(forCarbTabAreaTextVals[key]));
                     }
                 }
-//                console.log(forCarbTabAreaTextVals)
+               console.log(forCarbTabAreaTextVals)
                 var totalForCarbTons = arrSum(forCarb2010TonsVals);
 //                console.log(totalForCarbTons)
                 var forCarbPieData2010 = [];
                 var forCarbPieData2050 = [];
-                if (Object.keys(forCarbTabAreaTextVals).length >0){
+                if (Object.keys(forCarbTabAreaTextVals).length >0 && app.showCarbonResults){
                     app.useForCarbTabArea = true;
                     for (var key in forCarbTabAreaTextVals) {
 
@@ -3452,10 +3576,10 @@
                 geoPieText = geoPieText.replace(/_/g, " ");
 
 
-                if ((app.regions.split(",").length === 1) && ((app.regions.includes("California")) || (app.regions.includes("Pacific")) || (app.regions.includes("/CA")))){
+                if (app.nationalState){
 //                    var resilienceText = "<hr><div style='display: inline-block'><h4 style='margin:0px;'>Terrestrial Resilience Categories within Polygon</h4>" + resTabAreaText + ldTabAreaText + lcTabAreaText;
                     var resilienceText = "<div  class='printOverflow'><hr><h4 style='margin:0px;'>Terrestrial Resilience Categories</h4>" + resTabAreaText + ldTabAreaText + lcTabAreaText;
-                    var stateText = 'These results are based on the <b>state-specific</b> analysis.  You can view the input layers by toggling the "Regional - National" to "Regional".';
+                    var stateText = 'These results are based on the <b>state-specific</b> analysis.  You can view the input layers by toggling the "Augmented - National" to "Augmented".';
                 }
                 else{
                     var resilienceText = "<div style='display: inline-block'  class='printOverflow'><hr><h4 style='margin:0px;'>Average Terrestrial Resilience with Polygon</h4><p style='margin-top:0px !important; margin-left: 9px;'>(all scores relative to ecoregion)</p><div style='display:inline-block;'>" + resText + LDText + LCText +  "</div></div><div><hr><h4 style='margin:0px;'>Terrestrial Resilience Categories</h4>" + resTabAreaText + ldTabAreaText + lcTabAreaText;
@@ -3487,13 +3611,20 @@
                 }
 
 
-
+                var biodivText = "<strong>Biodiversity</strong><br>"
+                for (const [key, value] of Object.entries(biodivVals)) {
+                  biodivText +=`${key}: ${value} ac; `
+                }
+                var flowText = "<strong>Climate Flow</strong><br>"
+                for (const [key, value] of Object.entries(flowVals)) {
+                  flowText +=`${key}: ${value} ac; `
+                }
 
                 if (app.useCoastal === false){
-                    var resContent =  "<div id='resultsPane' class='printOverflow'><h4> Total land area: <strong>" + numberWithCommas(Math.max(roundNumber(app.sumTotalAcres, 1)))  + " acres</strong> in the " + app.regions + " study area(s) in the " + app.ecoregions + " ecoregion(s).</h4>" + gapText + "<hr><h4 >Resilient and Connected Network Results</h4><p>Note: " +stateText + " They are derived from the detailed representations of the <a href=\'coreConcepts_resConnDet.html\' onClick=\'return windowPopup(this, \"notes\")\'>Resilient and Connected Networks</a> which can be visualized under the Resilient & Connected Network Components section at right.</p><div style='display:inline-block'  class='printOverflow'>" + resConnText  + "</div >" + resilienceText + "<hr><h4 style='margin:0px;'>Geophysical Setting Results</h4>" + geoTextIntro  +  geoText  + "</div>" + okPrintButtons + "</div>";
+                    var resContent =  "<div id='resultsPane' class='printOverflow'><h4> Total land area: <strong>" + numberWithCommas(Math.max(roundNumber(app.sumTotalAcres, 1)))  + " acres</strong> in the " + app.regions + " study area(s) in the " + app.ecoregions + " ecoregion(s).</h4>" + gapText +  "<hr><h4 >Resilient and Connected Network Results</h4><p>Note: " +stateText + " They are derived from the detailed representations of the <a href=\'coreConcepts_resConnDet.html\' onClick=\'return windowPopup(this, \"notes\")\'>Resilient and Connected Networks</a> which can be visualized under the Resilient & Connected Network Components section at right.</p><div style='display:inline-block'  class='printOverflow'>" + resConnText  + "</div >" + "<hr>" + biodivText + "<hr>" + flowText + resilienceText + "<hr><h4 style='margin:0px;'>Geophysical Setting Results</h4>" + geoTextIntro  +  geoText  + "</div>" + okPrintButtons + "</div>";
                 }
                 if (app.useCoastal === true){
-                   var resContent =  "<div id='resultsPane'><h4> Total land area: <strong>" + numberWithCommas(Math.max(roundNumber(app.sumTotalAcres, 1))) + " acres (" + numberWithCommas(Math.max(roundNumber(terrestrialAcres, 1))) + " terrestrial + " + numberWithCommas(Math.max(roundNumber(coastalAcres, 1))) + " coastal) </strong> in the " + app.regions + " study area(s) in the " + app.ecoregions + " ecoregion(s).</h4>" + gapText + "<hr><h4 style='display:inline'>Resilient and Connected Network Results</h4>"+ stateText + " <div style='display:inline-block'>" + resConnText  + "</div >" + resilienceText + "<hr><div style='display: inline-block'><h4 style='margin:0px;'>Resilient Coastal Sites</h4><div style='display:inline-block;'>" + coastalText +  "</div></div>      <div><hr><h4 style='margin:0px;'>Geophysical Setting Results</h4>" + geoTextIntro  +  geoText  + "</div>" + okPrintButtons + "</div>";
+                   var resContent =  "<div id='resultsPane'><h4> Total land area: <strong>" + numberWithCommas(Math.max(roundNumber(app.sumTotalAcres, 1))) + " acres (" + numberWithCommas(Math.max(roundNumber(terrestrialAcres, 1))) + " terrestrial + " + numberWithCommas(Math.max(roundNumber(coastalAcres, 1))) + " coastal) </strong> in the " + app.regions + " study area(s) in the " + app.ecoregions + " ecoregion(s).</h4>" + gapText + "<hr>" +  biodivText + "<hr>" + flowText + "<hr><h4 style='display:inline'>Resilient and Connected Network Results</h4>"+ stateText + " <div style='display:inline-block'>" + resConnText  + "</div >" + resilienceText + "<hr><div style='display: inline-block'><h4 style='margin:0px;'>Resilient Coastal Sites</h4><div style='display:inline-block;'>" + coastalText +  "</div></div>      <div><hr><h4 style='margin:0px;'>Geophysical Setting Results</h4>" + geoTextIntro  +  geoText  + "</div>" + okPrintButtons + "</div>";
                 }
 
                 function openTab(evt, tabName) {
@@ -3510,7 +3641,7 @@
                     document.getElementById(tabName).style.display = "block";
                     evt.currentTarget.className += " active";
                     if (tabName === "Carbon"){
-                        if (app.useCarbon === true){
+                        if (app.useCarbon === true && app.analysisZone == "CONUS" && Object.keys(forCarbTabAreaTextVals).length > 0){
                             app.forCarb2010MeanGauge.update(app.forCarb2010DispVal);
                             app.forCarb2050MeanGauge.update(app.forCarb2050DispVal);
                             app.forCarbSeqRateGauge.update(app.forCarbSeqDispVal);
@@ -3525,11 +3656,9 @@
 
                 }
 
-                if (app.showCarbonResults === true){
+                if (app.showCarbonResults === true && app.analysisZone == "CONUS" && Object.keys(forCarbTabAreaTextVals).length > 0){
                     var tabs = '<div class="tab"><button class="tablinks" id="resTab">Resilience Results</button><button id="carbTab" class="tablinks">Carbon Results</button></div>';
-
-
-                    var nlcdTabAreaChartDiv = '<h3>Landcover 2016</h3><div id="nlcdTabAreaChartNode"  style="width: 200px; height: 200px; display:inline-block;"></div>';
+                    var nlcdTabAreaChartDiv = '<h3>Landcover 2019</h3><div id="nlcdTabAreaChartNode"  style="width: 200px; height: 200px; display:inline-block;"></div>';
 
 //                    var forCarbPieText ="";
 //                    for (key in forCarbTabAreaTextVals){
@@ -3614,7 +3743,7 @@
                                     '<p><strong>Forest Carbon 2010</strong> dataset (<a href="https://daac.ornl.gov/CMS/guides/AGB_NEP_Disturbance_US_Forests.html" target="_blank">Williams et al. (2021b)</a>) applies only to forested pixels only and uses a sophisticated model to estimate Total Forest Carbon for 2010, which includes above-ground biomass, coarse woody debris, soil carbon and other pools. <a href=\'coreConcepts_carbon.html\' onClick=\'return windowPopup(this, \"notes\")\'>More detail</a></p>' +
                                     '<p>The <strong>Forest Carbon 2050</strong> (<a href="https://daac.ornl.gov/CMS/guides/AGB_NEP_Disturbance_US_Forests.html" target="_blank">Williams et al. (2021b)</a>) applies only to forested pixels only and uses the same model as the Total Forest Carbon 2010 but runs the model to 2050, assuming no disturbance (conversion, harvest, fire). Actual sequestration may be lower if the forest is disturbed. <strong>Annual sequestration rate</strong> is estimated as: <em>(Carbon 2050 – Carbon 2010)/40 years</em>.</p>' +
                                     '<p><strong>Soil Carbon 2010</strong> (<a href="assets/nrs_2020_guevara.pdf" target="_blank">Guevara et al 2020</a>) is at a coarser scale and only calculated for the upper 30 cm of soil. Soil carbon values were predicted using soil samples and multiple environmental variables coupled with a machine learning approach and regression tree ensemble modeling. In forested areas, this carbon overlaps with carbon in the forest belowground/other category of Forest Carbon 2010.</p>' +
-                                    '<p>The <strong>Land Cover 2016</strong> uses the <a href="https://www.mrlc.gov/data?f%5B0%5D=category%3Aland%20cover&f%5B1%5D=year%3A2016" target="_blank">National Land Cover Dataset (NLCD)</a> to show land cover and human use at 30-m resolution. It can be used to determine if, or where, the land cover has changed since 2010.</p>' +
+                                    '<p>The <strong>Land Cover 2019</strong> uses the <a href="https://www.mrlc.gov/data?f%5B0%5D=category%3Aland%20cover&f%5B1%5D=year%3A2019" target="_blank">National Land Cover Dataset (NLCD)</a> to show land cover and human use at 30-m resolution. It can be used to determine if, or where, the land cover has changed since 2010.</p>' +
                                     '<p><strong>Total Carbon 2010</strong> for a site is estimated as metric tons of <strong>forest carbon in forested areas</strong> plus metric tons of <strong>soil carbon in non-forested areas</strong>. </p>' +
                                 '</<div>' +
                             '</div>' +
@@ -3645,8 +3774,20 @@
                     var resilContent = '<div id="Resilience" class="tabcontent printOverflow">' + resContent + '</div>';
                     var content = tabs + resilContent + carbonContent;
                 }
+                else if (app.useCarbon === true && (app.analysisZone != "CONUS" || Object.keys(forCarbTabAreaTextVals).length === 0)){
+                    // var content = resContent;
+
+                  var tabs = '<div class="tab"><button class="tablinks" id="resTab">Resilience Results</button><button id="carbTab" class="tablinks">Carbon Results</button></div>';
+                  var carbonContent =
+                  '<div id="Carbon" class="tabcontent printOverflow">' +
+                        '<p>Carbon data is not available outside the 48 contiguous states.</p>' +
+
+                  '</div>'
+                  var resilContent = '<div id="Resilience" class="tabcontent printOverflow">' + resContent + '</div>';
+                  var content = tabs + resilContent + carbonContent;
+                }
                 else{
-                    var content = resContent;
+                  var content = resContent;
                 }
 
 
@@ -3655,7 +3796,7 @@
                 gpStartDialog.hide();
                 app.resultDialog.show();
                 app.resultDialog._setStyleAttr('top:' + 5 + 'px !important;');
-                if (app.showCarbonResults === true){
+                if (app.showCarbonResults === true || (app.useCarbon === true && ((app.analysisZone != "CONUS") || Object.keys(forCarbTabAreaTextVals).length === 0))){
                     document.getElementById("resTab").addEventListener("click", function(e) {
                         openTab(e, "Resilience");
                     });
@@ -3824,6 +3965,8 @@
                           else if (item.key === "Additional Resilient Secured (GAP 3)"){return{fill:"#88cd66"};}
                           else if (item.key === "Resilient, Concentrated Flow (Climate Informed)"){return{fill:"#807100"};}
                           else if (item.key === "Diffuse Flow, Recognized Biodiversity Value"){return{fill:"#c29ed7"};}
+                          else if (item.key === "Flow and Recognized Biodiversity"){return{fill:"#d7effc"};}
+                          else if (item.key === "Restoration Sites"){return{fill:"#f5f57a"};}
 
                           else{return{fill:"black"};}
                           return {};
@@ -3915,17 +4058,20 @@
                         fontColor: "black",
                         labelOffset: 0,
                         styleFunc: function(item){
-                          if (item.key === "Far Above Average"){return{fill:"#177A0D"};}
-                          else if ((item.key === "Above Average") ||(item.key === "80 - 100 Percentile")){return{fill:"#60A642"};}
-                          else if ((item.key === "Slightly Above Average")  ||(item.key === "60 - 80 Percentile")){return{fill:"#ABD17D"};}
-                          else if ((item.key === "Average")  ||(item.key === "40 - 60 Percentile")){return{fill:"#FFFFBF"};}
-                          else if ((item.key === "Slightly Below Average") ||(item.key === "20 - 40 Percentile")){return{fill:"#CFBA76"};}
-                          else if ((item.key === "Below Average") ||  (item.key === "0 - 20 Percentile")){return{fill:"#A17E3A"};}
-                          else if (item.key === "Far Below Average"){return{fill:"#734D00"};}
+                          if ((item.key === "Far Above Average") ||(item.key === "Most local connectedness")){return{fill:"#177A0D"};}
+                          else if ((item.key === "Above Average") ||(item.key === "80 - 100 Percentile") ||(item.key === "More local connectedness")){return{fill:"#60A642"};}
+                          else if ((item.key === "Slightly Above Average")  ||(item.key === "60 - 80 Percentile") ||(item.key === "Slightly more local connectedness")){return{fill:"#ABD17D"};}
+                          else if ((item.key === "Average")  ||(item.key === "40 - 60 Percentile") ||(item.key === "Average/Median local connectedness")){return{fill:"#FFFFBF"};}
+                          else if ((item.key === "Slightly Below Average") ||(item.key === "20 - 40 Percentile") ||(item.key === "Slightly less local connectedness")){return{fill:"#CFBA76"};}
+                          else if ((item.key === "Below Average") ||  (item.key === "0 - 20 Percentile") ||(item.key === "Less local connectedness")){return{fill:"#A17E3A"};}
+                          else if ((item.key === "Far Below Average")||(item.key === "Least local connectedness")){return{fill:"#734D00"};}
                           else if (item.key === "Developed"){return{fill:"#686968"};}
+                          else if (item.key === "Glacier"){return{fill:"#f5f5f5"};}
+                          else if (item.key === "Pioneer Lava"){return{fill:"#c8c8c8"};}
                           else{return{fill:"black"};}
                           return {};
                         }
+
                     });
                     lcTabAreaPieChart.addSeries("Local Connectedness Categories ",lcPieData);
 
@@ -4371,9 +4517,10 @@
           <span class="gp-results" style="opacity:1; display:none" id="gpResults" title="Results from the previous analysis run are displayed here."></span>
           <div id="gpResInfo" >&nbsp;</div>
           <div style="display: table;">
-          <input id="carbonCheck"  type="checkbox" title="Select to assess forest and soil carbon within your area of interest"><label title="Select to assess forest and soil carbon within your area of interest" id="carbonCheckLabel">Assess <a id="carbonCheckLink" href='coreConcepts_carbon.html' onClick='return windowPopup(this, "notes")'>Carbon Data</a>? (increases processing time) </label>
-          <br>
-          <input id="nationalStateCheck"  type="checkbox" title="Select to evaluate your AOI against the TNC Division-augmented RCN data"><label title="Select to evaluate your AOI against the TNC Division-augmented RCN data" id="nationalStateCheckLabel">Assess <a id="nationalStateCheckLink" href='coreConcepts_nationalState.html' onClick='return windowPopup(this, "notes")'>TNC Division-augmented RCN</a></label>
+            <input id="carbonCheck"  type="checkbox" title="Select to assess forest and soil carbon within your area of interest"><label title="Select to assess forest and soil carbon within your area of interest" id="carbonCheckLabel">Assess <a id="carbonCheckLink" href='coreConcepts_carbon.html' onClick='return windowPopup(this, "notes")'>Carbon Data</a>? (increases processing time) </label>
+          </div>
+          <div style="display: table;">
+            <input id="nationalStateCheck"  type="checkbox" title="Select to evaluate your AOI against the TNC Division-augmented RCN data"><label title="Select to evaluate your AOI against the TNC Division-augmented RCN data" id="nationalStateCheckLabel">Assess <a id="nationalStateCheckLink" href='coreConcepts_nationalState.html' onClick='return windowPopup(this, "notes")'>TNC Division-augmented RCN</a></label>
           </div>
         </div>
         <div class="map-service-options">
@@ -4383,7 +4530,7 @@
                     <div class="centerDiv">
                         <div class="onoffswitch">
                             <input type="checkbox" name="onoffswitch"  class="onoffswitch-checkbox" id="regionSwitch" tabindex="0" >
-                            <label class="onoffswitch-label" for="regionSwitch" title="Toggle between the nationally-consistent data or the state-based data">
+                            <label class="onoffswitch-label" for="regionSwitch" title="Toggle between the nationally-consistent data or the TNC division-augmented data">
                                 <span class="onoffswitch-inner"></span>
                                 <span class="onoffswitch-switch"></span>
                             </label>
@@ -4440,7 +4587,7 @@
                         <Input type="radio" Name="r1" Value="forestCarbon2050" id = "r1_forestCarbon2050" style="display: hidden"><a href='coreConcepts_carbon.html' onClick='return windowPopup(this, "notes")'>Forest Ecosystem Carbon (2050)</a><br>
                         <Input type="radio" Name="r1" Value="forestCarbonSeq" id = "r1_forestCarbonSeq" style="display: hidden"><a href='coreConcepts_carbon.html' onClick='return windowPopup(this, "notes")'>Potential Forest Ecosystem Carbon Sequestration (2010-2050)</a><br>
                         <Input type="radio" Name="r1" Value="soilCarbon" id = "r1_soilCarbon" style="display: hidden"><a href='coreConcepts_carbon.html' onClick='return windowPopup(this, "notes")'>Soil Organic Carbon</a><br>
-                        <Input type="radio" Name="r1" Value="nlcd" id = "r1_nlcd" style="display: hidden"><a href='coreConcepts_carbon.html' onClick='return windowPopup(this, "notes")'>National Landcover Dataset (2016)</a><br>
+                        <Input type="radio" Name="r1" Value="nlcd" id = "r1_nlcd" style="display: hidden"><a href='coreConcepts_carbon.html' onClick='return windowPopup(this, "notes")'>National Landcover Dataset (2019)</a><br>
                         <br>
                     </div>
 <!--                     <p class="collapsible" title="Expand to see the intermediate combinations of data that went into the RCN.">Resilient and Connected Network </p>
@@ -4494,6 +4641,7 @@
         	<div id = "userMapServiceHolder"><input id="userMapServ" style="width:260px; margin-bottom: 3px; text-align: right;" placeholder="Enter a URL for an ArcGIS Map Service" type="text" /></div>
         	<button id="addMapServButton" >Add Map Service</button>
         	<button id="removeMapServButton" >Remove Map Service</button>
+          <input type="range" id ="userLayerTransp" name="userLayerTransp" class="slider" min="0" max="100" value = "100" title="Slide to set the transparency of user-added layer." />
         </div>
     </div>
 

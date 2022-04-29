@@ -73,7 +73,18 @@
         "CLAY_SILT": "CLAY_SILT",
         "DEEP_LOESS": "DEEP_LOESS",
         "CIRCUMNEUTRAL_SEDIMENTARY" : "noPhoto",
-        "ACIDIC_SHALE" : "noPhoto"
+        "ACIDIC_SHALE" : "noPhoto",
+        "SILTS__CLAYS__MIXED_AND_PLAYAS":"noPhoto",
+        "PEAT":"noPhoto",
+        "MAFIC_AND_INTERMEDIATE_GRANITIC":"noPhoto",
+        "PEAT":"noPhoto",
+        "GLACIERS":"noPhoto",
+        "LOWLAND__500M__NON_PIONEER_LAVA":"noPhoto",
+        "SUB_MONTANE_500_1_000M__NON_PIONEER_LAVA":"noPhoto",
+        "MONTANE_1_000_2_000M__NON_PIONEER_LAVA":"noPhoto",
+        "SUB_ALPINE_2_000_3_000M__NON_PIONEER_LAVA":"noPhoto",
+        "ALPINE__3_000M__NON_PIONEER_LAVA":"noPhoto",
+        "PIONEER_LAVA":"noPhoto",
     },
 
     "newNamePrettyName" : {
@@ -459,6 +470,18 @@
         "TROPICAL_LOWLAND__SANDSTONES_AND_MIXED_SEDIMENTARY" : "Tropical Lowland: Sandstones and Mixed Sedimentary",
         "TROPICAL_LOWLAND__CALCAREOUS_SEDIMENTARY" : "Tropical Lowland: Calcareous Sedimentary",
         "TROPICAL_LOWLAND__MODERATELY_CALCAREOUS_SEDIMENTARY" : "Tropical Lowland: Moderately Calcareous Sedimentary",
-        "TROPICAL_LOWLAND__VOLCANIC__MAFIC" : "Tropical Lowland: Volcanic, Mafic"
+        "TROPICAL_LOWLAND__VOLCANIC__MAFIC" : "Tropical Lowland: Volcanic, Mafic",
+        "SILTS__CLAYS__MIXED_AND_PLAYAS":"Silts, Clays, Mixed and Playas",
+        "PEAT":"Peat",
+        "MAFIC_AND_INTERMEDIATE_GRANITIC":"Mafic and Intermediate Granitic",
+        "PEAT":"Peat",
+        "GLACIERS":"Glaciers",
+        "LOWLAND__500M__NON_PIONEER_LAVA":"Lowland <500m, non-pioneer lava",
+        "SUB_MONTANE_500_1_000M__NON_PIONEER_LAVA":"Sub-Montane 500-1,000m, non-pioneer lava",
+        "MONTANE_1_000_2_000M__NON_PIONEER_LAVA":"Montane 1,000-2,000m, non-pioneer lava",
+        "SUB_ALPINE_2_000_3_000M__NON_PIONEER_LAVA":"Sub-Alpine 2,000-3,000m, non-pioneer lava",
+        "ALPINE__3_000M__NON_PIONEER_LAVA":"Alpine >3,000m, non-pioneer lava",
+        "PIONEER_LAVA":"Pioneer Lava",
+
     }
 }
