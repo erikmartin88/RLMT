@@ -362,18 +362,18 @@
 
             //get tiled map layers
             var resTiles = new ArcGISTiledMapServiceLayer("https://tiles.arcgis.com/tiles/F7DSX1DSNSiWmOqh/arcgis/rest/services/RL_Resilience_CONUS_Tiles_Apr22/MapServer", {visible: true});
-            var resTilesState = new ArcGISTiledMapServiceLayer("https://tiles.arcgis.com/tiles/F7DSX1DSNSiWmOqh/arcgis/rest/services/RL_Resilience_Tiles_State_July20b/MapServer", {visible: false});
+            var resTilesState = new ArcGISTiledMapServiceLayer("https://tiles.arcgis.com/tiles/F7DSX1DSNSiWmOqh/arcgis/rest/services/RL_Resilience_State_Tiles_Apr22/MapServer", {visible: false});
             var resTilesHI = new ArcGISTiledMapServiceLayer("https://tiles.arcgis.com/tiles/F7DSX1DSNSiWmOqh/arcgis/rest/services/RL_Resilience_HI_Tiles_Apr22/MapServer", {visible: true});
             var resTilesAK =  new ArcGISTiledMapServiceLayer("https://tiles.arcgis.com/tiles/F7DSX1DSNSiWmOqh/arcgis/rest/services/RL_Resilience_AK_Tiles_Apr22/MapServer", {visible: true});
 
             var landDivTiles = new ArcGISTiledMapServiceLayer("https://tiles.arcgis.com/tiles/F7DSX1DSNSiWmOqh/arcgis/rest/services/RL_LD_CONUS_Tiles_Apr22/MapServer", {visible: false});
-            var landDivTilesState = new ArcGISTiledMapServiceLayer("https://tiles.arcgis.com/tiles/F7DSX1DSNSiWmOqh/arcgis/rest/services/RL_LandscapeDiversity_Tiles_State_July20/MapServer", {visible: false});
+            var landDivTilesState = new ArcGISTiledMapServiceLayer("https://tiles.arcgis.com/tiles/F7DSX1DSNSiWmOqh/arcgis/rest/services/RL_LD_State_Tiles_Apr22/MapServer", {visible: false});
             var landDivTilesHI = new ArcGISTiledMapServiceLayer("https://tiles.arcgis.com/tiles/F7DSX1DSNSiWmOqh/arcgis/rest/services/RL_LD_HI_Tiles_Apr22/MapServer", {visible: false});
             var landDivTilesAK = new ArcGISTiledMapServiceLayer("https://tiles.arcgis.com/tiles/F7DSX1DSNSiWmOqh/arcgis/rest/services/RL_LD_AK_Tiles_Apr22/MapServer", {visible: false});
 
 
             var localConnTiles =new ArcGISTiledMapServiceLayer("https://tiles.arcgis.com/tiles/F7DSX1DSNSiWmOqh/arcgis/rest/services/RL_LC_CONUS_Tiles_Apr22/MapServer", {visible: false});
-            var localConnTilesState =new ArcGISTiledMapServiceLayer("https://tiles.arcgis.com/tiles/F7DSX1DSNSiWmOqh/arcgis/rest/services/RL_LocalConnectedness_Tiles_State_Feb21/MapServer", {visible: false});
+            var localConnTilesState =new ArcGISTiledMapServiceLayer("https://tiles.arcgis.com/tiles/F7DSX1DSNSiWmOqh/arcgis/rest/services/RL_LC_State_Tiles_Apr22/MapServer", {visible: false});
             var localConnTilesHI =new ArcGISTiledMapServiceLayer("https://tiles.arcgis.com/tiles/F7DSX1DSNSiWmOqh/arcgis/rest/services/RL_LC_HI_Tiles_Apr22/MapServer", {visible: false});
             var localConnTilesAK =new ArcGISTiledMapServiceLayer("https://tiles.arcgis.com/tiles/F7DSX1DSNSiWmOqh/arcgis/rest/services/RL_LC_AK_Tiles_Apr22/MapServer", {visible: false});
 
@@ -393,7 +393,7 @@
             var cliFlowTilesAK = new ArcGISTiledMapServiceLayer("https://tiles.arcgis.com/tiles/F7DSX1DSNSiWmOqh/arcgis/rest/services/RL_ClimateFlow_AK_Tiles_Apr22/MapServer", {visible: false});
 
             var cliFlowCatTiles = new ArcGISTiledMapServiceLayer("https://tiles.arcgis.com/tiles/F7DSX1DSNSiWmOqh/arcgis/rest/services/RL_ClimateFlowCategorized_Tiles_July20/MapServer", {visible: false});
-            var cliFlowCatTilesState = new ArcGISTiledMapServiceLayer("https://tiles.arcgis.com/tiles/F7DSX1DSNSiWmOqh/arcgis/rest/services/RL_ClimateFlowDescriptions_Tiles_State_July20/MapServer", {visible: false});
+            var cliFlowCatTilesState = new ArcGISTiledMapServiceLayer("https://tiles.arcgis.com/tiles/F7DSX1DSNSiWmOqh/arcgis/rest/services/RL_ClimateFlowCategorized_State_Tiles_Apr22/MapServerr", {visible: false});
             var cliFlowCatTilesHI = new ArcGISTiledMapServiceLayer("https://tiles.arcgis.com/tiles/F7DSX1DSNSiWmOqh/arcgis/rest/services/RL_ClimateFlowCategorized_HI_Tiles_Apr22/MapServer", {visible: false});
             var cliFlowCatTilesAK = new ArcGISTiledMapServiceLayer("https://tiles.arcgis.com/tiles/F7DSX1DSNSiWmOqh/arcgis/rest/services/RL_ClimateFlowCategorized_AK_Tiles_Apr22/MapServer", {visible: false});
 
@@ -415,7 +415,7 @@
             var regionTilesHI = new ArcGISTiledMapServiceLayer("https://tiles.arcgis.com/tiles/F7DSX1DSNSiWmOqh/arcgis/rest/services/RL_StudyRegion_HI_Tiles_Apr22/MapServer", {visible: false});
             var regionTilesAK = new ArcGISTiledMapServiceLayer("https://tiles.arcgis.com/tiles/F7DSX1DSNSiWmOqh/arcgis/rest/services/RL_StudyRegion_AK_Tiles_Apr22/MapServer", {visible: false});
 
-            var landformTiles = new ArcGISTiledMapServiceLayer("https://tiles.arcgis.com/tiles/F7DSX1DSNSiWmOqh/arcgis/rest/services/RL_Landforms_Tiles_Apr20/MapServer", {visible: false});
+            var landformTiles = new ArcGISTiledMapServiceLayer("https://tiles.arcgis.com/tiles/F7DSX1DSNSiWmOqh/arcgis/rest/services/RL_Landforms_CONUS_Tiles_Apr22/MapServer", {visible: false});
             var landformTilesHI = new ArcGISTiledMapServiceLayer("https://tiles.arcgis.com/tiles/F7DSX1DSNSiWmOqh/arcgis/rest/services/RL_Landforms_HI_Tiles_Apr22/MapServer", {visible: false});
             var landformTilesAK = new ArcGISTiledMapServiceLayer("https://tiles.arcgis.com/tiles/F7DSX1DSNSiWmOqh/arcgis/rest/services/RL_Landforms_AK_Tiles_Apr22/MapServer", {visible: false});
 
@@ -2294,57 +2294,65 @@
                                     // console.log(pixelCat)
                                     var pixelLegend = feature.attributes['CONUS_Legend'].substring(3);
 
-                                    if (pixelVal > -3501){	 //not developed
-                                        if (["CA", "PNW"].includes(idRegion) === false){
-                                            var pixelValLink = "(" + roundNumber(pixelVal/1000, 2) + " <a href='sd.html' onClick='return windowPopup(this, \"SDnotes\")'>SD</a>)";
-                                        }
-                                        else{var pixelValLink = ""; }
-                                        if ((pixelAnalysis.indexOf("errestrial") >-1) || (pixelAnalysis.indexOf("errestial") >-1)){
-                                            var resTemplate = new InfoTemplate("Resilience", "<b>" + pixelLegend + " " +pixelValLink + "</b>" + "<br><br><tr><strong>Site Resilience (" + pixelAnalysis +")</strong>: estimates the climate-resilience of an area of land (e.g. a “site”) based on its landscape diversity (estimated microclimates) and local connectedness (lack of fragmentation). Each site is scored relative to all other sites in its ecoregion that have the same geophysical setting based on soils, bedrock geology, and elevation zone. The results identify land where high microclimatic diversity and low levels of human modification provide species with connected, diverse climatic conditions they will need to persist and adapt to changing regional climates. This area has <strong>" + pixelCat + "</strong> resilience relative to all sites with the same geophysical setting in its ecoregion.</tr>");
-                                        }
-                                        else if (pixelAnalysis.indexOf("Migration") >-1){
-                                            if (pixelAnalysis === "Additional Marsh Migration Space" && (["CA", "PNW"].includes(idRegion) === false)){
-                                                var resTemplate = new InfoTemplate("Resilience", "<b>" + pixelCat + " " +pixelValLink + "</b>" + "<br><br><tr><strong>Site Resilience (" + pixelAnalysis +")</strong>: Additional marsh migration space includes future marsh areas that were not spatially linked with current tidal marshes or with the migration space of current tidal marshes. The separation could be due to roads, waterbodies, waterways, oil and gas fields, etc. Depending on local factors and context, the degree to which these features will prevent marshes from accessing the additional migration space areas in the future is unknown and likely varies.</p><p>We assigned resilience scores to the additional migration space areas using several approaches. First, we spatially allocated resilience scores based on Euclidean distance from tidal marshes or migration space units. While this approach was a good starting point, there were migration space areas whose score assignments had to be done manually or by taking the highest of two equidistant nearby scores. The manual assignment included straightforward cases, but often it was unclear how marshes might move into a migration space area. As a result, please interpret the scores of the additional migration space with caution and use local expertise and knowledge as you see fit. Lastly, there were thousands of small and disconnected additional migration space areas, often individual pixels, typically found in urban settings, remote upstream riverine areas, or far from any migration space units or tidal marshes. We did not consider these isolated occurrences as additional migration space because they are unlikely to be important future marsh areas. For more information see the <a href='coreConcepts_coastalMig.html' onClick='return windowPopup(this, \"notes\")'>resilient coastal sites core concepts</a>.</p> </tr>");
-                                            }
-                                            else if(pixelAnalysis === "Additional Marsh Migration Space" && (["CA", "PNW"].includes(idRegion) === true)){
-                                                var resTemplate = new InfoTemplate("Resilience", "<b>" + pixelCat + " " +pixelValLink + "</b>" + "<br><br><tr><strong>Site Resilience</strong>: Each site received a resilience score based on the likelihood that its coastal habitats can and will migrate to adjacent lowlands, referred to as “migration space.” Each site is scored relative to all other sites within discrete geographic stretches of shoreline that share similar processes and dominant estuary types, which we call Coastal Shoreline Regions (CSRs). Relative to all sites within the same CSR, the tidal complex associated with this migration space has <strong>" + pixelCat + "</strong> resilience for the most extreme sea level rise scenario (e.g. 5-ft. or higher). </tr>");
-                                            }
+                                  if (pixelVal > -3501){	 //not developed
+                                      if (["CA", "PNW"].includes(idRegion) === false){
+                                          var pixelValLink = "(" + roundNumber(pixelVal/1000, 2) + " <a href='sd.html' onClick='return windowPopup(this, \"SDnotes\")'>SD</a>)";
+                                      }
+                                      else{var pixelValLink = ""; }
+                                      if ((pixelAnalysis.indexOf("errestrial") >-1) || (pixelAnalysis.indexOf("errestial") >-1)){
+                                          var resTemplate = new InfoTemplate("Resilience", "<b>" + pixelLegend + " " +pixelValLink + "</b>" + "<br><br><tr><strong>Site Resilience (" + pixelAnalysis +")</strong>: estimates the climate-resilience of an area of land (e.g. a “site”) based on its landscape diversity (estimated microclimates) and local connectedness (lack of fragmentation). Each site is scored relative to all other sites in its ecoregion that have the same geophysical setting based on soils, bedrock geology, and elevation zone. The results identify land where high microclimatic diversity and low levels of human modification provide species with connected, diverse climatic conditions they will need to persist and adapt to changing regional climates. This area has <strong>" + pixelCat + "</strong> resilience relative to all sites with the same geophysical setting in its ecoregion.</tr>");
+                                      }
+                                      else if (pixelAnalysis.indexOf("Migration") >-1){
+                                          if (pixelAnalysis === "Additional Marsh Migration Space" && (["CA", "PNW"].includes(idRegion) === false)){
+                                              var resTemplate = new InfoTemplate("Resilience", "<b>" + pixelCat + " " +pixelValLink + "</b>" + "<br><br><tr><strong>Site Resilience (" + pixelAnalysis +")</strong>: Additional marsh migration space includes future marsh areas that were not spatially linked with current tidal marshes or with the migration space of current tidal marshes. The separation could be due to roads, waterbodies, waterways, oil and gas fields, etc. Depending on local factors and context, the degree to which these features will prevent marshes from accessing the additional migration space areas in the future is unknown and likely varies.</p><p>We assigned resilience scores to the additional migration space areas using several approaches. First, we spatially allocated resilience scores based on Euclidean distance from tidal marshes or migration space units. While this approach was a good starting point, there were migration space areas whose score assignments had to be done manually or by taking the highest of two equidistant nearby scores. The manual assignment included straightforward cases, but often it was unclear how marshes might move into a migration space area. As a result, please interpret the scores of the additional migration space with caution and use local expertise and knowledge as you see fit. Lastly, there were thousands of small and disconnected additional migration space areas, often individual pixels, typically found in urban settings, remote upstream riverine areas, or far from any migration space units or tidal marshes. We did not consider these isolated occurrences as additional migration space because they are unlikely to be important future marsh areas. For more information see the <a href='coreConcepts_coastalMig.html' onClick='return windowPopup(this, \"notes\")'>resilient coastal sites core concepts</a>.</p> </tr>");
+                                          }
+                                          else if(pixelAnalysis === "Additional Marsh Migration Space" && (["CA", "PNW"].includes(idRegion) === true)){
+                                              var resTemplate = new InfoTemplate("Resilience", "<b>" + pixelCat + " " +pixelValLink + "</b>" + "<br><br><tr><strong>Site Resilience</strong>: Each site received a resilience score based on the likelihood that its coastal habitats can and will migrate to adjacent lowlands, referred to as “migration space.” Each site is scored relative to all other sites within discrete geographic stretches of shoreline that share similar processes and dominant estuary types, which we call Coastal Shoreline Regions (CSRs). Relative to all sites within the same CSR, the tidal complex associated with this migration space has <strong>" + pixelCat + "</strong> resilience for the most extreme sea level rise scenario (e.g. 5-ft. or higher). </tr>");
+                                          }
 
-                                            else{
-                                                var resTemplate = new InfoTemplate("Resilience", "<b>" + pixelCat + " " +pixelValLink + "</b>" + "<br><br><tr><strong>Site Resilience (" + pixelAnalysis +")</strong>: Each site received a resilience score based on the likelihood that its coastal habitats can and will migrate to adjacent lowlands, referred to as “migration space.” Each site is scored relative to all other sites within discrete geographic stretches of shoreline that share similar processes and dominant estuary types, which we call Coastal Shoreline Regions (CSRs). Relative to all sites within the same CSR, the tidal complex associated with this migration space has <strong>" + pixelCat + "</strong> resilience for the most extreme sea level rise scenario (e.g. 5-ft. or higher). </tr>");
-                                            }
+                                          else{
+                                              var resTemplate = new InfoTemplate("Resilience", "<b>" + pixelCat + " " +pixelValLink + "</b>" + "<br><br><tr><strong>Site Resilience (" + pixelAnalysis +")</strong>: Each site received a resilience score based on the likelihood that its coastal habitats can and will migrate to adjacent lowlands, referred to as “migration space.” Each site is scored relative to all other sites within discrete geographic stretches of shoreline that share similar processes and dominant estuary types, which we call Coastal Shoreline Regions (CSRs). Relative to all sites within the same CSR, the tidal complex associated with this migration space has <strong>" + pixelCat + "</strong> resilience for the most extreme sea level rise scenario (e.g. 5-ft. or higher). </tr>");
+                                          }
 
-                                        }
+                                      }
 
-                                        else if (pixelAnalysis.indexOf("Tidal") >-1){
-                                            if (pixelVal <500){//Tidal only uses 2 classes
-                                                pixelCat = "Below Average";
-                                                var resTemplate = new InfoTemplate("Resilience", "<b>" + pixelCat + " " +pixelValLink + "</b>" + "<br><br><tr><strong>Site Resilience (" + pixelAnalysis +")</strong>: Each site received a resilience score based on the likelihood that its coastal habitats can and will migrate to adjacent lowlands, referred to as “migration space.” Each site is scored relative to all other sites within discrete geographic stretches of shoreline that share similar processes and dominant estuary types, which we call Coastal Shoreline Regions (CSRs). Relative to all sites within the same CSR, this tidal complex scores “Average” resilience or lower for the most extreme sea level rise scenario (5-ft. or higher). (i.e., scores either “Average,” “Slightly Below Average,” “Below Average,” or “Far Below Average”).</tr>");
-                                            }
-                                            if (pixelVal >=500) {
-                                                pixelCat = "Above Average";
-                                                var resTemplate = new InfoTemplate("Resilience", "<b>" + pixelCat + " " +pixelValLink + "</b>" + "<br><br><tr><strong>Site Resilience (" + pixelAnalysis +")</strong>: Each site received a resilience score based on the likelihood that its coastal habitats can and will migrate to adjacent lowlands, referred to as “migration space.” Each site is scored relative to all other sites within discrete geographic stretches of shoreline that share similar processes and dominant estuary types, which we call Coastal Shoreline Regions (CSRs). Relative to all sites within the same CSR, this tidal complex scores greater than “Average” resilience for the most extreme sea level rise scenario (5-ft. or higher). (i.e., scores either “Slightly Above Average,” “Above Average,” or “Far Above Average”).</tr>");
-                                            }
-                                        }
+                                      else if (pixelAnalysis.indexOf("Tidal") >-1){
+                                          if (pixelVal <500){//Tidal only uses 2 classes
+                                              pixelCat = "Below Average";
+                                              var resTemplate = new InfoTemplate("Resilience", "<b>" + pixelCat + " " +pixelValLink + "</b>" + "<br><br><tr><strong>Site Resilience (" + pixelAnalysis +")</strong>: Each site received a resilience score based on the likelihood that its coastal habitats can and will migrate to adjacent lowlands, referred to as “migration space.” Each site is scored relative to all other sites within discrete geographic stretches of shoreline that share similar processes and dominant estuary types, which we call Coastal Shoreline Regions (CSRs). Relative to all sites within the same CSR, this tidal complex scores “Average” resilience or lower for the most extreme sea level rise scenario (5-ft. or higher). (i.e., scores either “Average,” “Slightly Below Average,” “Below Average,” or “Far Below Average”).</tr>");
+                                          }
+                                          if (pixelVal >=500) {
+                                              pixelCat = "Above Average";
+                                              var resTemplate = new InfoTemplate("Resilience", "<b>" + pixelCat + " " +pixelValLink + "</b>" + "<br><br><tr><strong>Site Resilience (" + pixelAnalysis +")</strong>: Each site received a resilience score based on the likelihood that its coastal habitats can and will migrate to adjacent lowlands, referred to as “migration space.” Each site is scored relative to all other sites within discrete geographic stretches of shoreline that share similar processes and dominant estuary types, which we call Coastal Shoreline Regions (CSRs). Relative to all sites within the same CSR, this tidal complex scores greater than “Average” resilience for the most extreme sea level rise scenario (5-ft. or higher). (i.e., scores either “Slightly Above Average,” “Above Average,” or “Far Above Average”).</tr>");
+                                          }
+                                      }
+                                  }
+                                 else if (pixelVal === '-3501'){	 // developed
+                                      var resTemplate = new InfoTemplate("Resilience", "<tr><strong>Developed Lands</strong>: Low, Medium, High Density Developed Lands and Roads were not included in the analysis.");
+                                 }
+                                 else if (pixelVal === '-3502'){	 //sea levl rise area -- unassessed coastal area
+                                      pixelCat = "Sea Level Rise Area";
+  //                                    var resTemplate = new InfoTemplate("Resilience", "<b>" + pixelCat +  "</b>" + "<br><br><tr>We assessed all interconnected tidal and estuarine habitats that had at least two acres of contiguous estuarine emergent wetland (salt marsh) as mapped in the 2010 Coastal-Change Analysis Program (C-CAP) land cover data (<a target='_blank' href='https://coast.noaa.gov/digitalcoast/tools/lca'>NOAA 2010</a>). Due to errors in how unconsolidated shoreline was mapped, we did not include any sites that consisted solely of unconsolidated shoreline. </tr>");
+                                      var resTemplate = new InfoTemplate("Resilience", "<b>" + pixelCat +  "</b>" + "<br><br><tr>This location is at risk of inundation under a 6-foot sea level rise scenario.</tr>");
+
+                                  }
+                                  else if (pixelVal === '-3503'){	 //sea levl rise area -- unassessed coastal area
+                                    //TODO if in AK -3503 is glacier, not triabl land
+
+                                    if (clickZone =="AK"){
+                                      pixelCat = "Glacier";
+                                      var resTemplate = new InfoTemplate("Resilience", "<b>" + pixelCat +  "</b>" + "<br><br><tr>Glaciers were not assessed for resilience.</tr>");
                                     }
-                                   else if (pixelVal === '-3501'){	 // developed
-                                        var resTemplate = new InfoTemplate("Resilience", "<tr><strong>Developed Lands</strong>: Low, Medium, High Density Developed Lands and Roads were not included in the analysis.");
-                                   }
-                                   else if (pixelVal === '-3502'){	 //sea levl rise area -- unassessed coastal area
-                                        pixelCat = "Sea Level Rise Area";
-    //                                    var resTemplate = new InfoTemplate("Resilience", "<b>" + pixelCat +  "</b>" + "<br><br><tr>We assessed all interconnected tidal and estuarine habitats that had at least two acres of contiguous estuarine emergent wetland (salt marsh) as mapped in the 2010 Coastal-Change Analysis Program (C-CAP) land cover data (<a target='_blank' href='https://coast.noaa.gov/digitalcoast/tools/lca'>NOAA 2010</a>). Due to errors in how unconsolidated shoreline was mapped, we did not include any sites that consisted solely of unconsolidated shoreline. </tr>");
-                                        var resTemplate = new InfoTemplate("Resilience", "<b>" + pixelCat +  "</b>" + "<br><br><tr>This location is at risk of inundation under a 6-foot sea level rise scenario.</tr>");
-
+                                    else{
+                                      pixelCat = "Tribal land (excluded pending review)";
+                                      var resTemplate = new InfoTemplate("Resilience", "<b>" + pixelCat +  "</b>" + "<br><br><tr>Tribal lands are excluded from the results pending a review with tribal representatives. </tr>");
                                     }
-                                    else if (pixelVal === '-3503'){	 //sea levl rise area -- unassessed coastal area
-                                        pixelCat = "Tribal land (excluded pending review)";
-    //                                    var resTemplate = new InfoTemplate("Resilience", "<b>" + pixelCat +  "</b>" + "<br><br><tr>We assessed all interconnected tidal and estuarine habitats that had at least two acres of contiguous estuarine emergent wetland (salt marsh) as mapped in the 2010 Coastal-Change Analysis Program (C-CAP) land cover data (<a target='_blank' href='https://coast.noaa.gov/digitalcoast/tools/lca'>NOAA 2010</a>). Due to errors in how unconsolidated shoreline was mapped, we did not include any sites that consisted solely of unconsolidated shoreline. </tr>");
-                                        var resTemplate = new InfoTemplate("Resilience", "<b>" + pixelCat +  "</b>" + "<br><br><tr>Tribal lands are excluded from the results pending a review with tribal representatives. </tr>");
 
-                                    }
+
+                                  }
                                   else if (pixelVal === '-3504'){	 //sea levl rise area -- unassessed coastal area
                                         pixelCat = "Pioneer Lava";
-                                        var resTemplate = new InfoTemplate("Resilience", "<tr><strong>Pioneer Lava</strong>: This area is composed of pioneer lava.");
+                                        var resTemplate = new InfoTemplate("Resilience", "<tr><strong>Pioneer Lava</strong>: This area is composed of recent lava flows and was not assessed for resilience.");
 
                                   }
                                   else if (pixelVal === '-4000' && pixelAnalysis.indexOf("Tidal") >-1){	 // handful of cell are below average coastal
@@ -2958,8 +2966,10 @@
                             var acres = Math.max(roundNumber(val*0.000247105, 2)); totalAcres.push(acres);}
                         else if (metric === "Res_SLIGHTLY_ABOVE_AVERAGE_MARSH_MIGRATION_SPACE"){resTabAreaTextVals["Resilient Migration Space for Tidal Habitat"] = acreVal;
                             var acres = Math.max(roundNumber(val*0.000247105, 2)); totalAcres.push(acres);}
-
-
+                        else if (metric === "Res_GLACIER"){resTabAreaTextVals["Glacier"] = acreVal;
+                                var acres = Math.max(roundNumber(val*0.000247105, 2)); totalAcres.push(acres);}
+                        else if (metric === "Res_PIONEER_LAVA"){resTabAreaTextVals["Pioneer Lava"] = acreVal;
+                                    var acres = Math.max(roundNumber(val*0.000247105, 2)); totalAcres.push(acres);}
 
                         else if (metric === "LC_FAR_ABOVE_AVERAGE_LOCAL_CONNECTEDNESS"){lcTabAreaTextVals["Far Above Average"] = acreVal; }
                         else if (metric === "LC_ABOVE_AVERAGE_LOCAL_CONNECTEDNESS"){lcTabAreaTextVals["Above Average"] = acreVal; }
@@ -2986,6 +2996,8 @@
                         else if (metric === "LD_SLIGHTLY_BELOW_AVERAGE_LANDSCAPE_DIVERSITY"){ldTabAreaTextVals["Slightly Below Average"] = acreVal; }
                         else if (metric === "LD_BELOW_AVERAGE_LANDSCAPE_DIVERSITY"){ldTabAreaTextVals["Below Average"] = acreVal; }
                         else if (metric === "LD_FAR_BELOW_AVERAGE_LANDSCAPE_DIVERSITY"){ldTabAreaTextVals["Far Below Average"] = acreVal; }
+                        else if (metric === "LD_GLACIER"){ldTabAreaTextVals["Glacier"] = acreVal; }
+                        else if (metric === "LD_PIONEER_LAVA"){ldTabAreaTextVals["Pioneer Lava"] = acreVal; }
                         else if (metric === "LD_DEVELOPED"){ldTabAreaTextVals["Developed"] = acreVal; }
                     }
 
@@ -3087,19 +3099,15 @@
                     else if (metric === "GAP_S_2"){securedTabAreaVals["GAP 2"] = acreVal;}
                     else if (metric === "GAP_S_1"){securedTabAreaVals["GAP 1"] = acreVal;}
 
-                    else if (metric === "Bio_NO_RECOGNIZED_BIODIVERSITY"){biodivVals["No Recognized Biodiversity"] = acreVal;}
+                    // else if (metric === "Bio_NO_RECOGNIZED_BIODIVERSITY"){biodivVals["No Recognized Biodiversity"] = acreVal;} //don't show no recognized biodiversity
                     else if (metric === "Bio_RECOGNIZED_BIODIVERSITY"){biodivVals["Recognized Biodiversity"] = acreVal;}
-                    else if (metric === "Bio_HB1__INTACT_NATIVE_ECOSYSTEMS_HIGHEST_BIODIVERSITY"){biodivVals["Intact Native Ecosystems Highest Biodiversity"] = acreVal;}
-                    else if (metric === "Bio_HB2__INTACT_NATIVE_ECOSYSTEMS"){biodivVals["Intact Native Ecosystems"] = acreVal;}
-                    else if (metric === "Bio_HB3__THREATENED_NATIVE_ECOSYSTEMS"){biodivVals["Threatened Native Ecosystems"] = acreVal;}
-                    else if (metric === "Bio_HB4__RAPIDLY_DEGRADING_ECOSYSTEMS"){biodivVals["Recognized Biodiversity"] = acreVal;}
-                    else if (metric === "Bio_PORTFOLIO_COASTAL_BIRD_NESTING___ANCHIALINE_POOLS"){biodivVals["Portfolio Coastal Bird Nesting & Anchialine Pools"] = acreVal;}
+
 
                     else if (metric === "Flow_CONCENTRATED_FLOW"){flowVals["Concentrated Flow"] = acreVal;}
                     else if (metric === "Flow_CONCENTRATED_FLOW__CLIMATE_INFORMED_"){flowVals["Concentrated Flow (Climate Informed)"] = acreVal;}
                     else if (metric === "Flow_DIFFUSE_FLOW__CLIMATE_INFORMED_"){flowVals["Diffuse Flow (Climate Informed)"] = acreVal;}
                     else if (metric === "Flow_DIFFUSE_FLOW_HIGH"){flowVals["Diffuse Flow (High)"] = acreVal;}
-                    else if (metric === "Flow_NO_FLOW"){flowVals["No Flow"] = acreVal;}
+                    else if (metric === "Flow_NO_FLOW"){flowVals["Low Flow"] = acreVal;}
                     else if (metric === "Flow_FLOW_THROUGH_NATURAL_HABITAT"){flowVals["Flow Through Natural Habitat"] = acreVal;}
                     else if (metric === "Flow_CLIMATE_FLOW_THROUGH_NATURAL_HABITAT"){flowVals["Climate Flow Through Natural Habitat"] = acreVal;}
                     else if (metric === "Flow_CLIMATE_FLOW_THROUGH_MODIFIED_HABITAT"){flowVals["Climate Flow Through Modified Habitat"] = acreVal;}
@@ -3532,7 +3540,7 @@
                             }
                         }
                     }
-                    var resConnResults = "<h5>Resilience, Flow and Recognized Biodiversity: " + numberWithCommas(roundNumber(arrSum(group1Vals), 1)) + " ac.</h5>" + group1Text + "<hr class='lightGray'><h5>Resilience and Flow: " + numberWithCommas(roundNumber(arrSum(group2Vals), 1)) + " ac.</h5>" + group2Text + "<hr class='lightGray'><h5>Resilience and Recognized Biodiversity: " + numberWithCommas(roundNumber(arrSum(group3Vals), 1)) + " ac.</h5>" + group3Text +"<hr class='lightGray'>" + otherText;
+                    var resConnResults = "<h3>Resilience, Flow and Recognized Biodiversity: " + numberWithCommas(roundNumber(arrSum(group1Vals), 1)) + " ac.</h3>" + group1Text + "<hr class='lightGray'><h3>Resilience and Flow: " + numberWithCommas(roundNumber(arrSum(group2Vals), 1)) + " ac.</h3>" + group2Text + "<hr class='lightGray'><h3>Resilience and Recognized Biodiversity: " + numberWithCommas(roundNumber(arrSum(group3Vals), 1)) + " ac.</h3>" + group3Text +"<hr class='lightGray'>" + otherText;
                     resConnText = "<table><tr><td>" + resConnResults + "</td><td>" + resConnChartDiv +"</td></tr></table></div>";
 
                 }
@@ -3576,14 +3584,23 @@
                 geoPieText = geoPieText.replace(/_/g, " ");
 
 
-                if (app.nationalState){
+
+                if ((app.regions.includes("California")) || (app.regions.includes("/CA"))){
 //                    var resilienceText = "<hr><div style='display: inline-block'><h4 style='margin:0px;'>Terrestrial Resilience Categories within Polygon</h4>" + resTabAreaText + ldTabAreaText + lcTabAreaText;
+
                     var resilienceText = "<div  class='printOverflow'><hr><h4 style='margin:0px;'>Terrestrial Resilience Categories</h4>" + resTabAreaText + ldTabAreaText + lcTabAreaText;
                     var stateText = 'These results are based on the <b>state-specific</b> analysis.  You can view the input layers by toggling the "Customized - National" to "Customized".';
                 }
                 else{
+                  if (app.nationalState){
+                    var resilienceText = "<div style='display: inline-block'  class='printOverflow'><hr><h4 style='margin:0px;'>Average Terrestrial Resilience with Polygon</h4><p style='margin-top:0px !important; margin-left: 9px;'>(all scores relative to ecoregion)</p><div style='display:inline-block;'>" + resText + LDText + LCText +  "</div></div><div><hr><h4 style='margin:0px;'>Terrestrial Resilience Categories</h4>" + resTabAreaText + ldTabAreaText + lcTabAreaText;
+                    var stateText = 'These results are based on the <b>state-specific</b> analysis.  You can view the input layers by toggling the "Customized - National" to "Customized".';
+                  }
+                  else{
                     var resilienceText = "<div style='display: inline-block'  class='printOverflow'><hr><h4 style='margin:0px;'>Average Terrestrial Resilience with Polygon</h4><p style='margin-top:0px !important; margin-left: 9px;'>(all scores relative to ecoregion)</p><div style='display:inline-block;'>" + resText + LDText + LCText +  "</div></div><div><hr><h4 style='margin:0px;'>Terrestrial Resilience Categories</h4>" + resTabAreaText + ldTabAreaText + lcTabAreaText;
                     var stateText = 'These results are based on the <b>nationally-consistent</b> ecoregional data.';
+                  }
+
                 }
 
                 // secured areas text
@@ -3613,12 +3630,13 @@
 
                 var biodivText = "<strong>Biodiversity</strong><br>"
                 for (const [key, value] of Object.entries(biodivVals)) {
-                  biodivText +=`${key}: ${value} ac; `
+                  biodivText +=`${key}: ${numberWithCommas(Math.max(roundNumber(value, 1)))} ac; `
                 }
                 var flowText = "<strong>Climate Flow</strong><br>"
                 for (const [key, value] of Object.entries(flowVals)) {
-                  flowText +=`${key}: ${value} ac; `
+                  flowText +=`${key}: ${numberWithCommas(Math.max(roundNumber(value, 1)))} ac; `
                 }
+
 
                 if (app.useCoastal === false){
                     var resContent =  "<div id='resultsPane' class='printOverflow'><h4> Total land area: <strong>" + numberWithCommas(Math.max(roundNumber(app.sumTotalAcres, 1)))  + " acres</strong> in the " + app.regions + " study area(s) in the " + app.ecoregions + " ecoregion(s).</h4>" + gapText +  "<hr><h4 >Resilient and Connected Network Results</h4><p>Note: " +stateText + " They are derived from the detailed representations of the <a href=\'coreConcepts_resConnDet.html\' onClick=\'return windowPopup(this, \"notes\")\'>Resilient and Connected Networks</a> which can be visualized under the Resilient & Connected Network Components section at right.</p><div style='display:inline-block'  class='printOverflow'>" + resConnText  + "</div >" + "<hr>" + biodivText + "<hr>" + flowText + resilienceText + "<hr><h4 style='margin:0px;'>Geophysical Setting Results</h4>" + geoTextIntro  +  geoText  + "</div>" + okPrintButtons + "</div>";

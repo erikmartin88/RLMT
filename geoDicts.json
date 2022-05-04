@@ -482,6 +482,9 @@
         "SUB_ALPINE_2_000_3_000M__NON_PIONEER_LAVA":"Sub-Alpine 2,000-3,000m, non-pioneer lava",
         "ALPINE__3_000M__NON_PIONEER_LAVA":"Alpine >3,000m, non-pioneer lava",
         "PIONEER_LAVA":"Pioneer Lava",
+        "ACIDIC_TO_NEUTRAL_SEDIMENTARY":"Acidic to Neutral Sedimentary",
+        "CIRCUMNEUTRAL_TO_ACIDIC_SEDIMENTARY" :"Circumneutral to Acidic Sedimentary",
+        "GRANITIC" : "Granitic"
 
     }
 }
