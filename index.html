@@ -388,7 +388,7 @@
             var resConnDetTilesHI = new ArcGISTiledMapServiceLayer("https://tiles.arcgis.com/tiles/F7DSX1DSNSiWmOqh/arcgis/rest/services/RL_ResilientConnectedDetailed_HI_Tiles_Apr22/MapServer", {visible: false});
             var resConnDetTilesAK = new ArcGISTiledMapServiceLayer("https://tiles.arcgis.com/tiles/F7DSX1DSNSiWmOqh/arcgis/rest/services/RL_ResilientConnectedDetailed_AK_Tiles_Apr22/MapServer", {visible: false});
 
-            var cliFlowTiles = new ArcGISTiledMapServiceLayer("https://tiles.arcgis.com/tiles/F7DSX1DSNSiWmOqh/arcgis/rest/services/RL_ClimateFlow_Tiles_July20/MapServer", {visible: false});
+            var cliFlowTiles = new ArcGISTiledMapServiceLayer("https://tiles.arcgis.com/tiles/F7DSX1DSNSiWmOqh/arcgis/rest/services/RL_ClimateFlow_CONUS_Tiles_Apr22/MapServer", {visible: false});
             var cliFlowTilesHI = new ArcGISTiledMapServiceLayer("https://tiles.arcgis.com/tiles/F7DSX1DSNSiWmOqh/arcgis/rest/services/RL_ClimateFlow_HI_Tiles_Apr22/MapServer", {visible: false});
             var cliFlowTilesAK = new ArcGISTiledMapServiceLayer("https://tiles.arcgis.com/tiles/F7DSX1DSNSiWmOqh/arcgis/rest/services/RL_ClimateFlow_AK_Tiles_Apr22/MapServer", {visible: false});
 
@@ -2857,7 +2857,7 @@
                 app.grElevValFt =undefined;
                 app.useCoastal = false;
 
-                var flowTextVals = {};
+
                 var resConnTextVals = {};
                 var coastalTextVals = {};
                 var resTabAreaTextVals = {};
@@ -3069,12 +3069,12 @@
                     }
 
 
-                    else if (metric === "CONSTRAINED_FLOW"){flowTextVals["Constrained Flow"] = Math.max(roundNumber(val/1000000, 1));}
-                    else if (metric === "CONCENTRATED_FLOW"){flowTextVals["Concentrated Flow"] = Math.max(roundNumber(val/1000000, 1));}
-                    else if (metric === "HIGH_CONCENTRATED_FLOW"){flowTextVals["High Concentrated Flow"] = Math.max(roundNumber(val/1000000, 1));}
-                    else if (metric === "LOW_DIFFUSE_FLOW"){flowTextVals["Low Diffuse Flow"] = Math.max(roundNumber(val/1000000, 1));}
-                    else if (metric === "MEDIUM_DIFFUSE_FLOW"){flowTextVals["Medium Diffuse Flow"] = Math.max(roundNumber(val/1000000, 1));}
-                    else if (metric === "HIGH_DIFFUSE_FLOW"){flowTextVals["High Diffuse Flow"] = Math.max(roundNumber(val/1000000, 1));}
+                    // else if (metric === "CONSTRAINED_FLOW"){flowTextVals["Constrained Flow"] = Math.max(roundNumber(val/1000000, 1));}
+                    // else if (metric === "CONCENTRATED_FLOW"){flowTextVals["Concentrated Flow"] = Math.max(roundNumber(val/1000000, 1));}
+                    // else if (metric === "HIGH_CONCENTRATED_FLOW"){flowTextVals["High Concentrated Flow"] = Math.max(roundNumber(val/1000000, 1));}
+                    // else if (metric === "LOW_DIFFUSE_FLOW"){flowTextVals["Low Diffuse Flow"] = Math.max(roundNumber(val/1000000, 1));}
+                    // else if (metric === "MEDIUM_DIFFUSE_FLOW"){flowTextVals["Medium Diffuse Flow"] = Math.max(roundNumber(val/1000000, 1));}
+                    // else if (metric === "HIGH_DIFFUSE_FLOW"){flowTextVals["High Diffuse Flow"] = Math.max(roundNumber(val/1000000, 1));}
 
                     //new RCN
                     else if (metric === "MOSTLY_RESILIENT__CONCENTRATED_FLOW"){resConnTextVals["Mostly Resilient, Concentrated Flow"] = acreVal; }
@@ -3100,20 +3100,31 @@
                     else if (metric === "GAP_S_1"){securedTabAreaVals["GAP 1"] = acreVal;}
 
                     // else if (metric === "Bio_NO_RECOGNIZED_BIODIVERSITY"){biodivVals["No Recognized Biodiversity"] = acreVal;} //don't show no recognized biodiversity
-                    else if (metric === "Bio_RECOGNIZED_BIODIVERSITY"){biodivVals["Recognized Biodiversity"] = acreVal;}
+                    else if (metric === "Bio_STATE_BASED"){biodivVals["State-based"] = acreVal;}
+                    else if (metric === "Bio_ECOREGION_BASED"){biodivVals["Ecoregion-based"] = acreVal;}
+                    else if (metric === "Bio_ECOREGION_AND_STATE_BASED"){biodivVals["Ecoregion and State-based"] = acreVal;}
+                    else if (metric === "Bio_ADDITIONAL_HABITAT_AND_SPECIES__NOT_STATE_OR_ECOREGION_BASED_"){biodivVals["Additional Habitat and Species"] = acreVal;}
+                    else if (metric === "Bio_UNRECOGNIZED_BIODIVERSITY_VALUE"){biodivVals["Unrecognized Biodiversity Value"] = acreVal;}
 
+                    else if (metric === "Flow_FAR_ABOVE_AVERAGE_FLOW"){flowVals["Far Above Average Flow"] = acreVal;}
+                    else if (metric === "Flow_ABOVE_AVERAGE_FLOW"){flowVals["Above Average Flow"] = acreVal;}
+                    else if (metric === "Flow_SLIGHTLY_ABOVE_AVERAGE_FLOW"){flowVals["Slightly Above Average Flow"] = acreVal;}
+                    else if (metric === "Flow_AVERAGE_FLOW"){flowVals["Average Flow"] = acreVal;}
+                    else if (metric === "Flow_SLIGHTLY_BELOW_AVERAGE_FLOW"){flowVals["Slightly Below Average Flow"] = acreVal;}
+                    else if (metric === "Flow_BELOW_AVERAGE_FLOW"){flowVals["Below Average Flow"] = acreVal;}
+                    else if (metric === "Flow_FAR_BELOW_AVERAGE_FLOW"){flowVals["Far Below Average Flow"] = acreVal;}
 
-                    else if (metric === "Flow_CONCENTRATED_FLOW"){flowVals["Concentrated Flow"] = acreVal;}
-                    else if (metric === "Flow_CONCENTRATED_FLOW__CLIMATE_INFORMED_"){flowVals["Concentrated Flow (Climate Informed)"] = acreVal;}
-                    else if (metric === "Flow_DIFFUSE_FLOW__CLIMATE_INFORMED_"){flowVals["Diffuse Flow (Climate Informed)"] = acreVal;}
-                    else if (metric === "Flow_DIFFUSE_FLOW_HIGH"){flowVals["Diffuse Flow (High)"] = acreVal;}
-                    else if (metric === "Flow_NO_FLOW"){flowVals["Low Flow"] = acreVal;}
-                    else if (metric === "Flow_FLOW_THROUGH_NATURAL_HABITAT"){flowVals["Flow Through Natural Habitat"] = acreVal;}
-                    else if (metric === "Flow_CLIMATE_FLOW_THROUGH_NATURAL_HABITAT"){flowVals["Climate Flow Through Natural Habitat"] = acreVal;}
-                    else if (metric === "Flow_CLIMATE_FLOW_THROUGH_MODIFIED_HABITAT"){flowVals["Climate Flow Through Modified Habitat"] = acreVal;}
-                    else if (metric === "Flow_FLOW_THROUGH_MODIFIED_HABITAT"){flowVals["Flow Through Modified Habitat"] = acreVal;}
-                    else if (metric === "Flow_COASTAL_MIGRATION_SPACE"){flowVals["Coastal Migration Space"] = acreVal;}
-                    else if (metric === "Flow_SEA_LEVEL_RISE_AREA"){flowVals["Sea Level Rise Area"] = acreVal;}
+                    // else if (metric === "Flow_CONCENTRATED_FLOW"){flowVals["Concentrated Flow"] = acreVal;}
+                    // else if (metric === "Flow_CONCENTRATED_FLOW__CLIMATE_INFORMED_"){flowVals["Concentrated Flow (Climate Informed)"] = acreVal;}
+                    // else if (metric === "Flow_DIFFUSE_FLOW__CLIMATE_INFORMED_"){flowVals["Diffuse Flow (Climate Informed)"] = acreVal;}
+                    // else if (metric === "Flow_DIFFUSE_FLOW_HIGH"){flowVals["Diffuse Flow (High)"] = acreVal;}
+                    // else if (metric === "Flow_NO_FLOW"){flowVals["Low Flow"] = acreVal;}
+                    // else if (metric === "Flow_FLOW_THROUGH_NATURAL_HABITAT"){flowVals["Flow Through Natural Habitat"] = acreVal;}
+                    // else if (metric === "Flow_CLIMATE_FLOW_THROUGH_NATURAL_HABITAT"){flowVals["Climate Flow Through Natural Habitat"] = acreVal;}
+                    // else if (metric === "Flow_CLIMATE_FLOW_THROUGH_MODIFIED_HABITAT"){flowVals["Climate Flow Through Modified Habitat"] = acreVal;}
+                    // else if (metric === "Flow_FLOW_THROUGH_MODIFIED_HABITAT"){flowVals["Flow Through Modified Habitat"] = acreVal;}
+                    // else if (metric === "Flow_COASTAL_MIGRATION_SPACE"){flowVals["Coastal Migration Space"] = acreVal;}
+                    // else if (metric === "Flow_SEA_LEVEL_RISE_AREA"){flowVals["Sea Level Rise Area"] = acreVal;}
 
 
                     else {
@@ -3206,11 +3217,15 @@
                 var resConnRawValList = [];
                 var coastalRawValList = [];
                 var resTabAreaRawValList = [];
+                var flowTabAreaRawValList = [];
+                var biodivTabAreaRawValList = [];
                 var lcTabAreaRawValList = [];
                 var ldTabAreaRawValList = [];
                 var nlcdTabAreaRawValList = [];
                 var forCarbTabAreaRawValList = [];
                 var resTabAreaValList = [];
+                var flowTabAreaValList = [];
+                var biodivTabAreaValList = [];
                 var lcTabAreaValList = [];
                 var ldTabAreaValList = [];
                 var nlcdTabAreaValList = [];
@@ -3290,6 +3305,55 @@
                         coastalPieData.push(tmp);
                     }
                     // console.log(coastalPieData);
+                }
+
+                //get pie chart data for flow tab area
+                flowPieData =[];
+                if (Object.keys(flowVals).length >0){
+                    app.useFlowTabArea = true;
+                    for (var key in flowVals) {
+                        var rawVal = flowVals[key];
+                        var tmp = {};
+                        var percent = Number(rawVal) / (app.sumTotalAcres) * 100;  //use area based on total coastal area
+                        flowTabAreaRawValList.push(rawVal);
+                        percent = roundNumber(percent+0.00001, 1);
+                        flowTabAreaValList.push(percent);
+                        tmp.y = rawVal;
+                        tmp.key = key;
+                        var sortNum = addSort(key);
+                        tmp.sortNum = sortNum;
+                        //tmp.text below creates labels with category and % -- looks horrible
+                        //tmp.text = '<div align="center">' + key + '<br>' + percent +'%</div>';
+                        tmp.tooltip = key + "</strong><br>" + numberWithCommas(roundNumber(rawVal, 0)) + " acres (" + percent + "%)";
+                        flowPieData.push(tmp);
+                    }
+                    flowPieData = flowPieData.sort(compareValues('sortNum', 'desc'));
+                    // console.log(resPieData);
+                }
+
+
+                //get pie chart data for biodiversity tab area
+                biodivPieData =[];
+                if (Object.keys(biodivTextVals).length >0){
+                    app.useBiodivTabArea = true;
+                    for (var key in biodivVals) {
+                        var rawVal = biodivVals[key];
+                        var tmp = {};
+                        var percent = Number(rawVal) / (app.sumTotalAcres) * 100;  //use area based on total coastal area
+                        biodivAreaRawValList.push(rawVal);
+                        percent = roundNumber(percent+0.00001, 1);
+                        biodivTabAreaValList.push(percent);
+                        tmp.y = rawVal;
+                        tmp.key = key;
+                        var sortNum = addSort(key);
+                        tmp.sortNum = sortNum;
+                        //tmp.text below creates labels with category and % -- looks horrible
+                        //tmp.text = '<div align="center">' + key + '<br>' + percent +'%</div>';
+                        tmp.tooltip = key + "</strong><br>" + numberWithCommas(roundNumber(rawVal, 0)) + " acres (" + percent + "%)";
+                        biodivPieData.push(tmp);
+                    }
+                    biodivPieData = biodivPieData.sort(compareValues('sortNum', 'desc'));
+
                 }
 
 
@@ -3489,14 +3553,14 @@
                     var LDText = "";
                 }
 
-                //loop through flow results and only include text if there's a result value
-                var flowText = "";
-                for (var key in flowTextVals){
-                    if (flowTextVals[key] !== ""){
-                        flowText += string.substitute('<p><a href=\'coreConcepts_regFlowDesc.html\' onClick=\'return windowPopup(this, \"notes\")\'>${resultMetric}</a>: ${resultVal} Sq KM</p>',{resultMetric: key, resultVal:flowTextVals[key]});
-                    }
-                }
-                if (flowText === ""){flowText = "<p>There are no categorized Regional Flows data within the polygon.</p>";}
+                // //loop through flow results and only include text if there's a result value
+                // var flowText = "";
+                // for (var key in flowTextVals){
+                //     if (flowTextVals[key] !== ""){
+                //         flowText += string.substitute('<p><a href=\'coreConcepts_regFlowDesc.html\' onClick=\'return windowPopup(this, \"notes\")\'>${resultMetric}</a>: ${resultVal} Sq KM</p>',{resultMetric: key, resultVal:flowTextVals[key]});
+                //     }
+                // }
+                // if (flowText === ""){flowText = "<p>There are no categorized Regional Flows data within the polygon.</p>";}
 
 
                 //loop through resilient & connected landscape results and only include text if there's a result value
@@ -3565,6 +3629,23 @@
                     // console.log(resTabAreaTextVals);
                     var resTabAreaText = resTabAreaChartDiv;
                 }
+
+
+                //loop through biodiversity tab area results and only include text if there's a result value
+                if (app.useBiodivTabArea === true){
+                    var biodivTabAreaChartDiv = '<div class="column-left"><p style="display:inline-block" align="center"><a href=\'coreConcepts_resSitesBiodiv.html\' onClick=\'return windowPopup(this, \"notes\")\'>Biodiversity</a><br></p><div id="biodivTabAreaChartNode"  style="width: 200px; height: 200px; display:inline-block"></div></div>';
+                    // console.log(resTabAreaTextVals);
+                    var biodivTabAreaText = biodivTabAreaChartDiv;
+                }
+
+
+                //loop through flow tab area results and only include text if there's a result value
+                if (app.useFlowTabArea === true){
+                    var flowTabAreaChartDiv = '<div class="column-left"><p style="display:inline-block" align="center"><a href=\'coreConcepts_cliFlow.html\' onClick=\'return windowPopup(this, \"notes\")\'>Connectivity and CLimate Flow</a><br></p><div id="flowTabAreaChartNode"  style="width: 200px; height: 200px; display:inline-block"></div></div>';
+                    // console.log(resTabAreaTextVals);
+                    var flowTabAreaText = flowTabAreaChartDiv;
+                }
+
                 //loop through LC tab area results and only include text if there's a result value
                 if (app.useLCTabArea === true){
                     var lcTabAreaChartDiv = '<div class="column-center" ><p style="display:inline-block" align="center"><a href=\'coreConcepts_LC.html\' onClick=\'return windowPopup(this, \"notes\")\'>Local Connectedness</a><br></p><div id="lcTabAreaChartNode"  style="width: 200px; height: 200px; display:inline-block"></div></div>';
@@ -4028,6 +4109,66 @@
 //                    coastalPieChart.render();
 //                }
 
+
+               //set up the continuous flow summary
+               if (Object.keys(flowVals).length >0){
+                   var flowPieChart = new Chart("flowTabAreaChartNode");
+                   flowPieChart.setTheme(theme);
+                   flowPieChart.addPlot("default", {
+                       type: "Pie",
+                       fontColor: "black",
+                       labelOffset: 0,
+
+                       styleFunc: function(item){
+                         if (item.key === "Far Above Average Flow"){return{fill:"#043859"};}
+                         else if (item.key === "Above Average Flow"){return{fill:"#045a72"};}
+                         else if (item.key === "Slightly Above Average Flow"){return{fill:"#74a9cf"};}
+                         else if (item.key === "Average Flow"){return{fill:"#ffffbf"};}
+                         else if (item.key === "Slightly Below Average Flow"){return{fill:"#e0c080"};}
+                         else if (item.key === "Below Average Flow"){return{fill:"#bf874b"};}
+                         else if (item.key === "Far Below Average Flow"){return{fill:"#9c551f"};}
+                         else{return{fill:"black"};}
+                         return {};
+                       }
+                   });
+                   flowPieChart.addSeries("Flow",flowPieData);
+
+                   new Tooltip(flowPieChart, "default", {
+                         position : "before"
+                   });
+                   new MoveSlice(flowPieChart,"default");
+                   flowPieChart.render();
+               }
+
+               //set up the biodiversity summary
+               if (Object.keys(biodivVals).length >0){
+                   var biodivPieChart = new Chart("biodivTabAreaChartNode");
+                   biodivPieChart.setTheme(theme);
+                   biodivPieChart.addPlot("default", {
+                       type: "Pie",
+                       fontColor: "black",
+                       labelOffset: 0,
+
+                       styleFunc: function(item){
+
+                         if (item.key === "State-based"){return{fill:"#9e9e00"};}
+                         else if (item.key === "Ecoregion-based"){return{fill:"#38a800"};}
+                         else if (item.key === "Ecoregion and State-based"){return{fill:"#4b7300"};}
+                         else if (item.key === "Additional Habitat and Species"){return{fill:"#abcc95"};}
+                         else if (item.key === "Unrecognized Biodiversity Value"){return{fill:"#c7c7c7"};}
+
+                         else{return{fill:"black"};}
+                         return {};
+                       }
+                   });
+                   biodivPieChart.addSeries("Flow",flowPieData);
+
+                   new Tooltip(biodivPieChart, "default", {
+                         position : "before"
+                   });
+                   new MoveSlice(biodivPieChart,"default");
+                   biodivPieChart.render();
+               }
 
                  //set up the resilient tab area pie chart *****Set label offset to 0 if incluing geo text in label
                 // console.log(coastalPieData);
