@@ -2645,10 +2645,10 @@
                                     var tonsacre = feature.attributes['Pixel Value'];
                                     if (tonsacre !== undefined){
                                         tonsacre = Math.max(roundNumber(tonsacre, 2));
-                                        var forestCarbonSeqTemplate = new InfoTemplate("Avg. Annual Sequestration", "<tr><strong>Potential Forest Ecosystem Carbon Sequestration</strong>:  <strong>" + tonsacre + "</strong> metric tons / acre. <p>Estimates of Forest Carbon (Aboveground, Coarse Woody Debris and Total Ecosystem) are from <a href='https://daac.ornl.gov/CMS/guides/AGB_NEP_Disturbance_US_Forests.html' target='_blank'>Williams et al. (2021b)</a> following methods described in Gu et al. (2019) for the Southeast US.  To estimate carbon stock, attributes were determined for all forested 30-m pixels in the continental United States and a forest carbon cycle model trained to match Forest Inventory and Analysis (FIA) data was used to predict carbon stocks for 2010 based on site‐level attributes of forest type group, years since disturbance, and site productivity class. Results were iterated backward in time to provide continuous, annual reporting of forest carbon dynamics for each pixel.  Unlike in most prior studies that lack spatial detail on the stand age of forest stands that persisted in a forested condition during the satellite data era, this study used remotely sensed biomass to estimate the stand age condition of these persisting, intact forests, distinguishing relatively young stands (e.g., 30 to 50 year old) from older stands.</p> </tr>");
+                                        var forestCarbonSeqTemplate = new InfoTemplate("Potential Forest Ecosystem Carbon Sequestration", "<tr><strong>Potential Forest Ecosystem Carbon Sequestration</strong>:  <strong>" + tonsacre + "</strong> metric tons / acre. <p>Estimates of Forest Carbon (Aboveground, Coarse Woody Debris and Total Ecosystem) are from <a href='https://daac.ornl.gov/CMS/guides/AGB_NEP_Disturbance_US_Forests.html' target='_blank'>Williams et al. (2021b)</a> following methods described in Gu et al. (2019) for the Southeast US.  To estimate carbon stock, attributes were determined for all forested 30-m pixels in the continental United States and a forest carbon cycle model trained to match Forest Inventory and Analysis (FIA) data was used to predict carbon stocks for 2010 based on site‐level attributes of forest type group, years since disturbance, and site productivity class. Results were iterated backward in time to provide continuous, annual reporting of forest carbon dynamics for each pixel.  Unlike in most prior studies that lack spatial detail on the stand age of forest stands that persisted in a forested condition during the satellite data era, this study used remotely sensed biomass to estimate the stand age condition of these persisting, intact forests, distinguishing relatively young stands (e.g., 30 to 50 year old) from older stands.</p> </tr>");
                                     }
                                     else{
-                                        var forestCarbonSeqTemplate = new InfoTemplate("Avg. Annual Sequestration", "<tr><strong>Potential Forest Ecosystem Carbon Sequestration</strong>:  No forest carbon data is available for this location.  Forest carbon data is only available in forested areas.  Refer to the NLCD 2019 to locate forested areas.</tr>");
+                                        var forestCarbonSeqTemplate = new InfoTemplate("Potential Forest Ecosystem Carbon Sequestration", "<tr><strong>Potential Forest Ecosystem Carbon Sequestration</strong>:  No forest carbon data is available for this location.  Forest carbon data is only available in forested areas.  Refer to the NLCD 2019 to locate forested areas.</tr>");
                                     }
                                     feature.setInfoTemplate(forestCarbonSeqTemplate);
 
@@ -2657,14 +2657,15 @@
                                 else if(document.getElementById('r1_forestType').checked){
                                     var idLayer = "ID Forest Types";
                                     var type = feature.attributes['Forest_Typ'];
+                                    console.log(type)
                                     if (type !== undefined){
 
                                         var forestTypeTemplate = new InfoTemplate("Forest Types", "<tr><strong>Forest Type</strong>:  <strong>" + type + "</strong>. <p>Forest carbon was evaluated by Williams et al on forested lands.  Lands were defined as forested if they were available in the forest type data from: Ruefenacht, B., M.V. Finco, M.D. Nelson, R. Czaplewski, E.H. Helmer, J.A. Blackard, G.R. Holden, A.J. Lister, D. Salajanu, D. Weyermann, and K. Winterberger. 2008. Conterminous U.S. and Alaska Forest Type Mapping Using Forest Inventory and Analysis Data. Photogrammetric Engineering & Remote Sensing 74:1379–1388. <a href='https://doi.org/10.14358/PERS.74.11.1379' target='_blank'>https://doi.org/10.14358/PERS.74.11.1379</a></p> </tr>");
                                     }
                                     else{
-                                        var forestCarbon2050Template = new InfoTemplate("Forest Types", "<tr><strong>Forest Ecosystem Carbon (2050)</strong>:  No forest type data is available for this location.</tr>");
+                                        var forestTypeTemplate = new InfoTemplate("Forest Types", "<tr><strong>Forest Ecosystem Carbon (2050)</strong>:  No forest type data is available for this location.</tr>");
                                     }
-                                    feature.setInfoTemplate(forestCarbon2050Template);
+                                    feature.setInfoTemplate(forestTypeTemplate);
                                 }
 
                                 else if(document.getElementById('r1_soilCarbon').checked){
