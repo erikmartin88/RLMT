@@ -434,6 +434,7 @@
             var forestCarbon2010Tiles = new ArcGISTiledMapServiceLayer("https://tiles.arcgis.com/tiles/F7DSX1DSNSiWmOqh/arcgis/rest/services/RL_ForestCarbon2010_CONUS_Tiles_Apr22/MapServer", {visible: false});
             var forestCarbon2050Tiles = new ArcGISTiledMapServiceLayer("https://tiles.arcgis.com/tiles/F7DSX1DSNSiWmOqh/arcgis/rest/services/RL_ForestCarbon2050_CONUS_Tiles_Apr22/MapServer", {visible: false});
             var forestCarbonSeqTiles = new ArcGISTiledMapServiceLayer("https://tiles.arcgis.com/tiles/F7DSX1DSNSiWmOqh/arcgis/rest/services/RL_ForestCarbonSequestration_CONUS_Tiles_Apr22/MapServer", {visible: false});
+            var forestTypeTiles = new ArcGISTiledMapServiceLayer("https://tiles.arcgis.com/tiles/F7DSX1DSNSiWmOqh/arcgis/rest/services/RL_ForestTypes_CONUS_Tiles_Apr22/MapServer", {visible: false});
 
             var soilCarbonTiles = new ArcGISTiledMapServiceLayer("https://tiles.arcgis.com/tiles/F7DSX1DSNSiWmOqh/arcgis/rest/services/RL_SoilCarbon_CONUS_Tiles_Apr22/MapServer", {visible: false});
 
@@ -638,6 +639,10 @@
             var soilCarbonIPs = new ImageParameters();
             soilCarbonIPs.layerIds = [24];
             soilCarbonIPs.layerOption = ImageParameters.LAYER_OPTION_SHOW;
+            var forestTypeIPs = new ImageParameters();
+            forestTypeIPs.layerIds = [60];
+            forestTypeIPs.layerOption = ImageParameters.LAYER_OPTION_SHOW;
+
 
 
             var regionIPs = new ImageParameters();
@@ -727,6 +732,7 @@
             var forestCarbon2010Grid = new ArcGISDynamicMapServiceLayer(dynamicGridURL, {visible: false, "imageParameters": forestCarbon2010IPs});
             var forestCarbon2050Grid = new ArcGISDynamicMapServiceLayer(dynamicGridURL, {visible: false, "imageParameters": forestCarbon2050IPs});
             var forestCarbonSeqGrid = new ArcGISDynamicMapServiceLayer(dynamicGridURL, {visible: false, "imageParameters": forestCarbonSeqIPs});
+            var forestTypeGrid = new ArcGISDynamicMapServiceLayer(dynamicGridURL, {visible: false, "imageParameters": forestTypeIPs});
             var soilCarbonGrid = new ArcGISDynamicMapServiceLayer(dynamicGridURL, {visible: false, "imageParameters": soilCarbonIPs});
 
             app.ecoregionsVisible = true;
@@ -734,7 +740,7 @@
             app.securedVisible = false;
 
             //order impacts print legend
-            app.mapLayers = [resTiles, resTilesHI, resTilesAK, resGrid, resGridHI, resGridAK, resTilesState, resGridState, landDivTiles, landDivTilesHI, landDivTilesAK, landDivGrid, landDivGridHI, landDivGridAK, landDivTilesState, landDivGridState, localConnTiles, localConnTilesHI, localConnTilesAK, localConnGrid, localConnGridHI, localConnGridAK, localConnTilesState, localConnGridState, geoTiles, geoTilesHI, geoTilesAK, geoGrid, geoGridHI, geoGridAK, capnwGeoGrid, landformTiles, landformTilesHI, landformTilesAK, landformGrid, landformGridHI, landformGridAK, resConnSimpTiles, resConnSimpTilesHI, resConnSimpTilesAK, resConnSimpGrid, resConnSimpGridHI, resConnSimpGridAK, resConnSimpTilesState, resConnSimpGridState, resConnDetTiles, resConnDetTilesHI, resConnDetTilesAK, resConnDetGrid, resConnDetGridHI, resConnDetGridAK, resConnDetTilesState, resConnDetGridState, cliFlowTiles, cliFlowTilesHI, cliFlowTilesAK, cliFlowGrid, cliFlowGridHI, cliFlowGridAK, cliFlowCatTiles, cliFlowCatTilesHI, cliFlowCatTilesAK, cliFlowCatGrid, cliFlowCatGridHI, cliFlowCatGridAK, cliFlowCatTilesState, cliFlowCatGridState, tidalHabMigTiles, tidalHabMigTilesHI, tidalHabMigTilesAK, tidalHabMigGrid, tidalHabMigGridHI, tidalHabMigGridAK, nlcdTiles, nlcdGrid, forestCarbon2010Tiles, forestCarbon2010Grid, forestCarbon2050Tiles, forestCarbon2050Grid, forestCarbonSeqTiles, forestCarbonSeqGrid, soilCarbonTiles, soilCarbonGrid, rbvSingleTiles, rbvSingleTilesHI, rbvSingleTilesAK, rbvSingleGrid, rbvSingleGridHI, rbvSingleGridAK, rbvCatTiles, rbvCatTilesHI, rbvCatTilesAK, rbvCatGrid, rbvCatGridHI, rbvCatGridAK, securedAreasDyn, securedAreasDynHI, securedAreasDynAK, securedAreasTiles, securedAreasTilesHI, securedAreasTilesAK, elevTiles, elevTilesHI, elevTilesAK, elevGrid, elevGridHI, elevGridAK, regionTiles, regionTilesHI, regionTilesAK, regionGrid, regionGridHI, regionGridAK, app.tribalLands, ecoregions, states];
+            app.mapLayers = [resTiles, resTilesHI, resTilesAK, resGrid, resGridHI, resGridAK, resTilesState, resGridState, landDivTiles, landDivTilesHI, landDivTilesAK, landDivGrid, landDivGridHI, landDivGridAK, landDivTilesState, landDivGridState, localConnTiles, localConnTilesHI, localConnTilesAK, localConnGrid, localConnGridHI, localConnGridAK, localConnTilesState, localConnGridState, geoTiles, geoTilesHI, geoTilesAK, geoGrid, geoGridHI, geoGridAK, capnwGeoGrid, landformTiles, landformTilesHI, landformTilesAK, landformGrid, landformGridHI, landformGridAK, resConnSimpTiles, resConnSimpTilesHI, resConnSimpTilesAK, resConnSimpGrid, resConnSimpGridHI, resConnSimpGridAK, resConnSimpTilesState, resConnSimpGridState, resConnDetTiles, resConnDetTilesHI, resConnDetTilesAK, resConnDetGrid, resConnDetGridHI, resConnDetGridAK, resConnDetTilesState, resConnDetGridState, cliFlowTiles, cliFlowTilesHI, cliFlowTilesAK, cliFlowGrid, cliFlowGridHI, cliFlowGridAK, cliFlowCatTiles, cliFlowCatTilesHI, cliFlowCatTilesAK, cliFlowCatGrid, cliFlowCatGridHI, cliFlowCatGridAK, cliFlowCatTilesState, cliFlowCatGridState, tidalHabMigTiles, tidalHabMigTilesHI, tidalHabMigTilesAK, tidalHabMigGrid, tidalHabMigGridHI, tidalHabMigGridAK, nlcdTiles, nlcdGrid, forestCarbon2010Tiles, forestCarbon2010Grid, forestCarbon2050Tiles, forestCarbon2050Grid, forestCarbonSeqTiles, forestCarbonSeqGrid, soilCarbonTiles, soilCarbonGrid, rbvSingleTiles, rbvSingleTilesHI, rbvSingleTilesAK, rbvSingleGrid, rbvSingleGridHI, rbvSingleGridAK, rbvCatTiles, rbvCatTilesHI, rbvCatTilesAK, rbvCatGrid, rbvCatGridHI, rbvCatGridAK, securedAreasDyn, securedAreasDynHI, securedAreasDynAK, securedAreasTiles, securedAreasTilesHI, securedAreasTilesAK, elevTiles, elevTilesHI, elevTilesAK, elevGrid, elevGridHI, elevGridAK, regionTiles, regionTilesHI, regionTilesAK, regionGrid, regionGridHI, regionGridAK, app.tribalLands, ecoregions, states, forestTypeTiles, forestTypeGrid];
 
             map.addLayers(app.mapLayers);
             // console.log(map)
@@ -790,7 +796,7 @@
                 app.mapZones = []
                 dojo.connect(map, "onExtentChange", showExtent);
                 function showExtent(extent) {
-                  console.log(extent)
+                  // console.log(extent)
                   if (extent.ymax > 6626587 && extent.xmin <-14363824 ){
                     if(app.mapZones.indexOf("AK") == -1){app.mapZones.push("AK")}
                   }
@@ -882,7 +888,7 @@
                     var layerInfo = arrayUtils.map(evt.layers, function (layer, index) {
 //                        console.log(layer.layer.name)
                        if (layer.layer.name === "Indigenous lands"){
-                            return {layer:layer.layer, title:"Bob"};
+                            return {layer:layer.layer, title:" "};
                        }
                        else{
                             return {layer:layer.layer, title:" "};
@@ -1020,6 +1026,16 @@
                 if (k === "Below Average"){var n = 6;}
                 if (k === "Far Below Average"){var n = 7;}
                 if (k === "Developed"){var n = 8;}
+                if (k === "Far Above Average Flow"){var n = 1;}
+                if (k === "Above Average Flow"){var n = 2;}
+                if (k === "Slightly Above Average Flow"){var n = 3;}
+                if (k === "Average Flow"){var n = 4;}
+                if (k === "Slightly Below Average Flow"){var n = 5;}
+                if (k === "Below Average Flow"){var n = 6;}
+                if (k === "Far Below Average Flow"){var n = 7;}
+                if (k === "Glacier"){var n = 8;}
+                if (k === "Pioneer Lava"){var n = 8;}
+                if (k === "Developed"){var n = 9;}
                 return n
             }
 
@@ -1074,6 +1090,7 @@
                     app.userMapLayer = new FeatureLayer(userURL);
                     map.addLayer(app.userMapLayer);
                 }
+
             };
 
             document.getElementById('removeMapServButton').onclick = function() {
@@ -1104,6 +1121,7 @@
             document.getElementById('r1_forestCarbon2010').onclick = getResData;
             document.getElementById('r1_forestCarbon2050').onclick = getResData;
             document.getElementById('r1_forestCarbonSeq').onclick = getResData;
+            document.getElementById('r1_forestType').onclick = getResData;
             document.getElementById('r1_soilCarbon').onclick = getResData;
             document.getElementById('r1_nlcd').onclick = getResData;
             document.getElementById('r1_tidalHabMig').onclick = getResData;
@@ -1607,6 +1625,18 @@
                     else{forestCarbonSeqGrid.setVisibility(true); app.legendLayerID = "layer80";}
                     app.tribalLands.setVisibility(false);
                     app.legendLayer = "forestCarbSeq";
+                    updatePrintTitle();
+                }
+                else if (document.getElementById('r1_forestType').checked){
+                    $("#legendDiv").show();
+                    $("#legendJPEG").hide();
+                    for (var i = 0; i < app.mapLayers.length; i++){
+                        app.mapLayers[i].setVisibility(false);
+                    }
+                    if (currentScale >= 288895.277144){forestTypeTiles.setVisibility(true); app.legendLayerID = "layer79";}
+                    else{forestTypeGrid.setVisibility(true); app.legendLayerID = "layer80";}
+                    app.tribalLands.setVisibility(false);
+                    app.legendLayer = "forestType";
                     updatePrintTitle();
                 }
                 else if (document.getElementById('r1_soilCarbon').checked){
@@ -2220,6 +2250,9 @@
                     else if (document.getElementById('r1_forestCarbonSeq').checked){
                         qLayers.push(29);
                     }
+                    else if (document.getElementById('r1_forestType').checked){
+                        qLayers.push(60);
+                    }
                     else if (document.getElementById('r1_soilCarbon').checked){
                         qLayers.push(24);
                     }
@@ -2620,6 +2653,20 @@
                                     feature.setInfoTemplate(forestCarbonSeqTemplate);
 
                                 }
+
+                                else if(document.getElementById('r1_forestType').checked){
+                                    var idLayer = "ID Forest Types";
+                                    var type = feature.attributes['Forest_Typ'];
+                                    if (type !== undefined){
+
+                                        var forestTypeTemplate = new InfoTemplate("Forest Types", "<tr><strong>Forest Type</strong>:  <strong>" + type + "</strong>. <p>Forest carbon was evaluated by Williams et al on forested lands.  Lands were defined as forested if they were available in the forest type data from: Ruefenacht, B., M.V. Finco, M.D. Nelson, R. Czaplewski, E.H. Helmer, J.A. Blackard, G.R. Holden, A.J. Lister, D. Salajanu, D. Weyermann, and K. Winterberger. 2008. Conterminous U.S. and Alaska Forest Type Mapping Using Forest Inventory and Analysis Data. Photogrammetric Engineering & Remote Sensing 74:1379–1388. <a href='https://doi.org/10.14358/PERS.74.11.1379' target='_blank'>https://doi.org/10.14358/PERS.74.11.1379</a></p> </tr>");
+                                    }
+                                    else{
+                                        var forestCarbon2050Template = new InfoTemplate("Forest Types", "<tr><strong>Forest Ecosystem Carbon (2050)</strong>:  No forest type data is available for this location.</tr>");
+                                    }
+                                    feature.setInfoTemplate(forestCarbon2050Template);
+                                }
+
                                 else if(document.getElementById('r1_soilCarbon').checked){
                                     var idLayer = "ID Soil Carbon";
                                     var tonsacre = feature.attributes['Pixel Value'];
@@ -2872,7 +2919,7 @@
                 var aboveBelow;
                 var geoDict = {};
                 var i = 0;
-                var totalAcres = [];
+                var landAcres = [];
 
                 for (var feat in feats){
 
@@ -2898,108 +2945,106 @@
 
                     //*********Text format for Dojo Dialog************************
                     //resilience, LC, & LD categorical values.  Calc total acres from resilience
-                    if ((app.regions.split(",").length === 1) && ((app.regions.includes("California")) || (app.regions.includes("Pacific")) || (app.regions.includes("/CA")))){
-                        if (metric.includes("Res_A_0___20")){resTabAreaTextVals["0 - 20 Percentile"] = acreVal;
-                            var acres = Math.max(roundNumber(val*0.000247105, 2)); totalAcres.push(acres);}
-                        if (metric.includes("Res_A_20___40")){resTabAreaTextVals["20 - 40 Percentile"] = acreVal;
-                            var acres = Math.max(roundNumber(val*0.000247105, 2)); totalAcres.push(acres);}
-                        if (metric.includes("Res_A_40___60")){resTabAreaTextVals["40 - 60 Percentile"] = acreVal;
-                            var acres = Math.max(roundNumber(val*0.000247105, 2)); totalAcres.push(acres);}
-                        if (metric.includes("Res_A_60___80")){resTabAreaTextVals["60 - 80 Percentile"] = acreVal;
-                            var acres = Math.max(roundNumber(val*0.000247105, 2)); totalAcres.push(acres);}
-                        if (metric.includes("Res_A_80___100")){resTabAreaTextVals["80 - 100 Percentile"] = acreVal;
-                            var acres = Math.max(roundNumber(val*0.000247105, 2)); totalAcres.push(acres);}
-                        if (metric.includes("Res_DEVELOPED")){resTabAreaTextVals["Developed"] = acreVal;
-                            var acres = Math.max(roundNumber(val*0.000247105, 2)); totalAcres.push(acres);}
-                        else if (metric === "Res_RESILIENT_TIDAL_HABITAT"){resTabAreaTextVals["Resilient Tidal Habitat"] = acreVal;
-                            var acres = Math.max(roundNumber(val*0.000247105, 2)); totalAcres.push(acres);}
-                        else if (metric === "Res_VULNERABLE_TIDAL_HABITAT"){resTabAreaTextVals["Vulnerable Tidal Habitat"] = acreVal;
-                            var acres = Math.max(roundNumber(val*0.000247105, 2)); totalAcres.push(acres);}
-                        else if (metric === "Res_SEA_LEVEL_RISE_AREA"){resTabAreaTextVals["Sea Level Rise Area"] = acreVal;
-                            var acres = Math.max(roundNumber(val*0.000247105, 2)); totalAcres.push(acres);}
-                        else if (metric === "Res_MIGRATION_SPACE_FOR_TIDAL_HABITAT"){resTabAreaTextVals["Migration Space for Tidal Habitat"] = acreVal;
-                            var acres = Math.max(roundNumber(val*0.000247105, 2)); totalAcres.push(acres);}
+                    //CA
+                    if (metric.includes("Res_A_0___20")){resTabAreaTextVals["0 - 20 Percentile"] = acreVal;
+                        var acres = Math.max(roundNumber(val*0.000247105, 2)); landAcres.push(acres);}
+                    else if (metric.includes("Res_A_20___40")){resTabAreaTextVals["20 - 40 Percentile"] = acreVal;
+                        var acres = Math.max(roundNumber(val*0.000247105, 2)); landAcres.push(acres);}
+                    else if (metric.includes("Res_A_40___60")){resTabAreaTextVals["40 - 60 Percentile"] = acreVal;
+                        var acres = Math.max(roundNumber(val*0.000247105, 2)); landAcres.push(acres);}
+                    else if (metric.includes("Res_A_60___80")){resTabAreaTextVals["60 - 80 Percentile"] = acreVal;
+                        var acres = Math.max(roundNumber(val*0.000247105, 2)); landAcres.push(acres);}
+                    else if (metric.includes("Res_A_80___100")){resTabAreaTextVals["80 - 100 Percentile"] = acreVal;
+                        var acres = Math.max(roundNumber(val*0.000247105, 2)); landAcres.push(acres);}
 
-                        else if (metric.includes("LC_A_0___20")){lcTabAreaTextVals["0 - 20 Percentile"] = acreVal; }
-                        else if (metric.includes("LC_A_20___40")){lcTabAreaTextVals["20 - 40 Percentile"] = acreVal; }
-                        else if (metric.includes("LC_A_40___60")){lcTabAreaTextVals["40 - 60 Percentile"] = acreVal; }
-                        else if (metric.includes("LC_A_60___80")){lcTabAreaTextVals["60 - 80 Percentile"] = acreVal; }
-                        else if (metric.includes("LC_A_80___100")){lcTabAreaTextVals["80 - 100 Percentile"] = acreVal; }
-                        else if (metric.includes("LC_DEVELOPED")){lcTabAreaTextVals["Developed"] = acreVal; }
+                    //normal
+                    else if (metric === "Res_FAR_ABOVE_AVERAGE_RESILIENCE"){resTabAreaTextVals["Far Above Average"] = acreVal;
+                        var acres = Math.max(roundNumber(val*0.000247105, 2)); landAcres.push(acres);}
+                    else if (metric === "Res_ABOVE_AVERAGE_RESILIENCE"){resTabAreaTextVals["Above Average"] = acreVal;
+                        var acres = Math.max(roundNumber(val*0.000247105, 2)); landAcres.push(acres);}
+                    else if (metric === "Res_SLIGHTLY_ABOVE_AVERAGE_RESILIENCE"){resTabAreaTextVals["Slightly Above Average"] = acreVal;
+                        var acres = Math.max(roundNumber(val*0.000247105, 2)); landAcres.push(acres);}
+                    else if (metric === "Res_AVERAGE_RESILIENCE"){resTabAreaTextVals["Average"] = acreVal;
+                        var acres = Math.max(roundNumber(val*0.000247105, 2)); landAcres.push(acres);}
+                    else if (metric === "Res_SLIGHTLY_BELOW_AVERAGE"){resTabAreaTextVals["Slightly Below Average"] = acreVal;
+                        var acres = Math.max(roundNumber(val*0.000247105, 2)); landAcres.push(acres);}
+                    //one version of the data "_RESILIENCE" was missing
+                    else if (metric === "Res_SLIGHTLY_BELOW_AVERAGE_RESILIENCE"){resTabAreaTextVals["Slightly Below Average"] = acreVal;
+                        var acres = Math.max(roundNumber(val*0.000247105, 2)); landAcres.push(acres);}
+                    else if (metric === "Res_BELOW_AVERAGE_RESILIENCE"){resTabAreaTextVals["Below Average"] = acreVal;
+                        var acres = Math.max(roundNumber(val*0.000247105, 2)); landAcres.push(acres);}
+                    else if (metric === "Res_FAR_BELOW_AVERAGE_RESILIENCE"){resTabAreaTextVals["Far Below Average"] = acreVal;
+                        var acres = Math.max(roundNumber(val*0.000247105, 2)); landAcres.push(acres);}
 
-                        else if (metric.includes("LD_A_0___20")){ldTabAreaTextVals["0 - 20 Percentile"] = acreVal; }
-                        else if (metric.includes("LD_A_20___40")){ldTabAreaTextVals["20 - 40 Percentile"] = acreVal; }
-                        else if (metric.includes("LD_A_40___60")){ldTabAreaTextVals["40 - 60 Percentile"] = acreVal; }
-                        else if (metric.includes("LD_A_60___80")){ldTabAreaTextVals["60 - 80 Percentile"] = acreVal; }
-                        else if (metric.includes("LD_A_80___100")){ldTabAreaTextVals["80 - 100 Percentile"] = acreVal; }
-                        else if (metric.includes("LD_DEVELOPED")){ldTabAreaTextVals["Developed"] = acreVal; }
+                    //coastal
+                    else if (metric === "Res_ABOVE_AVERAGE_RESILIENCE_TIDAL_HABITAT"){resTabAreaTextVals["Above Average Resilience Tidal Habitat"] = acreVal;
+                        var acres = Math.max(roundNumber(val*0.000247105, 2)); landAcres.push(acres);}
+                    else if (metric === "Res_FAR_ABOVE_AVERAGE_MARSH_MIGRATION_SPACE"){resTabAreaTextVals["Resilient Migration Space for Tidal Habitat"] = acreVal;
+                        var acres = Math.max(roundNumber(val*0.000247105, 2)); landAcres.push(acres);}
+                    else if (metric === "Res_ABOVE_AVERAGE_MARSH_MIGRATION_SPACE"){resTabAreaTextVals["Resilient Migration Space for Tidal Habitat"] = acreVal;
+                        var acres = Math.max(roundNumber(val*0.000247105, 2)); landAcres.push(acres);}
+                    else if (metric === "Res_SLIGHTLY_ABOVE_AVERAGE_MARSH_MIGRATION_SPACE"){resTabAreaTextVals["Resilient Migration Space for Tidal Habitat"] = acreVal;
+                        var acres = Math.max(roundNumber(val*0.000247105, 2)); landAcres.push(acres);}
+                    else if (metric === "Res_RESILIENT_TIDAL_HABITAT"){resTabAreaTextVals["Resilient Tidal Habitat"] = acreVal;
+                        var acres = Math.max(roundNumber(val*0.000247105, 2)); landAcres.push(acres);}
+                    else if (metric === "Res_VULNERABLE_TIDAL_HABITAT"){resTabAreaTextVals["Vulnerable Tidal Habitat"] = acreVal;
+                        var acres = Math.max(roundNumber(val*0.000247105, 2)); landAcres.push(acres);}
+                    else if (metric === "Res_SEA_LEVEL_RISE_AREA"){resTabAreaTextVals["Sea Level Rise Area"] = acreVal;
+                        var acres = Math.max(roundNumber(val*0.000247105, 2)); landAcres.push(acres);}
+                    else if (metric === "Res_MIGRATION_SPACE_FOR_TIDAL_HABITAT"){resTabAreaTextVals["Migration Space for Tidal Habitat"] = acreVal;
+                        var acres = Math.max(roundNumber(val*0.000247105, 2)); landAcres.push(acres);}
 
-                    }
-                    else{
-                        if (metric === "Res_FAR_ABOVE_AVERAGE_RESILIENCE"){resTabAreaTextVals["Far Above Average"] = acreVal;
-                            var acres = Math.max(roundNumber(val*0.000247105, 2)); totalAcres.push(acres);}
-                        else if (metric === "Res_ABOVE_AVERAGE_RESILIENCE"){resTabAreaTextVals["Above Average"] = acreVal;
-                            var acres = Math.max(roundNumber(val*0.000247105, 2)); totalAcres.push(acres);}
-                        else if (metric === "Res_SLIGHTLY_ABOVE_AVERAGE_RESILIENCE"){resTabAreaTextVals["Slightly Above Average"] = acreVal;
-                            var acres = Math.max(roundNumber(val*0.000247105, 2)); totalAcres.push(acres);}
-                        else if (metric === "Res_AVERAGE_RESILIENCE"){resTabAreaTextVals["Average"] = acreVal;
-                            var acres = Math.max(roundNumber(val*0.000247105, 2)); totalAcres.push(acres);}
-                        else if (metric === "Res_SLIGHTLY_BELOW_AVERAGE"){resTabAreaTextVals["Slightly Below Average"] = acreVal;
-                            var acres = Math.max(roundNumber(val*0.000247105, 2)); totalAcres.push(acres);}
-                        else if (metric === "Res_BELOW_AVERAGE_RESILIENCE"){resTabAreaTextVals["Below Average"] = acreVal;
-                            var acres = Math.max(roundNumber(val*0.000247105, 2)); totalAcres.push(acres);}
-                        else if (metric === "Res_FAR_BELOW_AVERAGE_RESILIENCE"){resTabAreaTextVals["Far Below Average"] = acreVal;
-                            var acres = Math.max(roundNumber(val*0.000247105, 2)); totalAcres.push(acres);}
-                        else if (metric === "Res_SLIGHTLY_BELOW_AVERAGE_RESILIENCE"){resTabAreaTextVals["Slightly Below Average"] = acreVal;
-                            var acres = Math.max(roundNumber(val*0.000247105, 2)); totalAcres.push(acres);}
-                        else if (metric === "Res_DEVELOPED"){resTabAreaTextVals["Developed"] = acreVal;
-                            var acres = Math.max(roundNumber(val*0.000247105, 2)); totalAcres.push(acres);}
-                        else if (metric === "Res_VULNERABLE_TIDAL_HABITAT"){resTabAreaTextVals["Vulnerable Tidal Habitat"] = acreVal;
-                            var acres = Math.max(roundNumber(val*0.000247105, 2)); totalAcres.push(acres);}
-                        else if (metric === "Res_SEA_LEVEL_RISE_AREA"){resTabAreaTextVals["Sea Level Rise Area"] = acreVal;
-                            var acres = Math.max(roundNumber(val*0.000247105, 2)); totalAcres.push(acres);}
-                        else if (metric === "Res_ABOVE_AVERAGE_RESILIENCE_TIDAL_HABITAT"){resTabAreaTextVals["Above Average Resilience Tidal Habitat"] = acreVal;
-                            var acres = Math.max(roundNumber(val*0.000247105, 2)); totalAcres.push(acres);}
-                        else if (metric === "Res_FAR_ABOVE_AVERAGE_MARSH_MIGRATION_SPACE"){resTabAreaTextVals["Resilient Migration Space for Tidal Habitat"] = acreVal;
-                            var acres = Math.max(roundNumber(val*0.000247105, 2)); totalAcres.push(acres);}
-                        else if (metric === "Res_ABOVE_AVERAGE_MARSH_MIGRATION_SPACE"){resTabAreaTextVals["Resilient Migration Space for Tidal Habitat"] = acreVal;
-                            var acres = Math.max(roundNumber(val*0.000247105, 2)); totalAcres.push(acres);}
-                        else if (metric === "Res_SLIGHTLY_ABOVE_AVERAGE_MARSH_MIGRATION_SPACE"){resTabAreaTextVals["Resilient Migration Space for Tidal Habitat"] = acreVal;
-                            var acres = Math.max(roundNumber(val*0.000247105, 2)); totalAcres.push(acres);}
-                        else if (metric === "Res_GLACIER"){resTabAreaTextVals["Glacier"] = acreVal;
-                                var acres = Math.max(roundNumber(val*0.000247105, 2)); totalAcres.push(acres);}
-                        else if (metric === "Res_PIONEER_LAVA"){resTabAreaTextVals["Pioneer Lava"] = acreVal;
-                                    var acres = Math.max(roundNumber(val*0.000247105, 2)); totalAcres.push(acres);}
+                    //other
+                    else if (metric === "Res_DEVELOPED"){resTabAreaTextVals["Developed"] = acreVal;
+                        var acres = Math.max(roundNumber(val*0.000247105, 2)); landAcres.push(acres);}
+                    else if (metric === "Res_GLACIER"){resTabAreaTextVals["Glacier"] = acreVal;
+                        var acres = Math.max(roundNumber(val*0.000247105, 2)); landAcres.push(acres);}
+                    else if (metric === "Res_PIONEER_LAVA"){resTabAreaTextVals["Pioneer Lava"] = acreVal;
+                        var acres = Math.max(roundNumber(val*0.000247105, 2)); landAcres.push(acres);}
 
-                        else if (metric === "LC_FAR_ABOVE_AVERAGE_LOCAL_CONNECTEDNESS"){lcTabAreaTextVals["Far Above Average"] = acreVal; }
-                        else if (metric === "LC_ABOVE_AVERAGE_LOCAL_CONNECTEDNESS"){lcTabAreaTextVals["Above Average"] = acreVal; }
-                        else if (metric === "LC_SLIGHTLY_ABOVE_AVERAGE_LOCAL_CONNECTEDNESS"){lcTabAreaTextVals["Slightly Above Average"] = acreVal; }
-                        else if (metric === "LC_AVERAGE_LOCAL_CONNECTEDNESS"){lcTabAreaTextVals["Average"] = acreVal; }
-                        else if (metric === "LC_SLIGHTLY_BELOW_AVERAGE_LOCAL_CONNECTEDNESS"){lcTabAreaTextVals["Slightly Below Average"] = acreVal; }
-                        else if (metric === "LC_BELOW_AVERAGE_LOCAL_CONNECTEDNESS"){lcTabAreaTextVals["Below Average"] = acreVal; }
-                        else if (metric === "LC_FAR_BELOW_AVERAGE_LOCAL_CONNECTEDNESS"){lcTabAreaTextVals["Far Below Average"] = acreVal; }
-                        else if (metric === "LC_MOST_LOCAL_CONNECTEDNESS"){lcTabAreaTextVals["Most local connectedness"] = acreVal; }
-                        else if (metric === "LC_MORE_LOCAL_CONNECTEDNESS"){lcTabAreaTextVals["More local connectedness"] = acreVal; }
-                        else if (metric === "LC_SLIGHTLY_MORE_LOCAL_CONNECTEDNESS"){lcTabAreaTextVals["Slightly more local connectedness"] = acreVal; }
-                        else if (metric === "LC_AVERAGE_MEDIAN_LOCAL_CONNECTEDNESS"){lcTabAreaTextVals["Average/Median local connectedness"] = acreVal; }
-                        else if (metric === "LC_SLIGHTLY_LESS_LOCAL_CONNECTEDNESS"){lcTabAreaTextVals["Slightly less local connectedness"] = acreVal; }
-                        else if (metric === "LC_LESS_LOCAL_CONNECTEDNESS"){lcTabAreaTextVals["Less local connectedness"] = acreVal; }
-                        else if (metric === "LC_LEAST_LOCAL_CONNECTEDNESS"){lcTabAreaTextVals["Least local connectedness"] = acreVal; }
-                        else if (metric === "LC_GLACIER"){lcTabAreaTextVals["Glacier"] = acreVal; }
-                        else if (metric === "LC_PIONEER_LAVA"){lcTabAreaTextVals["Pioneer Lava"] = acreVal; }
-                        else if (metric === "LC_DEVELOPED"){lcTabAreaTextVals["Developed"] = acreVal; }
 
-                        else if (metric === "LD_FAR_ABOVE_AVERAGE_LANDSCAPE_DIVERSITY"){ldTabAreaTextVals["Far Above Average"] = acreVal; }
-                        else if (metric === "LD_ABOVE_AVERAGE_LANDSCAPE_DIVERSITY"){ldTabAreaTextVals["Above Average"] = acreVal; }
-                        else if (metric === "LD_SLIGHTLY_ABOVE_AVERAGE_LANDSCAPE_DIVERSITY"){ldTabAreaTextVals["Slightly Above Average"] = acreVal; }
-                        else if (metric === "LD_AVERAGE_LANDSCAPE_DIVERSITY"){ldTabAreaTextVals["Average"] = acreVal; }
-                        else if (metric === "LD_SLIGHTLY_BELOW_AVERAGE_LANDSCAPE_DIVERSITY"){ldTabAreaTextVals["Slightly Below Average"] = acreVal; }
-                        else if (metric === "LD_BELOW_AVERAGE_LANDSCAPE_DIVERSITY"){ldTabAreaTextVals["Below Average"] = acreVal; }
-                        else if (metric === "LD_FAR_BELOW_AVERAGE_LANDSCAPE_DIVERSITY"){ldTabAreaTextVals["Far Below Average"] = acreVal; }
-                        else if (metric === "LD_GLACIER"){ldTabAreaTextVals["Glacier"] = acreVal; }
-                        else if (metric === "LD_PIONEER_LAVA"){ldTabAreaTextVals["Pioneer Lava"] = acreVal; }
-                        else if (metric === "LD_DEVELOPED"){ldTabAreaTextVals["Developed"] = acreVal; }
-                    }
+
+                    else if (metric.includes("LC_A_0___20")){lcTabAreaTextVals["0 - 20 Percentile"] = acreVal; }
+                    else if (metric.includes("LC_A_20___40")){lcTabAreaTextVals["20 - 40 Percentile"] = acreVal; }
+                    else if (metric.includes("LC_A_40___60")){lcTabAreaTextVals["40 - 60 Percentile"] = acreVal; }
+                    else if (metric.includes("LC_A_60___80")){lcTabAreaTextVals["60 - 80 Percentile"] = acreVal; }
+                    else if (metric.includes("LC_A_80___100")){lcTabAreaTextVals["80 - 100 Percentile"] = acreVal; }
+                    else if (metric.includes("LC_DEVELOPED")){lcTabAreaTextVals["Developed"] = acreVal; }
+                    else if (metric === "LC_FAR_ABOVE_AVERAGE_LOCAL_CONNECTEDNESS"){lcTabAreaTextVals["Far Above Average"] = acreVal; }
+                    else if (metric === "LC_ABOVE_AVERAGE_LOCAL_CONNECTEDNESS"){lcTabAreaTextVals["Above Average"] = acreVal; }
+                    else if (metric === "LC_SLIGHTLY_ABOVE_AVERAGE_LOCAL_CONNECTEDNESS"){lcTabAreaTextVals["Slightly Above Average"] = acreVal; }
+                    else if (metric === "LC_AVERAGE_LOCAL_CONNECTEDNESS"){lcTabAreaTextVals["Average"] = acreVal; }
+                    else if (metric === "LC_SLIGHTLY_BELOW_AVERAGE_LOCAL_CONNECTEDNESS"){lcTabAreaTextVals["Slightly Below Average"] = acreVal; }
+                    else if (metric === "LC_BELOW_AVERAGE_LOCAL_CONNECTEDNESS"){lcTabAreaTextVals["Below Average"] = acreVal; }
+                    else if (metric === "LC_FAR_BELOW_AVERAGE_LOCAL_CONNECTEDNESS"){lcTabAreaTextVals["Far Below Average"] = acreVal; }
+                    else if (metric === "LC_MOST_LOCAL_CONNECTEDNESS"){lcTabAreaTextVals["Most local connectedness"] = acreVal; }
+                    else if (metric === "LC_MORE_LOCAL_CONNECTEDNESS"){lcTabAreaTextVals["More local connectedness"] = acreVal; }
+                    else if (metric === "LC_SLIGHTLY_MORE_LOCAL_CONNECTEDNESS"){lcTabAreaTextVals["Slightly more local connectedness"] = acreVal; }
+                    else if (metric === "LC_AVERAGE_MEDIAN_LOCAL_CONNECTEDNESS"){lcTabAreaTextVals["Average/Median local connectedness"] = acreVal; }
+                    else if (metric === "LC_SLIGHTLY_LESS_LOCAL_CONNECTEDNESS"){lcTabAreaTextVals["Slightly less local connectedness"] = acreVal; }
+                    else if (metric === "LC_LESS_LOCAL_CONNECTEDNESS"){lcTabAreaTextVals["Less local connectedness"] = acreVal; }
+                    else if (metric === "LC_LEAST_LOCAL_CONNECTEDNESS"){lcTabAreaTextVals["Least local connectedness"] = acreVal; }
+                    else if (metric === "LC_GLACIER"){lcTabAreaTextVals["Glacier"] = acreVal; }
+                    else if (metric === "LC_PIONEER_LAVA"){lcTabAreaTextVals["Pioneer Lava"] = acreVal; }
+                    else if (metric === "LC_DEVELOPED"){lcTabAreaTextVals["Developed"] = acreVal; }
+
+                    else if (metric.includes("LD_A_0___20")){ldTabAreaTextVals["0 - 20 Percentile"] = acreVal; }
+                    else if (metric.includes("LD_A_20___40")){ldTabAreaTextVals["20 - 40 Percentile"] = acreVal; }
+                    else if (metric.includes("LD_A_40___60")){ldTabAreaTextVals["40 - 60 Percentile"] = acreVal; }
+                    else if (metric.includes("LD_A_60___80")){ldTabAreaTextVals["60 - 80 Percentile"] = acreVal; }
+                    else if (metric.includes("LD_A_80___100")){ldTabAreaTextVals["80 - 100 Percentile"] = acreVal; }
+                    else if (metric.includes("LD_DEVELOPED")){ldTabAreaTextVals["Developed"] = acreVal; }
+                    else if (metric === "LD_FAR_ABOVE_AVERAGE_LANDSCAPE_DIVERSITY"){ldTabAreaTextVals["Far Above Average"] = acreVal; }
+                    else if (metric === "LD_ABOVE_AVERAGE_LANDSCAPE_DIVERSITY"){ldTabAreaTextVals["Above Average"] = acreVal; }
+                    else if (metric === "LD_SLIGHTLY_ABOVE_AVERAGE_LANDSCAPE_DIVERSITY"){ldTabAreaTextVals["Slightly Above Average"] = acreVal; }
+                    else if (metric === "LD_AVERAGE_LANDSCAPE_DIVERSITY"){ldTabAreaTextVals["Average"] = acreVal; }
+                    else if (metric === "LD_SLIGHTLY_BELOW_AVERAGE_LANDSCAPE_DIVERSITY"){ldTabAreaTextVals["Slightly Below Average"] = acreVal; }
+                    else if (metric === "LD_BELOW_AVERAGE_LANDSCAPE_DIVERSITY"){ldTabAreaTextVals["Below Average"] = acreVal; }
+                    else if (metric === "LD_FAR_BELOW_AVERAGE_LANDSCAPE_DIVERSITY"){ldTabAreaTextVals["Far Below Average"] = acreVal; }
+                    else if (metric === "LD_GLACIER"){ldTabAreaTextVals["Glacier"] = acreVal; }
+                    else if (metric === "LD_PIONEER_LAVA"){ldTabAreaTextVals["Pioneer Lava"] = acreVal; }
+                    else if (metric === "LD_DEVELOPED"){ldTabAreaTextVals["Developed"] = acreVal; }
+                    // }
 
                     if (metric === "Landscape Diversity"){
                         app.grLDVal = roundNumber(val+0.00001, 2);
@@ -3044,7 +3089,6 @@
                     else if (metric === "Sum Forest Carbon ABG 2050"){forCarbTabAreaTextVals["Aboveground Wood 2050"] = val;}
                     else if (metric === "Sum Forest Carbon CWD 2050"){forCarbTabAreaTextVals["Coarse Woody Debris 2050"] = val;}
 
-
                     //NLCD
                     else if (metric === "NLCD_OPEN_WATER"){nlcdTabAreaTextVals["Open Water"] = acreVal; }
                     else if (metric === "NLCD_PERRENIAL_SNOW_ICE"){nlcdTabAreaTextVals["Perrenial Snow/Ice"] = acreVal; }
@@ -3068,14 +3112,6 @@
                             app.grElevValFt = roundNumber(val*3.28084, 2);;
                     }
 
-
-                    // else if (metric === "CONSTRAINED_FLOW"){flowTextVals["Constrained Flow"] = Math.max(roundNumber(val/1000000, 1));}
-                    // else if (metric === "CONCENTRATED_FLOW"){flowTextVals["Concentrated Flow"] = Math.max(roundNumber(val/1000000, 1));}
-                    // else if (metric === "HIGH_CONCENTRATED_FLOW"){flowTextVals["High Concentrated Flow"] = Math.max(roundNumber(val/1000000, 1));}
-                    // else if (metric === "LOW_DIFFUSE_FLOW"){flowTextVals["Low Diffuse Flow"] = Math.max(roundNumber(val/1000000, 1));}
-                    // else if (metric === "MEDIUM_DIFFUSE_FLOW"){flowTextVals["Medium Diffuse Flow"] = Math.max(roundNumber(val/1000000, 1));}
-                    // else if (metric === "HIGH_DIFFUSE_FLOW"){flowTextVals["High Diffuse Flow"] = Math.max(roundNumber(val/1000000, 1));}
-
                     //new RCN
                     else if (metric === "MOSTLY_RESILIENT__CONCENTRATED_FLOW"){resConnTextVals["Mostly Resilient, Concentrated Flow"] = acreVal; }
                     else if (metric === "RESILIENT__RECOGNIZED_BIODIVERSITY"){resConnTextVals["Resilient, Recognized Biodiversity"] = acreVal; }
@@ -3092,8 +3128,6 @@
                     else if (metric === "DIFFUSE_FLOW__RECOGNIZED_BIODIVERSITY_VALUE"){resConnTextVals["Diffuse Flow, Recognized Biodiversity Value"] = acreVal; }
                     else if (metric === "FLOW_AND_RECOGNIZED_BIODIVERSITY"){resConnTextVals["Flow and Recognized Biodiversity"] = acreVal; }
                     else if (metric === "RESTORATION_SITES"){resConnTextVals["Restoration Sites"] = acreVal; }
-
-
 
                     else if (metric === "GAP_S_3"){securedTabAreaVals["GAP 3"] = acreVal;}
                     else if (metric === "GAP_S_2"){securedTabAreaVals["GAP 2"] = acreVal;}
@@ -3114,35 +3148,35 @@
                     else if (metric === "Flow_BELOW_AVERAGE_FLOW"){flowVals["Below Average Flow"] = acreVal;}
                     else if (metric === "Flow_FAR_BELOW_AVERAGE_FLOW"){flowVals["Far Below Average Flow"] = acreVal;}
 
-                    // else if (metric === "Flow_CONCENTRATED_FLOW"){flowVals["Concentrated Flow"] = acreVal;}
-                    // else if (metric === "Flow_CONCENTRATED_FLOW__CLIMATE_INFORMED_"){flowVals["Concentrated Flow (Climate Informed)"] = acreVal;}
-                    // else if (metric === "Flow_DIFFUSE_FLOW__CLIMATE_INFORMED_"){flowVals["Diffuse Flow (Climate Informed)"] = acreVal;}
-                    // else if (metric === "Flow_DIFFUSE_FLOW_HIGH"){flowVals["Diffuse Flow (High)"] = acreVal;}
-                    // else if (metric === "Flow_NO_FLOW"){flowVals["Low Flow"] = acreVal;}
-                    // else if (metric === "Flow_FLOW_THROUGH_NATURAL_HABITAT"){flowVals["Flow Through Natural Habitat"] = acreVal;}
-                    // else if (metric === "Flow_CLIMATE_FLOW_THROUGH_NATURAL_HABITAT"){flowVals["Climate Flow Through Natural Habitat"] = acreVal;}
-                    // else if (metric === "Flow_CLIMATE_FLOW_THROUGH_MODIFIED_HABITAT"){flowVals["Climate Flow Through Modified Habitat"] = acreVal;}
-                    // else if (metric === "Flow_FLOW_THROUGH_MODIFIED_HABITAT"){flowVals["Flow Through Modified Habitat"] = acreVal;}
-                    // else if (metric === "Flow_COASTAL_MIGRATION_SPACE"){flowVals["Coastal Migration Space"] = acreVal;}
-                    // else if (metric === "Flow_SEA_LEVEL_RISE_AREA"){flowVals["Sea Level Rise Area"] = acreVal;}
+                    else if (metric === "Total Acres"){app.sumTotalAcres = val; console.log(app.sumTotalAcres)}
 
-
-                    else {
-                      console.log(metric)
-                        if (app.geoDicts.newNamePrettyName.hasOwnProperty(metric) === true){
-                            geoDict[metric] = val;
-                        }
+                    else if (app.geoDicts.newNamePrettyName.hasOwnProperty(metric) === true){
+                      geoDict[metric] = val;
                     }
-                    console.log(app.geoDicts.newNamePrettyName)
+
+                    // console.log(app.geoDicts.newNamePrettyName)
                     //if there's no portion outside the RCN, set this to zero, otherwise NaN causes errors later
                     if(isNaN(resConnTextVals["Outside Prioritized Network"])){
                       resConnTextVals["Outside Prioritized Network"] = 0
                     }
                 }
-                console.log(geoDict)
 
                 const arrSum = arr => arr.reduce((a,b) => a + b, 0);
-                app.sumTotalAcres = arrSum(totalAcres);
+                app.sumLandAcres = arrSum(landAcres);
+
+                //if biodiversity values don't == the sum total, make the difference unreognized biodiversity.  AK & HI don't include and "Unrecognized" class in teh data
+                var bioAreas = []
+                for (const [key, value] of Object.entries(biodivVals)) {
+                  bioAreas.push(value)
+                }
+                const bioAreaSum = bioAreas.reduce((partialSum, a) => partialSum + a, 0);
+                console.log(bioAreas)
+                console.log(app.sumTotalAcres)
+                console.log(bioAreaSum)
+                if (biodivVals["Unrecognized Biodiversity Value"] == undefined){
+                  biodivVals["Unrecognized Biodiversity Value"] = app.sumTotalAcres - bioAreaSum
+                }
+
                 //calc other carbon values
                 if (app.useCarbon && Object.keys(forCarbTabAreaTextVals).length > 0){
                     forCarbTabAreaTextVals["Belowground/Other 2010"] = app.forestCarbon2010SumVal - forCarbTabAreaTextVals["Aboveground Wood 2010"] - forCarbTabAreaTextVals["Coarse Woody Debris 2010"];
@@ -3150,28 +3184,11 @@
                     app.forestCarbonSeqSumVal = app.forestCarbon2050SumVal - app.forestCarbon2010SumVal;
                     app.forestCarbonSeqMeanVal = roundNumber(app.forestCarbon2050MeanVal - app.forestCarbon2010MeanVal, 1);
                     app.forestCarbonAnnualSeqRate = roundNumber(app.forestCarbonSeqSumVal/40, 1);
-//                    app.forestCarbonAvgAnnualSeqRate = Math.round((app.forestCarbonSeqMeanVal/40)*10)/10;
                     app.forestCarbonAvgAnnualSeqRate = roundNumber(((app.forestCarbon2050SumVal-app.forestCarbon2010SumVal)/app.sumTotalAcres / 40), 1);
                     if (app.forestCarbon2010SumVal === undefined){app.forestCarbon2010SumVal = 0;}
                     if (app.soilCarbonNoForestSumVal === undefined){app.soilCarbonNoForestSumVal = 0;}
                     app.forestSoilProperSum = app.forestCarbon2010SumVal + app.soilCarbonNoForestSumVal;
                 }
-//                console.log(forCarbTabAreaTextVals);
-//                console.log(app.forestCarbon2010SumVal);
-//                console.log(app.forestCarbon2050SumVal);
-//                console.log(app.forestCarbonSeqSumVal);
-//                console.log(app.forestCarbonAvgAnnualSeqRate);
-//                console.log(app.forestCarbonAnnualSeqRate);
-//                console.log(app.forestCarbon2010MeanVal);
-//                console.log(app.forestCarbon2050MeanVal);
-//                console.log(app.soilCarbonSumVal);
-//                console.log(app.soilCarbonMeanVal);
-//                console.log(app.soilCarbonNoForestSumVal);
-//                console.log(app.soilCarbonNoForestMeanVal);
-//                console.log(app.forestSoilProperSum);
-
-
-
 
                 //get the sum of the resConn area values.  If these don't match the totalSumAcres, add the different to Vulnerable Lands Otside network
                 var resConnAcreVals = [];
@@ -3187,11 +3204,6 @@
                 if (isNaN(extraOutsideNetwork) === false && extraOutsideNetwork >0){
                     resConnTextVals["Outside Prioritized Network"] = resConnTextVals["Outside Prioritized Network"] + Math.max(roundNumber(extraOutsideNetwork, 1));
                 }
-//                if (isNaN(Math.max(Math.round(Number(resConnTextVals["Vulnerable Land Outside Prioritized Network"]) + extraOutsideNetwork) * 10) / 10) === false){
-//                    resConnTextVals["Vulnerable Land Outside Prioritized Network"] =  Math.max(Math.round(Number(resConnTextVals["Vulnerable Land Outside Prioritized Network"]) + extraOutsideNetwork) * 10) / 10;
-//                }
-
-
 
 
                 //get the geology area for each type and calulate the total area
@@ -3229,7 +3241,6 @@
                 var lcTabAreaValList = [];
                 var ldTabAreaValList = [];
                 var nlcdTabAreaValList = [];
-//                var forCarbTabAreaValList = [];
 
                 //calculate the % area and add it to the geology dictionary, if there is geology data
                 if (Object.keys(geoDict).length >0){
@@ -3264,10 +3275,6 @@
                 var resConnPieData = [];
                 if (Object.keys(resConnTextVals).length >0){
                     for (var key in resConnTextVals) {
-
-                        console.log(key);
-                        console.log(resConnTextVals);
-                        console.log(resConnTextVals[key]);
                         var rawVal = resConnTextVals[key];
                         var tmp = {};
                         var percent = Number(rawVal) / (app.sumTotalAcres) * 100;  //use area based on total (sum of terrestrial & coastal)
@@ -3276,11 +3283,8 @@
                         resConnValList.push(percent);
                         tmp.y = rawVal;
                         tmp.key = key;
-
-
                         tmp.tooltip = key + "</strong><br>" + numberWithCommas(roundNumber(rawVal, 0)) + " acres (" + percent + "%)";
                         resConnPieData.push(tmp);
-                        // console.log(resConnPieData);
                     }
                 }
 
@@ -3299,8 +3303,6 @@
                         coastalValList.push(percent);
                         tmp.y = rawVal;
                         tmp.key = key;
-                        //tmp.text below creates labels with category and % -- looks horrible
-                        //tmp.text = '<div align="center">' + key + '<br>' + percent +'%</div>';
                         tmp.tooltip = key + "</strong><br>" + numberWithCommas(roundNumber(rawVal, 0)) + " acres (" + percent + "%)";
                         coastalPieData.push(tmp);
                     }
@@ -3322,33 +3324,30 @@
                         tmp.key = key;
                         var sortNum = addSort(key);
                         tmp.sortNum = sortNum;
-                        //tmp.text below creates labels with category and % -- looks horrible
-                        //tmp.text = '<div align="center">' + key + '<br>' + percent +'%</div>';
                         tmp.tooltip = key + "</strong><br>" + numberWithCommas(roundNumber(rawVal, 0)) + " acres (" + percent + "%)";
                         flowPieData.push(tmp);
                     }
                     flowPieData = flowPieData.sort(compareValues('sortNum', 'desc'));
-                    // console.log(resPieData);
+
                 }
 
 
                 //get pie chart data for biodiversity tab area
                 biodivPieData =[];
-                if (Object.keys(biodivTextVals).length >0){
+                console.log(biodivVals)
+                if (Object.keys(biodivVals).length >0){
                     app.useBiodivTabArea = true;
                     for (var key in biodivVals) {
                         var rawVal = biodivVals[key];
                         var tmp = {};
                         var percent = Number(rawVal) / (app.sumTotalAcres) * 100;  //use area based on total coastal area
-                        biodivAreaRawValList.push(rawVal);
+                        biodivTabAreaRawValList.push(rawVal);
                         percent = roundNumber(percent+0.00001, 1);
                         biodivTabAreaValList.push(percent);
                         tmp.y = rawVal;
                         tmp.key = key;
                         var sortNum = addSort(key);
                         tmp.sortNum = sortNum;
-                        //tmp.text below creates labels with category and % -- looks horrible
-                        //tmp.text = '<div align="center">' + key + '<br>' + percent +'%</div>';
                         tmp.tooltip = key + "</strong><br>" + numberWithCommas(roundNumber(rawVal, 0)) + " acres (" + percent + "%)";
                         biodivPieData.push(tmp);
                     }
@@ -3373,8 +3372,6 @@
                         tmp.key = key;
                         var sortNum = addSort(key);
                         tmp.sortNum = sortNum;
-                        //tmp.text below creates labels with category and % -- looks horrible
-                        //tmp.text = '<div align="center">' + key + '<br>' + percent +'%</div>';
                         tmp.tooltip = key + "</strong><br>" + numberWithCommas(roundNumber(rawVal, 0)) + " acres (" + percent + "%)";
                         resPieData.push(tmp);
                     }
@@ -3398,8 +3395,6 @@
                         tmp.key = key;
                         var sortNum = addSort(key);
                         tmp.sortNum = sortNum;
-                        //tmp.text below creates labels with category and % -- looks horrible
-                        //tmp.text = '<div align="center">' + key + '<br>' + percent +'%</div>';
                         tmp.tooltip = key + "</strong><br>" + numberWithCommas(roundNumber(rawVal, 0)) + " acres (" + percent + "%)";
                         lcPieData.push(tmp);
                     }
@@ -3423,8 +3418,6 @@
                         tmp.key = key;
                         var sortNum = addSort(key);
                         tmp.sortNum = sortNum;
-                        //tmp.text below creates labels with category and % -- looks horrible
-                        //tmp.text = '<div align="center">' + key + '<br>' + percent +'%</div>';
                         tmp.tooltip = key + "</strong><br>" + numberWithCommas(roundNumber(rawVal, 0)) + " acres (" + percent + "%)";
                         ldPieData.push(tmp);
                     }
@@ -3443,9 +3436,6 @@
                 if (Object.keys(nlcdTabAreaTextVals).length >0){
                     app.useNLCDTabArea = true;
                     for (var key in nlcdTabAreaTextVals) {
-                         // console.log(key);
-                         // console.log(nlcdTabAreaTextVals);
-                         // console.log(nlcdTabAreaTextVals[key]);
                         var rawVal = nlcdTabAreaTextVals[key];
                         var tmp = {};
                         var percent = Number(rawVal) / (totalNLCDAcres) * 100;  //use area based on total coastal area
@@ -3456,8 +3446,6 @@
                         tmp.key = key;
                         var sortNum = addSort(rawVal);
                         tmp.sortNum = sortNum;
-                        //tmp.text below creates labels with category and % -- looks horrible
-                        //tmp.text = '<div align="center">' + key + '<br>' + percent +'%</div>';
                         tmp.tooltip = key + "</strong><br>" + numberWithCommas(roundNumber(rawVal, 0)) + " acres (" + percent + "%)";
                         nlcdPieData.push(tmp);
                     }
@@ -3479,7 +3467,6 @@
                 }
                console.log(forCarbTabAreaTextVals)
                 var totalForCarbTons = arrSum(forCarb2010TonsVals);
-//                console.log(totalForCarbTons)
                 var forCarbPieData2010 = [];
                 var forCarbPieData2050 = [];
                 if (Object.keys(forCarbTabAreaTextVals).length >0 && app.showCarbonResults){
@@ -3542,7 +3529,7 @@
 
                 //Format text for Dialog
                 var geoTextIntro = string.substitute("<p>The mean elevation in the polygon is " + app.grElevVal + " m (" + app.grElevValFt + " ft) and the three most common geophysical settings are:<p>");
-                if (app.sumTotalAcres>0){
+                if (app.sumLandAcres>0){
                     var resText = string.substitute('<div class="column-left"><p style="display:inline-block" align="center"><a href=\'coreConcepts_resScore.html\' onClick=\'return windowPopup(this, \"notes\")\'>Resilience</a><br> ${resultCat} (${resultVal} <a href=\'sd.html\' onClick=\'return windowPopup(this, \"SDnotes\")\'>SD</a>)</p><div id="resGaugeChart" class="power-gauge" style="display:inline-block; "></div></div>',{resultCat:app.grResCat, resultVal:app.grResVal});
                     var LCText = string.substitute('<div class="column-center"><p style="display:inline-block" align="center"><a href=\'coreConcepts_LC.html\' onClick=\'return windowPopup(this, \"notes\")\'>Local Connectedness</a><br> ${resultCat} (${resultVal} <a href=\'sd.html\' onClick=\'return windowPopup(this, \"SDnotes\")\'>SD</a>)</p><div id="lcGaugeChart" class="power-gauge" style="display:inline-block; "></div></div>',{resultCat:app.grLCCat, resultVal:app.grLCVal});
                     var LDText = string.substitute('<div class="column-right"><p style="display:inline-block" align="center"><a href=\'coreConcepts_LD.html\' onClick=\'return windowPopup(this, \"notes\")\'>Landscape Diversity</a><br> ${resultCat} (${resultVal} <a href=\'sd.html\' onClick=\'return windowPopup(this, \"SDnotes\")\'>SD</a>)</p><div id="ldGaugeChart" class="power-gauge" style="display:inline-block;  "></div></div>',{resultCat:app.grLDCat, resultVal:app.grLDVal});
@@ -3552,15 +3539,6 @@
                     var LCText = "";
                     var LDText = "";
                 }
-
-                // //loop through flow results and only include text if there's a result value
-                // var flowText = "";
-                // for (var key in flowTextVals){
-                //     if (flowTextVals[key] !== ""){
-                //         flowText += string.substitute('<p><a href=\'coreConcepts_regFlowDesc.html\' onClick=\'return windowPopup(this, \"notes\")\'>${resultMetric}</a>: ${resultVal} Sq KM</p>',{resultMetric: key, resultVal:flowTextVals[key]});
-                //     }
-                // }
-                // if (flowText === ""){flowText = "<p>There are no categorized Regional Flows data within the polygon.</p>";}
 
 
                 //loop through resilient & connected landscape results and only include text if there's a result value
@@ -3626,24 +3604,21 @@
                 //loop through resilience tab area results and only include text if there's a result value
                 if (app.useResTabArea === true){
                     var resTabAreaChartDiv = '<div class="column-left"><p style="display:inline-block" align="center"><a href=\'coreConcepts_resScore.html\' onClick=\'return windowPopup(this, \"notes\")\'>Resilience</a><br></p><div id="resTabAreaChartNode"  style="width: 200px; height: 200px; display:inline-block"></div></div>';
-                    // console.log(resTabAreaTextVals);
                     var resTabAreaText = resTabAreaChartDiv;
                 }
 
 
                 //loop through biodiversity tab area results and only include text if there's a result value
                 if (app.useBiodivTabArea === true){
-                    var biodivTabAreaChartDiv = '<div class="column-left"><p style="display:inline-block" align="center"><a href=\'coreConcepts_resSitesBiodiv.html\' onClick=\'return windowPopup(this, \"notes\")\'>Biodiversity</a><br></p><div id="biodivTabAreaChartNode"  style="width: 200px; height: 200px; display:inline-block"></div></div>';
-                    // console.log(resTabAreaTextVals);
-                    var biodivTabAreaText = biodivTabAreaChartDiv;
+                    var biodivTabAreaChartDiv = '<div class="column-left" style="padding-left: 75px;"><h3 style="display:inline-block" align="center"><a href=\'coreConcepts_rbv.html\' onClick=\'return windowPopup(this, \"notes\")\'>Biodiversity</a><br></h3><div id="biodivTabAreaChartNode"  style="width: 200px; height: 200px; display:inline-block"></div></div>';
+                    var biodivText = biodivTabAreaChartDiv;
                 }
 
 
                 //loop through flow tab area results and only include text if there's a result value
                 if (app.useFlowTabArea === true){
-                    var flowTabAreaChartDiv = '<div class="column-left"><p style="display:inline-block" align="center"><a href=\'coreConcepts_cliFlow.html\' onClick=\'return windowPopup(this, \"notes\")\'>Connectivity and CLimate Flow</a><br></p><div id="flowTabAreaChartNode"  style="width: 200px; height: 200px; display:inline-block"></div></div>';
-                    // console.log(resTabAreaTextVals);
-                    var flowTabAreaText = flowTabAreaChartDiv;
+                    var flowTabAreaChartDiv = '<div class="column-right" style="padding-right: 75px;"><h3 style="display:inline-block" align="center"><a href=\'coreConcepts_cliFlow.html\' onClick=\'return windowPopup(this, \"notes\")\'>Connectivity and Climate Flow (Continuous)</a><br></h3><div id="flowTabAreaChartNode"  style="width: 200px; height: 200px; display:inline-block"></div></div>';
+                    var flowText = flowTabAreaChartDiv;
                 }
 
                 //loop through LC tab area results and only include text if there's a result value
@@ -3655,7 +3630,6 @@
                 //loop through LD tab area results and only include text if there's a result value
                 if (app.useLDTabArea === true){
                     var ldTabAreaChartDiv = '<div class="column-right"><p style="display:inline-block" align="center"><a href=\'coreConcepts_LD.html\' onClick=\'return windowPopup(this, \"notes\")\'>Landscape Diversity</a><br></p><div id="ldTabAreaChartNode"  style="width: 200px; height: 200px; display:inline-block"></div></div>';
-                    // console.log(ldTabAreaTextVals);
                     var ldTabAreaText = ldTabAreaChartDiv;
                 }
 
@@ -3666,23 +3640,37 @@
 
 
 
-                if ((app.regions.includes("California")) || (app.regions.includes("/CA"))){
-//                    var resilienceText = "<hr><div style='display: inline-block'><h4 style='margin:0px;'>Terrestrial Resilience Categories within Polygon</h4>" + resTabAreaText + ldTabAreaText + lcTabAreaText;
 
-                    var resilienceText = "<div  class='printOverflow'><hr><h4 style='margin:0px;'>Terrestrial Resilience Categories</h4>" + resTabAreaText + ldTabAreaText + lcTabAreaText;
-                    var stateText = 'These results are based on the <b>state-specific</b> analysis.  You can view the input layers by toggling the "Customized - National" to "Customized".';
-                }
-                else{
+
                   if (app.nationalState){
-                    var resilienceText = "<div style='display: inline-block'  class='printOverflow'><hr><h4 style='margin:0px;'>Average Terrestrial Resilience with Polygon</h4><p style='margin-top:0px !important; margin-left: 9px;'>(all scores relative to ecoregion)</p><div style='display:inline-block;'>" + resText + LDText + LCText +  "</div></div><div><hr><h4 style='margin:0px;'>Terrestrial Resilience Categories</h4>" + resTabAreaText + ldTabAreaText + lcTabAreaText;
-                    var stateText = 'These results are based on the <b>state-specific</b> analysis.  You can view the input layers by toggling the "Customized - National" to "Customized".';
+                    console.log(app.regions)
+                    if (app.regions.includes("California") || app.regions.includes("California Coast") || app.regions.includes("Pacific Northwest/California")){
+                      //don't show dials if in CA except Tamaulipan / Rocky mountains
+                      var resilienceText = "<div  class='printOverflow' style='display: inline-block'><hr><h4 style='margin:0px;'>Terrestrial Resilience Categories</h4>" + resTabAreaText + ldTabAreaText + lcTabAreaText;
+                      var stateText = 'These results are based on the <b>state-specific</b> analysis.  You can view the input layers by toggling the "Customized - National" to "Customized".';
+                    }
+                    else{
+                      //if in CA in those regions or anywhere else, show the dials
+                      var resilienceText = "<div style='display: inline-block'  class='printOverflow'><hr><h4 style='margin:0px;'>Average Terrestrial Resilience with Polygon</h4><p style='margin-top:0px !important; margin-left: 9px;'>(all scores relative to ecoregion)</p><div style='display:inline-block;'>" + resText + LDText + LCText +  "</div></div><div><hr><h4 style='margin:0px;'>Terrestrial Resilience Categories</h4>" + resTabAreaText + ldTabAreaText + lcTabAreaText;
+                      var stateText = 'These results are based on the <b>state-specific</b> analysis.  You can view the input layers by toggling the "Customized - National" to "Customized".';
+                    }
                   }
                   else{
-                    var resilienceText = "<div style='display: inline-block'  class='printOverflow'><hr><h4 style='margin:0px;'>Average Terrestrial Resilience with Polygon</h4><p style='margin-top:0px !important; margin-left: 9px;'>(all scores relative to ecoregion)</p><div style='display:inline-block;'>" + resText + LDText + LCText +  "</div></div><div><hr><h4 style='margin:0px;'>Terrestrial Resilience Categories</h4>" + resTabAreaText + ldTabAreaText + lcTabAreaText;
-                    var stateText = 'These results are based on the <b>nationally-consistent</b> ecoregional data.';
+
+                    console.log(app.regions)
+                    if (app.regions.includes("California") || app.regions.includes("California Coast") || app.regions.includes("Pacific Northwest/California")){
+                      //don't show dials if in CA and not in one of these regions
+                      var resilienceText = "<div  class='printOverflow' style='display: inline-block'><hr><h4 style='margin:0px;'>Terrestrial Resilience Categories</h4>" + resTabAreaText + ldTabAreaText + lcTabAreaText;
+                      var stateText = 'These results are based on the <b>nationally-consistent</b> ecoregional data.';
+                    }
+                    else{
+                      //if in CA in those regions or anywhere else, show the dials
+                      var resilienceText = "<div style='display: inline-block'  class='printOverflow'><hr><h4 style='margin:0px;'>Average Terrestrial Resilience with Polygon</h4><p style='margin-top:0px !important; margin-left: 9px;'>(all scores relative to ecoregion)</p><div style='display:inline-block;'>" + resText + LDText + LCText +  "</div></div><div><hr><h4 style='margin:0px;'>Terrestrial Resilience Categories</h4>" + resTabAreaText + ldTabAreaText + lcTabAreaText;
+                      var stateText = 'These results are based on the <b>nationally-consistent</b> ecoregional data.';
+                    }
                   }
 
-                }
+
 
                 // secured areas text
                 var gapText = "";
@@ -3708,22 +3696,11 @@
                     gapText = "<p style='padding:8px'>The area of interest includes <strong>" + numberWithCommas(roundNumber(gapTotal, 0)) + "</strong> acres of exisiting conservation land. <br>(GAP 1=" + numberWithCommas(roundNumber(gap1, 0)) + " ac, GAP 2="  + numberWithCommas(roundNumber(gap2, 0)) + " ac, GAP 3="  + numberWithCommas(roundNumber(gap3, 0)) + " ac)</p>" ;
                 }
 
-
-                var biodivText = "<strong>Biodiversity</strong><br>"
-                for (const [key, value] of Object.entries(biodivVals)) {
-                  biodivText +=`${key}: ${numberWithCommas(Math.max(roundNumber(value, 1)))} ac; `
-                }
-                var flowText = "<strong>Climate Flow</strong><br>"
-                for (const [key, value] of Object.entries(flowVals)) {
-                  flowText +=`${key}: ${numberWithCommas(Math.max(roundNumber(value, 1)))} ac; `
-                }
-
-
                 if (app.useCoastal === false){
-                    var resContent =  "<div id='resultsPane' class='printOverflow'><h4> Total land area: <strong>" + numberWithCommas(Math.max(roundNumber(app.sumTotalAcres, 1)))  + " acres</strong> in the " + app.regions + " study area(s) in the " + app.ecoregions + " ecoregion(s).</h4>" + gapText +  "<hr><h4 >Resilient and Connected Network Results</h4><p>Note: " +stateText + " They are derived from the detailed representations of the <a href=\'coreConcepts_resConnDet.html\' onClick=\'return windowPopup(this, \"notes\")\'>Resilient and Connected Networks</a> which can be visualized under the Resilient & Connected Network Components section at right.</p><div style='display:inline-block'  class='printOverflow'>" + resConnText  + "</div >" + "<hr>" + biodivText + "<hr>" + flowText + resilienceText + "<hr><h4 style='margin:0px;'>Geophysical Setting Results</h4>" + geoTextIntro  +  geoText  + "</div>" + okPrintButtons + "</div>";
+                    var resContent =  "<div id='resultsPane' class='printOverflow'><h4> Total land area: <strong>" + numberWithCommas(Math.max(roundNumber(app.sumTotalAcres, 1)))  + " acres</strong> (" + numberWithCommas(Math.max(roundNumber(app.sumLandAcres, 1))) +" land, " + numberWithCommas(Math.max(roundNumber((app.sumTotalAcres -app.sumLandAcres ), 1)))+" open water) in the " + app.regions + " study area(s) in the " + app.ecoregions + " ecoregion(s).</h4>" + gapText +  "<hr><h4 >Resilient and Connected Network Results</h4><p>Note: " +stateText + " They are derived from the detailed representations of the <a href=\'coreConcepts_resConnDet.html\' onClick=\'return windowPopup(this, \"notes\")\'>Resilient and Connected Networks</a> which can be visualized under the Resilient & Connected Network Components section at right.</p><div style='display:inline-block'  class='printOverflow'>" + resConnText  + "</div >" + "<hr>" + biodivText +  flowText + resilienceText + "<hr><h4 style='margin:0px;'>Geophysical Setting Results</h4>" + geoTextIntro  +  geoText  + "</div>" + okPrintButtons + "</div>";
                 }
                 if (app.useCoastal === true){
-                   var resContent =  "<div id='resultsPane'><h4> Total land area: <strong>" + numberWithCommas(Math.max(roundNumber(app.sumTotalAcres, 1))) + " acres (" + numberWithCommas(Math.max(roundNumber(terrestrialAcres, 1))) + " terrestrial + " + numberWithCommas(Math.max(roundNumber(coastalAcres, 1))) + " coastal) </strong> in the " + app.regions + " study area(s) in the " + app.ecoregions + " ecoregion(s).</h4>" + gapText + "<hr>" +  biodivText + "<hr>" + flowText + "<hr><h4 style='display:inline'>Resilient and Connected Network Results</h4>"+ stateText + " <div style='display:inline-block'>" + resConnText  + "</div >" + resilienceText + "<hr><div style='display: inline-block'><h4 style='margin:0px;'>Resilient Coastal Sites</h4><div style='display:inline-block;'>" + coastalText +  "</div></div>      <div><hr><h4 style='margin:0px;'>Geophysical Setting Results</h4>" + geoTextIntro  +  geoText  + "</div>" + okPrintButtons + "</div>";
+                   var resContent =  "<div id='resultsPane'><h4> Total land area (excl. open water): <strong>" + numberWithCommas(Math.max(roundNumber(app.sumTotalAcres, 1))) + " acres (" + numberWithCommas(Math.max(roundNumber(terrestrialAcres, 1))) + " terrestrial + " + numberWithCommas(Math.max(roundNumber(coastalAcres, 1))) + " coastal) </strong> in the " + app.regions + " study area(s) in the " + app.ecoregions + " ecoregion(s).</h4>" + gapText + "<hr>" +  biodivText + "<hr>" + flowText + "<hr><h4 style='display:inline'>Resilient and Connected Network Results</h4>"+ stateText + " <div style='display:inline-block'>" + resConnText  + "</div >" + resilienceText + "<hr><div style='display: inline-block'><h4 style='margin:0px;'>Resilient Coastal Sites</h4><div style='display:inline-block;'>" + coastalText +  "</div></div>      <div><hr><h4 style='margin:0px;'>Geophysical Setting Results</h4>" + geoTextIntro  +  geoText  + "</div>" + okPrintButtons + "</div>";
                 }
 
                 function openTab(evt, tabName) {
@@ -3752,19 +3729,12 @@
                             app.nlcdTabAreaPieChart.resize();
                         }
                     }
-
                 }
 
                 if (app.showCarbonResults === true && app.analysisZone == "CONUS" && Object.keys(forCarbTabAreaTextVals).length > 0){
                     var tabs = '<div class="tab"><button class="tablinks" id="resTab">Resilience Results</button><button id="carbTab" class="tablinks">Carbon Results</button></div>';
                     var nlcdTabAreaChartDiv = '<h3>Landcover 2019</h3><div id="nlcdTabAreaChartNode"  style="width: 200px; height: 200px; display:inline-block;"></div>';
-
-//                    var forCarbPieText ="";
-//                    for (key in forCarbTabAreaTextVals){
-//                        forCarbPieText += "<p style=\"margin: 0px\">" + key + ": " + numberWithCommas(forCarbTabAreaTextVals[key]) + " mt</p>" ;
-//                    };
                     var forCarbPieText = '<p style="font-size: 7px;">AG: Aboveground Wood, CW: Coarse Woody Debris, BG: Belowground/Other</p>'
-                    // console.log(forCarbPieText)
 
 
                     if (app.soilCarbonSumVal !== undefined){
@@ -4037,21 +4007,6 @@
 
                         styleFunc: function(item){
                           if (item.key === "Outside Prioritized Network"){return{fill:"#D3CEC6"};}
-
-                          //old rcn
-//                          else if (item.key === "Resilient, Diffuse Flow High"){return{fill:"#c0d2ff"};}
-//                          else if (item.key === "Resilient, Diffuse Flow High, Recognized Biodiversity Value"){return{fill:"#9bb2ff"};}
-//                          else if (item.key === "Resilient, Diffuse Flow (Climate Informed)"){return{fill:"#005ce6"};}
-//                          else if (item.key === "Resilient, Diffuse Flow (Climate Informed), Recognized Biodiversity Value"){return{fill:"#004ca8"};}
-//                          else if (item.key === "Resilient, Concentrated Flow"){return{fill:"#e69900"};}
-//                          else if (item.key === "Resilient, Concentrated Flow (Climate Informed)"){return{fill:"#7c4600"};}
-//                          else if (item.key === "Resilient, Recognized Biodiversity Value"){return{fill:"#265200"};}
-//                          else if (item.key === "Additional Resilient Secured (GAP 3)"){return{fill:"#38a800"};}
-//                          else if (item.key === "Diffuse Flow, Recognized Biodiversity Value"){return{fill:"#c29ed7"};}
-//                          else if (item.key === "Coastal Migration Space"){return{fill:"#ffca00"};}
-//                          else if (item.key === "Tribal Lands (pending review)"){return{fill:"#cccccc"};}
-
-                          //new rcn
                           else if (item.key === "Mostly Resilient, Concentrated Flow"){return{fill:"#d39314"};}
                           else if (item.key === "Resilient, Recognized Biodiversity"){return{fill:"#267300"};}
                           else if (item.key === "Resilient, Diffuse Flow (Climate Informed)"){return{fill:"#6a99d3"};}
@@ -4161,7 +4116,7 @@
                          return {};
                        }
                    });
-                   biodivPieChart.addSeries("Flow",flowPieData);
+                   biodivPieChart.addSeries("Biodiversity",biodivPieData);
 
                    new Tooltip(biodivPieChart, "default", {
                          position : "before"
@@ -4194,6 +4149,8 @@
                           else if (item.key === "Resilient Tidal Habitat"){return{fill:"#c8c9e6"};}
                           else if (item.key === "Above Average Resilience Tidal Habitat"){return{fill:"#c8c9e6"};}
                           else if (item.key === "Developed"){return{fill:"#686968"};}
+                          else if (item.key === "Glacier"){return{fill:"#f5f5f5"};}
+                          else if (item.key === "Pioneer Lava"){return{fill:"#c8c8c8"};}
                           else{return{fill:"black"};}
                           return {};
                         }
@@ -4259,6 +4216,8 @@
                           else if ((item.key === "Below Average") ||  (item.key === "0 - 20 Percentile")){return{fill:"#A17E3A"};}
                           else if (item.key === "Far Below Average"){return{fill:"#734D00"};}
                           else if (item.key === "Developed"){return{fill:"#686968"};}
+                          else if (item.key === "Glacier"){return{fill:"#f5f5f5"};}
+                          else if (item.key === "Pioneer Lava"){return{fill:"#c8c8c8"};}
                           else{return{fill:"black"};}
                           return {};
                         }
@@ -4679,7 +4638,7 @@
             <input id="carbonCheck"  type="checkbox" title="Select to assess forest and soil carbon within your area of interest"><label title="Select to assess forest and soil carbon within your area of interest" id="carbonCheckLabel">Assess <a id="carbonCheckLink" href='coreConcepts_carbon.html' onClick='return windowPopup(this, "notes")'>Carbon Data</a>?</label>
           </div>
           <div style="display: table;">
-            <input id="nationalStateCheck"  type="checkbox" title="Select to evaluate your AOI against the TNC Customized RCN data"><label title="Select to evaluate your AOI against the TNC Customized RCN data" id="nationalStateCheckLabel">Assess <a id="nationalStateCheckLink" href='coreConcepts_nationalState.html' onClick='return windowPopup(this, "notes")'>TNC Customized RCN</a></label>
+            <input id="nationalStateCheck"  type="checkbox" title="Select to evaluate your AOI against the TNC Customized RCN data"><label title="Select to evaluate your AOI against the TNC Customized RCN data" id="nationalStateCheckLabel">Assess <a id="nationalStateCheckLink" href='coreConcepts_nationalState.html' onClick='return windowPopup(this, "notes")'>TNC Customized RCN</a>?</label>
           </div>
         </div>
         <div class="map-service-options">
@@ -4745,6 +4704,7 @@
                         <Input type="radio" Name="r1" Value="forestCarbon2010" id = "r1_forestCarbon2010" style="display: hidden"><a href='coreConcepts_carbon.html' onClick='return windowPopup(this, "notes")'>Forest Ecosystem Carbon (2010)</a><br>
                         <Input type="radio" Name="r1" Value="forestCarbon2050" id = "r1_forestCarbon2050" style="display: hidden"><a href='coreConcepts_carbon.html' onClick='return windowPopup(this, "notes")'>Forest Ecosystem Carbon (2050)</a><br>
                         <Input type="radio" Name="r1" Value="forestCarbonSeq" id = "r1_forestCarbonSeq" style="display: hidden"><a href='coreConcepts_carbon.html' onClick='return windowPopup(this, "notes")'>Potential Forest Ecosystem Carbon Sequestration (2010-2050)</a><br>
+                        <Input type="radio" Name="r1" Value="forestType" id = "r1_forestType" style="display: hidden"><a href='coreConcepts_carbon.html' onClick='return windowPopup(this, "notes")'>Forest Types (2008)</a><br>
                         <Input type="radio" Name="r1" Value="soilCarbon" id = "r1_soilCarbon" style="display: hidden"><a href='coreConcepts_carbon.html' onClick='return windowPopup(this, "notes")'>Soil Organic Carbon</a><br>
                         <Input type="radio" Name="r1" Value="nlcd" id = "r1_nlcd" style="display: hidden"><a href='coreConcepts_carbon.html' onClick='return windowPopup(this, "notes")'>National Landcover Dataset (2019)</a><br>
                         <br>
