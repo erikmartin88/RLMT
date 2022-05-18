@@ -376,7 +376,7 @@
             var localConnTilesState =new ArcGISTiledMapServiceLayer("https://tiles.arcgis.com/tiles/F7DSX1DSNSiWmOqh/arcgis/rest/services/RL_LC_State_Tiles_Apr22/MapServer", {visible: false});
             var localConnTilesHI =new ArcGISTiledMapServiceLayer("https://tiles.arcgis.com/tiles/F7DSX1DSNSiWmOqh/arcgis/rest/services/RL_LC_HI_Tiles_Apr22/MapServer", {visible: false});
             var localConnTilesAK =new ArcGISTiledMapServiceLayer("https://tiles.arcgis.com/tiles/F7DSX1DSNSiWmOqh/arcgis/rest/services/RL_LC_AK_Tiles_Apr22/MapServer", {visible: false});
-
+            var fragmentingFeatureTiles=new ArcGISTiledMapServiceLayer("https://tiles.arcgis.com/tiles/F7DSX1DSNSiWmOqh/arcgis/rest/services/CONUS_resistance_inputs13/MapServer", {visible: false});
 
             var resConnSimpTiles = new ArcGISTiledMapServiceLayer("https://tiles.arcgis.com/tiles/F7DSX1DSNSiWmOqh/arcgis/rest/services/RL_ResilientConnectedSimple_CONUS_Tiles_Apr22/MapServer", {visible: false});
             var resConnSimpTilesState = new ArcGISTiledMapServiceLayer("https://tiles.arcgis.com/tiles/F7DSX1DSNSiWmOqh/arcgis/rest/services/RL_ResilientConnectedSimple_STATE_Tiles_Apr22/MapServer", {visible: false});
@@ -740,7 +740,7 @@
             app.securedVisible = false;
 
             //order impacts print legend
-            app.mapLayers = [resTiles, resTilesHI, resTilesAK, resGrid, resGridHI, resGridAK, resTilesState, resGridState, landDivTiles, landDivTilesHI, landDivTilesAK, landDivGrid, landDivGridHI, landDivGridAK, landDivTilesState, landDivGridState, localConnTiles, localConnTilesHI, localConnTilesAK, localConnGrid, localConnGridHI, localConnGridAK, localConnTilesState, localConnGridState, geoTiles, geoTilesHI, geoTilesAK, geoGrid, geoGridHI, geoGridAK, capnwGeoGrid, landformTiles, landformTilesHI, landformTilesAK, landformGrid, landformGridHI, landformGridAK, resConnSimpTiles, resConnSimpTilesHI, resConnSimpTilesAK, resConnSimpGrid, resConnSimpGridHI, resConnSimpGridAK, resConnSimpTilesState, resConnSimpGridState, resConnDetTiles, resConnDetTilesHI, resConnDetTilesAK, resConnDetGrid, resConnDetGridHI, resConnDetGridAK, resConnDetTilesState, resConnDetGridState, cliFlowTiles, cliFlowTilesHI, cliFlowTilesAK, cliFlowGrid, cliFlowGridHI, cliFlowGridAK, cliFlowCatTiles, cliFlowCatTilesHI, cliFlowCatTilesAK, cliFlowCatGrid, cliFlowCatGridHI, cliFlowCatGridAK, cliFlowCatTilesState, cliFlowCatGridState, tidalHabMigTiles, tidalHabMigTilesHI, tidalHabMigTilesAK, tidalHabMigGrid, tidalHabMigGridHI, tidalHabMigGridAK, nlcdTiles, nlcdGrid, forestCarbon2010Tiles, forestCarbon2010Grid, forestCarbon2050Tiles, forestCarbon2050Grid, forestCarbonSeqTiles, forestCarbonSeqGrid, soilCarbonTiles, soilCarbonGrid, rbvSingleTiles, rbvSingleTilesHI, rbvSingleTilesAK, rbvSingleGrid, rbvSingleGridHI, rbvSingleGridAK, rbvCatTiles, rbvCatTilesHI, rbvCatTilesAK, rbvCatGrid, rbvCatGridHI, rbvCatGridAK, securedAreasDyn, securedAreasDynHI, securedAreasDynAK, securedAreasTiles, securedAreasTilesHI, securedAreasTilesAK, elevTiles, elevTilesHI, elevTilesAK, elevGrid, elevGridHI, elevGridAK, regionTiles, regionTilesHI, regionTilesAK, regionGrid, regionGridHI, regionGridAK, app.tribalLands, ecoregions, states, forestTypeTiles, forestTypeGrid];
+            app.mapLayers = [resTiles, resTilesHI, resTilesAK, resGrid, resGridHI, resGridAK, resTilesState, resGridState, landDivTiles, landDivTilesHI, landDivTilesAK, landDivGrid, landDivGridHI, landDivGridAK, landDivTilesState, landDivGridState, localConnTiles, localConnTilesHI, localConnTilesAK,  localConnGrid, localConnGridHI, localConnGridAK, localConnTilesState, localConnGridState, geoTiles, geoTilesHI, geoTilesAK, geoGrid, geoGridHI, geoGridAK, capnwGeoGrid, landformTiles, landformTilesHI, landformTilesAK, landformGrid, landformGridHI, landformGridAK, resConnSimpTiles, resConnSimpTilesHI, resConnSimpTilesAK, resConnSimpGrid, resConnSimpGridHI, resConnSimpGridAK, resConnSimpTilesState, resConnSimpGridState, resConnDetTiles, resConnDetTilesHI, resConnDetTilesAK, resConnDetGrid, resConnDetGridHI, resConnDetGridAK, resConnDetTilesState, resConnDetGridState, cliFlowTiles, cliFlowTilesHI, cliFlowTilesAK, cliFlowGrid, cliFlowGridHI, cliFlowGridAK, cliFlowCatTiles, cliFlowCatTilesHI, cliFlowCatTilesAK, cliFlowCatGrid, cliFlowCatGridHI, cliFlowCatGridAK, cliFlowCatTilesState, cliFlowCatGridState, tidalHabMigTiles, tidalHabMigTilesHI, tidalHabMigTilesAK, tidalHabMigGrid, tidalHabMigGridHI, tidalHabMigGridAK, nlcdTiles, nlcdGrid, forestCarbon2010Tiles, forestCarbon2010Grid, forestCarbon2050Tiles, forestCarbon2050Grid, forestCarbonSeqTiles, forestCarbonSeqGrid, soilCarbonTiles, soilCarbonGrid, rbvSingleTiles, rbvSingleTilesHI, rbvSingleTilesAK, rbvSingleGrid, rbvSingleGridHI, rbvSingleGridAK, rbvCatTiles, rbvCatTilesHI, rbvCatTilesAK, rbvCatGrid, rbvCatGridHI, rbvCatGridAK, securedAreasDyn, securedAreasDynHI, securedAreasDynAK, securedAreasTiles, securedAreasTilesHI, securedAreasTilesAK, elevTiles, elevTilesHI, elevTilesAK, elevGrid, elevGridHI, elevGridAK, regionTiles, regionTilesHI, regionTilesAK, regionGrid, regionGridHI, regionGridAK, app.tribalLands,  forestTypeTiles, forestTypeGrid, fragmentingFeatureTiles, ecoregions, states];
 
             map.addLayers(app.mapLayers);
             // console.log(map)
@@ -1106,6 +1106,7 @@
             document.getElementById('r1_resil').checked=true;
             document.getElementById('r1_LD').onclick = getResData;
             document.getElementById('r1_LC').onclick = getResData;
+            document.getElementById('r1_Frag').onclick = getResData;
             document.getElementById('r1_resil').onclick = getResData;
             document.getElementById('r1_geo').onclick = getResData;
             document.getElementById('r1_base').onclick = getResData;
@@ -1237,7 +1238,22 @@
                       }
                     });
                     updatePrintTitle();
+                }
 
+                else if (document.getElementById('r1_Frag').checked){
+                    $("#legendDiv").show();
+                    $("#legendJPEG").hide();
+                    for (var i = 0; i < app.mapLayers.length; i++){
+                        app.mapLayers[i].setVisibility(false);
+                    }
+
+                    app.tribalLands.setVisibility(false);
+                    app.legendLayer = "Frag";
+
+                    app.mapZones.forEach((zone, i) => {
+                      fragmentingFeatureTiles.setVisibility(true); app.legendLayerID = "layer119"
+                    });
+                    updatePrintTitle();
                 }
 
 
@@ -1633,8 +1649,8 @@
                     for (var i = 0; i < app.mapLayers.length; i++){
                         app.mapLayers[i].setVisibility(false);
                     }
-                    if (currentScale >= 288895.277144){forestTypeTiles.setVisibility(true); app.legendLayerID = "layer79";}
-                    else{forestTypeGrid.setVisibility(true); app.legendLayerID = "layer80";}
+                    if (currentScale >= 288895.277144){forestTypeTiles.setVisibility(true); app.legendLayerID = "layer118";}
+                    else{forestTypeGrid.setVisibility(true); app.legendLayerID = "layer116";}
                     app.tribalLands.setVisibility(false);
                     app.legendLayer = "forestType";
                     updatePrintTitle();
@@ -1967,6 +1983,8 @@
                 else if (app.legendLayer === "forestCarb2050"){var layerName = "Forest Ecosystem Carbon (2050)";}
                 else if (app.legendLayer === "forestCarbSeq"){var layerName = "Potential Forest Carbon Sequestration (2010-2050)";}
                 else if (app.legendLayer === "soilCarbon"){var layerName = "Soil Carbon";}
+                else if (app.legendLayer === "forestTypes"){var layerName = "Forest Types";}
+                else if (app.legendLayer === "Frag"){var layerName = "Fragmenting Features";}
                 else if (app.legendLayer === "base"){var layerName = "";}
 //                legendLayer.subLayerIds = [0];
                 // console.log(app.legendLayerID);
@@ -1983,7 +2001,7 @@
                               titleText: app.printTitle,
                               copyrightText: "(c) The Nature Conservancy",
                               scalebarUnit: "Miles",
-                              legendLayers : [legendLayer]
+                              // legendLayers : [legendLayer]
                             },
                             exportOptions:{
                                 dpi:150
@@ -1997,7 +2015,7 @@
                               titleText: app.printTitle,
                               copyrightText: "(c) The Nature Conservancy",
                               scalebarUnit: "Miles",
-                              legendLayers : [legendLayer]
+                              // legendLayers : [legendLayer]
                             },
                             exportOptions:{
                                   dpi:150
@@ -2165,6 +2183,9 @@
                         }
                         if (clickZone === "HI"){qLayers.push(46);}
                         if (clickZone === "AK"){qLayers.push(32);}
+                    }
+                    else if (document.getElementById('r1_Frag').checked){
+                        qLayers.push(3); //doesn't matter which one, since no value
                     }
 
                     else if (document.getElementById('r1_geo').checked){
@@ -2465,7 +2486,10 @@
                                     idLayer = "ID Local Connectedness";
                                     feature.setInfoTemplate(LCTemplate);
                                 }
-
+                                if (document.getElementById('r1_Frag').checked){
+                                  var fragTemplate = new InfoTemplate("Fragmenting Features", "<tr>The fragmenting features data is available for visualization only and cannot be queried." );
+                                  feature.setInfoTemplate(fragTemplate);
+                                }
                                 if (document.getElementById('r1_geo').checked){
                                     console.log("geo click")
                                     // var newName = feature.attributes['outputName'];
@@ -2660,7 +2684,7 @@
                                     console.log(type)
                                     if (type !== undefined){
 
-                                        var forestTypeTemplate = new InfoTemplate("Forest Types", "<tr><strong>Forest Type</strong>:  <strong>" + type + "</strong>. <p>Forest carbon was evaluated by Williams et al on forested lands.  Lands were defined as forested if they were available in the forest type data from: Ruefenacht, B., M.V. Finco, M.D. Nelson, R. Czaplewski, E.H. Helmer, J.A. Blackard, G.R. Holden, A.J. Lister, D. Salajanu, D. Weyermann, and K. Winterberger. 2008. Conterminous U.S. and Alaska Forest Type Mapping Using Forest Inventory and Analysis Data. Photogrammetric Engineering & Remote Sensing 74:1379–1388. <a href='https://doi.org/10.14358/PERS.74.11.1379' target='_blank'>https://doi.org/10.14358/PERS.74.11.1379</a></p> </tr>");
+                                        var forestTypeTemplate = new InfoTemplate("Forest Types", "<tr><strong>Forest Type</strong>:  <strong>" + type + "</strong>. <p> Forest carbon stock for 2010 was estimated by <a href='https://daac.ornl.gov/CMS/guides/AGB_NEP_Disturbance_US_Forests.html' target='_blank'>Williams et al (2021)</a> for forested lands using this forest types dataset from <a href='https://doi.org/10.14358/PERS.74.11.1379' target='_blank'>Ruefenacht et al. (2008)</a> The method used to calculate 2050 forest carbon stocks was the same as described in Williams et al. (2021), except that the model assumed no disturbances to the forests after the year 2010.</p> </tr>");
                                     }
                                     else{
                                         var forestTypeTemplate = new InfoTemplate("Forest Types", "<tr><strong>Forest Ecosystem Carbon (2050)</strong>:  No forest type data is available for this location.</tr>");
@@ -3866,6 +3890,7 @@
                 gpStartDialog.hide();
                 app.resultDialog.show();
                 app.resultDialog._setStyleAttr('top:' + 5 + 'px !important;');
+                app.resultDialog._setStyleAttr('background-color:white !important');
                 if (app.showCarbonResults === true || (app.useCarbon === true && ((app.analysisZone != "CONUS") || Object.keys(forCarbTabAreaTextVals).length === 0))){
                     document.getElementById("resTab").addEventListener("click", function(e) {
                         openTab(e, "Resilience");
@@ -4675,6 +4700,8 @@
                         <br>
                         <Input type="radio" Name="r1" Value="localConn" id = "r1_LC" ><a href='coreConcepts_LC.html' onClick='return windowPopup(this, "notes")'>Local Connectedness</a>
                         <br>
+                        <Input type="radio" Name="r1" Value="frag" id = "r1_Frag" ><a href='coreConcepts_LC.html' onClick='return windowPopup(this, "notes")'>Fragmenting Features</a>
+                        <br>
                         <Input type="radio" Name="r1" Value="geo" id = "r1_geo" ><a href='coreConcepts_geoSoils.html' onClick='return windowPopup(this, "notes")'>Geology and Soils</a>
                         <br>
                         <Input type="radio" Name="r1" Value="elev" id = "r1_elev" ><a href='coreConcepts_elev.html' onClick='return windowPopup(this, "notes")'>Elevation</a>
@@ -4705,7 +4732,7 @@
                         <Input type="radio" Name="r1" Value="forestCarbon2010" id = "r1_forestCarbon2010" style="display: hidden"><a href='coreConcepts_carbon.html' onClick='return windowPopup(this, "notes")'>Forest Ecosystem Carbon (2010)</a><br>
                         <Input type="radio" Name="r1" Value="forestCarbon2050" id = "r1_forestCarbon2050" style="display: hidden"><a href='coreConcepts_carbon.html' onClick='return windowPopup(this, "notes")'>Forest Ecosystem Carbon (2050)</a><br>
                         <Input type="radio" Name="r1" Value="forestCarbonSeq" id = "r1_forestCarbonSeq" style="display: hidden"><a href='coreConcepts_carbon.html' onClick='return windowPopup(this, "notes")'>Potential Forest Ecosystem Carbon Sequestration (2010-2050)</a><br>
-                        <Input type="radio" Name="r1" Value="forestType" id = "r1_forestType" style="display: hidden"><a href='coreConcepts_carbon.html' onClick='return windowPopup(this, "notes")'>Forest Types (2008)</a><br>
+                        <Input type="radio" Name="r1" Value="forestType" id = "r1_forestType" style="display: hidden"><a href='coreConcepts_forestTypes.html' onClick='return windowPopup(this, "notes")'>Forest Types (2008)</a><br>
                         <Input type="radio" Name="r1" Value="soilCarbon" id = "r1_soilCarbon" style="display: hidden"><a href='coreConcepts_carbon.html' onClick='return windowPopup(this, "notes")'>Soil Organic Carbon</a><br>
                         <Input type="radio" Name="r1" Value="nlcd" id = "r1_nlcd" style="display: hidden"><a href='coreConcepts_carbon.html' onClick='return windowPopup(this, "notes")'>National Landcover Dataset (2019)</a><br>
                         <br>
