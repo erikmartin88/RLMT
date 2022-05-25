@@ -2875,6 +2875,7 @@
             function completeCallback(jobInfo){
                 if(jobInfo.jobStatus !== "esriJobFailed"){
                     // console.log("getting data");
+                    app.gp.getResultData(jobInfo.jobId, "zone", getZone);
                     app.gp.getResultData(jobInfo.jobId, "Result", displayResult);
                     statusCallbackIterator = 0;
                 }
@@ -3721,8 +3722,20 @@
                     gapText = "<p style='padding:8px'>The area of interest includes <strong>" + numberWithCommas(roundNumber(gapTotal, 0)) + "</strong> acres of exisiting conservation land. <br>(GAP 1=" + numberWithCommas(roundNumber(gap1, 0)) + " ac, GAP 2="  + numberWithCommas(roundNumber(gap2, 0)) + " ac, GAP 3="  + numberWithCommas(roundNumber(gap3, 0)) + " ac)</p>" ;
                 }
 
+                let openWaterAcres = numberWithCommas(Math.max(roundNumber((app.sumTotalAcres - app.sumLandAcres ), 1)))
+                let finalLandAcres = numberWithCommas(Math.max(roundNumber(app.sumLandAcres, 1)))
+                if (openWaterAcres <0){
+                  openWaterAcres = 0
+                  finalLandAcres = numberWithCommas(Math.max(roundNumber(app.sumTotalAcres, 1))) //if water area is negative, set land area == total area
+                }
+
+
+
+
+
+
                 if (app.useCoastal === false){
-                    var resContent =  "<div id='resultsPane' class='printOverflow'><h4> Total land area: <strong>" + numberWithCommas(Math.max(roundNumber(app.sumTotalAcres, 1)))  + " acres</strong> (" + numberWithCommas(Math.max(roundNumber(app.sumLandAcres, 1))) +" land, " + numberWithCommas(Math.max(roundNumber((app.sumTotalAcres -app.sumLandAcres ), 1)))+" open water) in the " + app.regions + " study area(s) in the " + app.ecoregions + " ecoregion(s).</h4>" + gapText +  "<hr><h4 >Resilient and Connected Network Results</h4><p>Note: " +stateText + " They are derived from the detailed representations of the <a href=\'coreConcepts_resConnDet.html\' onClick=\'return windowPopup(this, \"notes\")\'>Resilient and Connected Networks</a> which can be visualized under the Resilient & Connected Network Components section at right.</p><div style='display:inline-block'  class='printOverflow'>" + resConnText  + "</div >" + "<hr>" + biodivText +  flowText + resilienceText + "<hr><h4 style='margin:0px;'>Geophysical Setting Results</h4>" + geoTextIntro  +  geoText  + "</div>" + okPrintButtons + "</div>";
+                    var resContent =  "<div id='resultsPane' class='printOverflow'><h4> Total land area: <strong>" + numberWithCommas(Math.max(roundNumber(app.sumTotalAcres, 1)))  + " acres</strong> (" + finalLandAcres +" land, " + openWaterAcres+" open water) in the " + app.regions + " study area(s) in the " + app.ecoregions + " ecoregion(s).</h4>" + gapText +  "<hr><h4 >Resilient and Connected Network Results</h4><p>Note: " +stateText + " They are derived from the detailed representations of the <a href=\'coreConcepts_resConnDet.html\' onClick=\'return windowPopup(this, \"notes\")\'>Resilient and Connected Networks</a> which can be visualized under the Resilient & Connected Network Components section at right.</p><div style='display:inline-block'  class='printOverflow'>" + resConnText  + "</div >" + "<hr>" + biodivText +  flowText + resilienceText + "<hr><h4 style='margin:0px;'>Geophysical Setting Results</h4>" + geoTextIntro  +  geoText  + "</div>" + okPrintButtons + "</div>";
                 }
                 if (app.useCoastal === true){
                    var resContent =  "<div id='resultsPane'><h4> Total land area (excl. open water): <strong>" + numberWithCommas(Math.max(roundNumber(app.sumTotalAcres, 1))) + " acres (" + numberWithCommas(Math.max(roundNumber(terrestrialAcres, 1))) + " terrestrial + " + numberWithCommas(Math.max(roundNumber(coastalAcres, 1))) + " coastal) </strong> in the " + app.regions + " study area(s) in the " + app.ecoregions + " ecoregion(s).</h4>" + gapText + "<hr>" +  biodivText + "<hr>" + flowText + "<hr><h4 style='display:inline'>Resilient and Connected Network Results</h4>"+ stateText + " <div style='display:inline-block'>" + resConnText  + "</div >" + resilienceText + "<hr><div style='display: inline-block'><h4 style='margin:0px;'>Resilient Coastal Sites</h4><div style='display:inline-block;'>" + coastalText +  "</div></div>      <div><hr><h4 style='margin:0px;'>Geophysical Setting Results</h4>" + geoTextIntro  +  geoText  + "</div>" + okPrintButtons + "</div>";
