@@ -141,7 +141,7 @@
             app.gpFS.setOutputSpatialReference({wkid: 102100});
             app.drawActive = 0;
             app.printIterator = 0;
-            app.regionState = "Region";
+            app.regionState = "State";
 
 
 
@@ -361,8 +361,8 @@
             $('#secTransp').hide();
 
             //get tiled map layers
-            var resTiles = new ArcGISTiledMapServiceLayer("https://tiles.arcgis.com/tiles/F7DSX1DSNSiWmOqh/arcgis/rest/services/RL_Resilience_CONUS_Tiles_Apr22/MapServer", {visible: true});
-            var resTilesState = new ArcGISTiledMapServiceLayer("https://tiles.arcgis.com/tiles/F7DSX1DSNSiWmOqh/arcgis/rest/services/RL_Resilience_State_Tiles_Apr22/MapServer", {visible: false});
+            var resTiles = new ArcGISTiledMapServiceLayer("https://tiles.arcgis.com/tiles/F7DSX1DSNSiWmOqh/arcgis/rest/services/RL_Resilience_CONUS_Tiles_Apr22/MapServer", {visible: false});
+            var resTilesState = new ArcGISTiledMapServiceLayer("https://tiles.arcgis.com/tiles/F7DSX1DSNSiWmOqh/arcgis/rest/services/RL_Resilience_State_Tiles_Apr22/MapServer", {visible: true});
             var resTilesHI = new ArcGISTiledMapServiceLayer("https://tiles.arcgis.com/tiles/F7DSX1DSNSiWmOqh/arcgis/rest/services/RL_Resilience_HI_Tiles_Apr22/MapServer", {visible: true});
             var resTilesAK =  new ArcGISTiledMapServiceLayer("https://tiles.arcgis.com/tiles/F7DSX1DSNSiWmOqh/arcgis/rest/services/RL_Resilience_AK_Tiles_Apr22/MapServer", {visible: true});
 
@@ -378,10 +378,10 @@
             var localConnTilesAK =new ArcGISTiledMapServiceLayer("https://tiles.arcgis.com/tiles/F7DSX1DSNSiWmOqh/arcgis/rest/services/RL_LC_AK_Tiles_Apr22/MapServer", {visible: false});
             var fragmentingFeatureTiles=new ArcGISTiledMapServiceLayer("https://tiles.arcgis.com/tiles/F7DSX1DSNSiWmOqh/arcgis/rest/services/CONUS_resistance_inputs13/MapServer", {visible: false});
 
-            var resConnSimpTiles = new ArcGISTiledMapServiceLayer("https://tiles.arcgis.com/tiles/F7DSX1DSNSiWmOqh/arcgis/rest/services/RL_ResilientConnectedSimple_CONUS_Tiles_Apr22/MapServer", {visible: false});
+            var resConnSimpTiles = new ArcGISTiledMapServiceLayer("https://tiles.arcgis.com/tiles/F7DSX1DSNSiWmOqh/arcgis/rest/services/RL_ResilientConnectedSimple_CONUS_Tiles_Jul22/MapServer", {visible: false});
             var resConnSimpTilesState = new ArcGISTiledMapServiceLayer("https://tiles.arcgis.com/tiles/F7DSX1DSNSiWmOqh/arcgis/rest/services/RL_ResilientConnectedSimple_STATE_Tiles_Apr22/MapServer", {visible: false});
-            var resConnSimpTilesHI = new ArcGISTiledMapServiceLayer("https://tiles.arcgis.com/tiles/F7DSX1DSNSiWmOqh/arcgis/rest/services/RL_ResilientConnectedSimple_HI_Tiles_Apr22/MapServer", {visible: false});
-            var resConnSimpTilesAK = new ArcGISTiledMapServiceLayer("https://tiles.arcgis.com/tiles/F7DSX1DSNSiWmOqh/arcgis/rest/services/RL_ResilientConnectedSimple_AK_Tiles_Apr22/MapServer", {visible: false});
+            var resConnSimpTilesHI = new ArcGISTiledMapServiceLayer("https://tiles.arcgis.com/tiles/F7DSX1DSNSiWmOqh/arcgis/rest/services/RL_ResilientConnectedSimple_HI_Tiles_Jul22/MapServer", {visible: false});
+            var resConnSimpTilesAK = new ArcGISTiledMapServiceLayer("https://tiles.arcgis.com/tiles/F7DSX1DSNSiWmOqh/arcgis/rest/services/RL_ResilientConnectedSimple_AK_Tiles_Jul22/MapServer", {visible: false});
 
             var resConnDetTiles = new ArcGISTiledMapServiceLayer("https://tiles.arcgis.com/tiles/F7DSX1DSNSiWmOqh/arcgis/rest/services/RL_ResilientConnectedDetailed_CONUS_Tiles_Apr22/MapServer", {visible: false});
             var resConnDetTilesState = new ArcGISTiledMapServiceLayer("https://tiles.arcgis.com/tiles/F7DSX1DSNSiWmOqh/arcgis/rest/services/RL_ResilientConnectedDetailed_STATE_Tiles_Apr22/MapServer", {visible: false});
@@ -3795,7 +3795,7 @@
 
                     if (app.forestCarbon2010MeanVal !== undefined){
                         var forCarb2010TabAreaChartDiv = '<h3>Forest Carbon 2010</h3><p style="display:inline-block" align="center"><a href=\'coreConcepts_carbon.html\' onClick=\'return windowPopup(this, \"notes\")\'>Forest Carbon Components</a><br></p><div id="forCarb2010TabAreaChartNode"  style="width: 200px; height: 200px; display:inline-block"></div>';
-                        var forCarb2050TabAreaChartDiv = '<h3>Forest Carbon 2050</h3><p style="display:inline-block" align="center"><a href=\'coreConcepts_carbon.html\' onClick=\'return windowPopup(this, \"notes\")\'>Forest Carbon Components</a><br></p><div id="forCarb2050TabAreaChartNode"  style="width: 200px; height: 200px; display:inline-block"></div>';
+                        var forCarb2050TabAreaChartDiv = '<h3>2050 Forest Carbon data coming soon</h3>'//'<h3>Forest Carbon 2050</h3><p style="display:inline-block" align="center"><a href=\'coreConcepts_carbon.html\' onClick=\'return windowPopup(this, \"notes\")\'>Forest Carbon Components</a><br></p><div id="forCarb2050TabAreaChartNode"  style="width: 200px; height: 200px; display:inline-block"></div>';
                         var forestCarbon2010MeanDial = string.substitute('<div ><p style="display:inline-block; margin-bottom:0px" align="center"><a href=\'coreConcepts_carbon.html\' onClick=\'return windowPopup(this, \"notes\")\'>Avg. Forest Ecosystem Carbon</a>: <strong>${resultVal}</strong> mt/ac</p><div id="forestCarbon2010MeanGaugeChart" class="power-gauge" style="display:inline-block; "></div></div>',{resultVal:app.forestCarbon2010MeanVal});
                         var forestCarbon2050MeanDial = string.substitute('<div ><p style="display:inline-block; margin-bottom:0px" align="center"><a href=\'coreConcepts_carbon.html\' onClick=\'return windowPopup(this, \"notes\")\'>Avg. Forest Ecosystem Carbon</a>: <strong>${resultVal}</strong> mt/ac</p><div id="forestCarbon2050MeanGaugeChart" class="power-gauge" style="display:inline-block; "></div></div>',{resultVal:app.forestCarbon2050MeanVal});
                         var forestCarbonSeqAvgRateDial = string.substitute('<div ><p style="display:inline-block; margin-bottom:0px" align="center"><a href=\'coreConcepts_carbon.html\' onClick=\'return windowPopup(this, \"notes\")\'>Annual Rate per Acre</a>: <strong>${resultVal}</strong> mt/ac/yr</p><div id="forestCarbonSeqRateGaugeChart" class="power-gauge" style="display:inline-block; "></div></div>',{resultVal:app.forestCarbonAvgAnnualSeqRate});
@@ -4677,7 +4677,7 @@
             <input id="carbonCheck"  type="checkbox" title="Select to assess forest and soil carbon within your area of interest"><label title="Select to assess forest and soil carbon within your area of interest" id="carbonCheckLabel">Assess <a id="carbonCheckLink" href='coreConcepts_carbon.html' onClick='return windowPopup(this, "notes")'>Carbon Data</a>?</label>
           </div>
           <div style="display: table;">
-            <input id="nationalStateCheck"  type="checkbox" title="Select to evaluate your AOI against the TNC Customized RCN data"><label title="Select to evaluate your AOI against the TNC Customized RCN data" id="nationalStateCheckLabel">Assess <a id="nationalStateCheckLink" href='coreConcepts_nationalState.html' onClick='return windowPopup(this, "notes")'>TNC Customized RCN</a>?</label>
+            <input id="nationalStateCheck"  type="checkbox" checked title="Select to evaluate your AOI against the TNC Customized RCN data"><label title="Select to evaluate your AOI against the TNC Customized RCN data" id="nationalStateCheckLabel">Assess <a id="nationalStateCheckLink" href='coreConcepts_nationalState.html' onClick='return windowPopup(this, "notes")'>TNC Customized RCN</a>?</label>
           </div>
         </div>
         <div class="map-service-options">
@@ -4686,7 +4686,7 @@
                     <h2 style="text-align: center">Visualize</h2>
                     <div class="centerDiv">
                         <div class="onoffswitch">
-                            <input type="checkbox" name="onoffswitch"  class="onoffswitch-checkbox" id="regionSwitch" tabindex="0" >
+                            <input type="checkbox" name="onoffswitch"  class="onoffswitch-checkbox" id="regionSwitch" tabindex="0" checked>
                             <label class="onoffswitch-label" for="regionSwitch" title="Toggle between the nationally-consistent data or the TNC Customized RCN">
                                 <span class="onoffswitch-inner"></span>
                                 <span class="onoffswitch-switch"></span>
